@@ -1,0 +1,34 @@
+{
+  "name": "nodeSplider",
+  "version": "1.0.0",
+  "description": "this is a splider",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.coding.net/ecit/NodeSplider.git"
+  },
+  "keywords": [
+    "node.js",
+    "crawler"
+  ],
+  "author": "ecitlm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://git.coding.net/ecit/NodeSplider.git"
+  },
+  "homepage": "https://git.coding.net/ecit/NodeSplider.git",
+  "devDependencies": {
+    "cheerio": "^0.18.0",
+    "fs": "0.0.2",
+    "mkdirp": "^0.5.0",
+    "request": "^2.51.0"
+  },
+  "dependencies": {
+    "async": "^2.1.5",
+    "express": "^4.15.3",
+    "iconv-lite": "^0.4.17"
+  }
+}
