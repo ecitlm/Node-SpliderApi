@@ -173,7 +173,7 @@ $ node app.js
 `http://localhost:3000//img_view?id=5525`
 
 返回数据如下JSON:
-```javascript
+```json
 {
     "msg": "success",
     "data": [
