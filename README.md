@@ -74,7 +74,7 @@ $ node app.js
 `//one_day_list?date=20170521`  
 
 **调用例子:**  
-`>http://localhost:3000/one_day_list?date=20170521`  
+`http://localhost:3000/one_day_list?date=20170521`  
 返回数据()如下图:  
 
 
@@ -89,7 +89,7 @@ $ node app.js
 `/list?page=2`  
 
 **调用例子:**  
-`>http://localhost:3000/recommend_list`  
+`http://localhost:3000/recommend_list`  
 返回数据()如下图:  
 
 #### 2.2 图片详情列表
