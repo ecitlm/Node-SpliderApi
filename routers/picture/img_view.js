@@ -3,15 +3,13 @@ const http = require('http')
 var cheerio = require("cheerio")
 const app = express()
 var request = require("request");
-var mkdirp = require('mkdirp');
-var async = require('async');
 var Iconv = require('iconv-lite');
 
 
 function view(req, res) {
     var res = res;
     var req = req;
-    var id = req.params.id || 1;
+    var id = req.query.id || 1;
     var url = 'http://www.meizitu.com/a/' + id + '.html';
 
     request({
@@ -19,8 +17,7 @@ function view(req, res) {
         encoding: null
     }, function (error, response, body) {
         var links = [];
-        console.log(response.statusCode);
-        if (response.statusCode == 200) {
+        if ( response && response.statusCode == 200) {
             var body = Iconv.decode(body, 'gb2312');
             $ = cheerio.load(body);
             $('#picture p img').each(function () {
@@ -45,8 +42,8 @@ function view(req, res) {
 }
 
 
-app.get('/:id/', function (req, res) {
-    console.log(req.params.id);//输出index
+app.get('/', function (req, res) {
+    console.log(req.query.id);//输出index
     view(req, res)
 });
 module.exports = app;

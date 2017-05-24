@@ -3,8 +3,6 @@ const http = require('http')
 var cheerio = require("cheerio")
 const app = express()
 var request = require("request");
-var mkdirp = require('mkdirp');
-var async = require('async');
 var fs = require('fs');
 var Iconv = require('iconv-lite');
 
@@ -12,17 +10,15 @@ var Iconv = require('iconv-lite');
 function list(req, res) {
     var res = res;
     var req = req;
-    var page = req.params.page || 1;
-    //var url = 'http://www.meizitu.com/a/list_1_' + page + '.html';
-    var url='http://www.meizitu.com/a/qingchun_3_'+page+'.html'
-
+    var page = parseInt(req.query.page) || 1;
+    var url = 'http://www.meizitu.com/a/qingchun_3_' + page + '.html';
+    console.log(url)
     request({
         url: url,
         encoding: null
     }, function (error, response, body) {
         var links = [];
-        console.log(response.statusCode);
-        if (response.statusCode == 200) {
+        if (response && response.statusCode == 200) {
             var body = Iconv.decode(body, 'gb2312');
             $ = cheerio.load(body);
             $('.pic a img').each(function () {
@@ -34,7 +30,8 @@ function list(req, res) {
                 }
                 links.push(tmp);
             });
-            //console.log(links);
+            console.log('-----------------------------success-----------------------------');
+            console.log(links)
             res.send({
                 msg: "success",
                 data: links,
@@ -42,7 +39,7 @@ function list(req, res) {
             })
         } else {
             res.send({
-                msg: "糟糕!!!网络好像有，点问题",
+                msg: "糟糕!!! 网络好像有点问题",
                 code: 0
             })
         }
@@ -50,11 +47,15 @@ function list(req, res) {
 
 }
 
-
-app.get('/:page/', function (req, res) {
+app.get('/', function (req, res) {
+    if(isNaN(req.query.page)){
+        res.send({
+            msg: "请正确填写page参数 int类型",
+            code: 0,
+        });
+        return false;
+    }
     list(req, res)
-
-
 });
 module.exports = app;
 
