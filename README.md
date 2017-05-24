@@ -1,8 +1,23 @@
 ## Splider
 基于Node 的一个网络爬虫 API接口
 
-[TOC]
 
+### 环境要求
+需要 NodeJS 6.0+ 环境
+
+### 安装  
+``` shell
+$ git clone https://git.oschina.net/ecitlm/splider
+$ npm install
+```
+### 运行
+``` shell
+$ node app.js 
+```
+服务器启动默认端口为3000
+
+
+[TOC]
 
 ### 1.前端开发日报接口
 说明:获取前端开发博客日报列表、推荐列表、单日文章列表数据 

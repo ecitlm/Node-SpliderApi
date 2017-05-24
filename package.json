@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.coding.net/ecit/NodeSplider.git"
+    "url": "https://git.oschina.net/ecitlm/splider"
   },
   "keywords": [
     "node.js",
@@ -17,9 +17,9 @@
   "author": "ecitlm",
   "license": "ISC",
   "bugs": {
-    "url": "https://git.coding.net/ecit/NodeSplider.git"
+    "url": "https://git.oschina.net/ecitlm/splider"
   },
-  "homepage": "https://git.coding.net/ecit/NodeSplider.git",
+  "homepage": "https://git.oschina.net/ecitlm/splider",
   "devDependencies": {
     "cheerio": "^0.18.0",
     "fs": "0.0.2",
