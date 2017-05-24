@@ -65,7 +65,7 @@ $ node app.js
 **调用例子:**
 `http://localhost:3000/recommend_list`
 返回数据()如下图:
-![文档](/UI/recomend_list.png)
+![文档](./UI/recomend_list.png)
 
 #### 1.3 单日日报内容
 **必选参数:**
