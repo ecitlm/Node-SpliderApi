@@ -30,7 +30,6 @@ function list(req, res) {
                 var date = $(this).find('.entry-date').text();
                 var tmp = {
                     title: title,
-                    id:parseInt(title),
                     description: description,
                     date: date,
                     url: href
