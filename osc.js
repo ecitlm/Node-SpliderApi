@@ -5,7 +5,7 @@ var mkdirp = require('mkdirp');
 var async = require('async');
 
 var url = 'https://my.oschina.net/u/2921900/home?type=tweet&scope=entity&temp=1495528630941';
-var dir = './吕不懂';
+var dir = './lbd';
 
 // 图片链接地址
 var links = [];

@@ -10,9 +10,8 @@
 ``` shell
 $ git clone https://git.oschina.net/ecitlm/splider
 $ npm install
-```
+
 ### 运行
-``` shell
 $ node app.js
 ```
 服务器启动默认端口为3000 、启动之后就可以开启了接口服务了.
@@ -34,7 +33,7 @@ $ node app.js
 `http://localhost:3000/daily_list`
 
 返回数据(每次返回是10条数据,这里就不全部列出来了)如下图:
-```
+```javascript
 {
     "msg": "success",
     "data": [
@@ -68,7 +67,7 @@ $ node app.js
 `http://localhost:3000/recommend_list`
 
 返回数据(每次返回10条数据，由于长度就展示2条看)如下JSON:
-```
+```javascript
 {
     "msg": "success",
     "data": [
@@ -102,7 +101,7 @@ $ node app.js
 `http://localhost:3000/one_day_list?date=20170521`
 
 返回数据(由于长度就展示2条看)如下JSON:
-```
+```javascript
 {
     "msg": "success",
     "data": {
@@ -142,7 +141,7 @@ $ node app.js
 `http://localhost:3000/list?page=1`
 
 返回数据(每页返回30条 由于长度就展示2条看)如下JSON:
-```
+```javascript
 {
     "msg": "success",
     "data": [
@@ -174,7 +173,7 @@ $ node app.js
 `http://localhost:3000//img_view?id=5525`
 
 返回数据如下JSON:
-```
+```javascript
 {
     "msg": "success",
     "data": [

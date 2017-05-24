@@ -3,7 +3,6 @@ const http = require('http')
 var cheerio = require("cheerio")
 const app = express()
 var request = require("request");
-var async = require('async');
 var fs = require('fs');
 var Iconv = require('iconv-lite');
 

@@ -1,6 +1,7 @@
 ## Splider
 基于Node 的一个网络爬虫 API接口
 
+<a href="http://ecitlm.oschina.io/splider/docs/">查看文档</a>
 
 ### 环境要求
 需要 NodeJS 6.0+ 环境
@@ -17,12 +18,12 @@ $ node app.js
 服务器启动默认端口为3000 、启动之后就可以开启了接口服务了.
 
 
-[TOC]
+[menu]
 
 ### 1.前端开发日报接口
 说明:获取前端开发博客日报列表、推荐列表、单日文章列表数据
 
-#### 1.1 最新10天日报列表
+#### 1.1 最新前10天日报列表
 **必选参数:**
 无
 
@@ -95,7 +96,7 @@ $ node app.js
 `date`: 日期 20170522
 
 **接口地址:**
-`/one_day_list?date=20170521`
+`//one_day_list?date=20170521`
 
 **调用例子:**
 `http://localhost:3000/one_day_list?date=20170521`
@@ -170,7 +171,7 @@ $ node app.js
 `/img_view?id=5525`
 
 **调用例子:**
-`http://localhost:3000/img_view?id=5525`
+`http://localhost:3000//img_view?id=5525`
 
 返回数据如下JSON:
 ```
