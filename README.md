@@ -31,6 +31,7 @@ $ node app.js
 
 **调用例子:**
 `http://localhost:3000/daily_list`
+
 返回数据(每次返回是10条数据,这里就不全部列出来了)如下图:
 ```
 {
@@ -64,6 +65,7 @@ $ node app.js
 
 **调用例子:**
 `http://localhost:3000/recommend_list`
+
 返回数据(每次返回10条数据，由于长度就展示2条看)如下JSON:
 ```
 {
@@ -97,6 +99,7 @@ $ node app.js
 
 **调用例子:**
 `http://localhost:3000/one_day_list?date=20170521`
+
 返回数据(由于长度就展示2条看)如下JSON:
 ```
 {
@@ -136,6 +139,7 @@ $ node app.js
 
 **调用例子:**
 `http://localhost:3000/list?page=1`
+
 返回数据(每页返回30条 由于长度就展示2条看)如下JSON:
 ```
 {
@@ -167,7 +171,8 @@ $ node app.js
 
 **调用例子:**
 `http://localhost:3000//img_view?id=5525`
-返回数据()如下图:
+
+返回数据如下JSON:
 ```
 {
     "msg": "success",
