@@ -1,3 +1,9 @@
+/* 
+* @Author: ecitlm
+* @Date:   2017-05-23 17:59:30
+* @Last Modified by:   ecitlm
+* @Last Modified time: 2017-05-25 18:01:03
+*/
 const express = require('express');
 const http = require('http');
 const app = express();
@@ -14,12 +20,12 @@ app.all('*', function(req, res, next) {
 });
 
 /**路由列表**/
-const list = require('./routers/picture/list');
-const img_view = require('./routers/picture/img_view');
-const daily_list = require('./routers/web_daily/daily_list');
-const recommend_list = require('./routers/web_daily/recommend');
-const one_day_list = require('./routers/web_daily/one_day_list');
-const web_frame = require('./routers/web_frame/hot_frame');
+const list            = require('./routers/picture/list');
+const img_view        = require('./routers/picture/img_view');
+const daily_list      = require('./routers/web_daily/daily_list');
+const recommend_list  = require('./routers/web_daily/recommend');
+const one_day_list    = require('./routers/web_daily/one_day_list');
+const web_frame       = require('./routers/web_frame/hot_frame');
 
 //图片列表
 app.use('/list', list);
