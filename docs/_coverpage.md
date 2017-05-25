@@ -8,4 +8,4 @@
 
 
 [GitHub](https://git.oschina.net/ecitlm/splider)
-[Get Started](#quick-start)
+[Get Started](#/?id=splider)
