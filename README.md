@@ -127,19 +127,19 @@ $ node app.js
 
 
 ### 2.前端框架 top 排行榜
-说明:获取前前端框架排名
+说明:获取前前端框架排名,我们可以看看web前端世界的框架排名
 
-#### 2.1 获取前前端框架排名
+#### 2.1 获取前端框架top 20排名
 **必选参数:**
-`page` : 页码 1 (每页返回100条数据)
+`无` : 
 
 **接口地址:**
-`/web_frame?page=1`
+`/web_frame`
 
 **调用例子:**
-`http://localhost:3000/web_frame?page=1`
+`http://localhost:3000/web_frame`
 
-返回数据(每页返回30条 由于长度就展示2条看)如下JSON:
+返回数据(返回20条 由于长度就展示2条看)如下JSON:
 ```javascript
 {
     "msg" : "success",

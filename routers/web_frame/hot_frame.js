@@ -10,9 +10,7 @@ const Iconv = require('iconv-lite');
 function list(req, res) {
     var res = res;
     var req = req;
-    var page = parseInt(req.query.page) || 0;
-    console.log(page)
-    var url = 'https://www.awesomes.cn/rank?sort=hot&page='+page;
+    var url = 'https://www.awesomes.cn/rank';
     console.log(url)
     var headers = {
         "Connection": "keep-alive",
@@ -28,7 +26,7 @@ function list(req, res) {
             var body = Iconv.decode(body, 'utf-8');
             $ = cheerio.load(body);
             var link = []
-            $('.list-group-item').each(function () {
+            $('.list-group-item').each(function (i,v) {
                 var index = $(this).find('.index').text();
                 var thumb = $(this).find('.cover').attr('src') || $(this).find('.cover').attr('data-original') ;
                 var title=$(this).find('h3').text();
@@ -41,6 +39,10 @@ function list(req, res) {
                     description: description,
                     url: href
                 };
+                console.log("------------"+i+"-------------")
+                if(i==20){
+                    return false;
+                }
                 link.push(tmp);
             });
             res.send({
