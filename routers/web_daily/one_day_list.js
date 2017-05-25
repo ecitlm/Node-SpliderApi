@@ -1,10 +1,10 @@
 const express = require('express')
 const http = require('http')
-var cheerio = require("cheerio")
+const cheerio = require("cheerio")
 const app = express()
-var request = require("request");
-var fs = require('fs');
-var Iconv = require('iconv-lite');
+const request = require("request");
+const fs = require('fs');
+const Iconv = require('iconv-lite');
 
 
 function list(req, res) {
@@ -12,10 +12,15 @@ function list(req, res) {
     var req = req;
     var date = parseInt(req.query.date) || 20170522;
     var url = 'http://caibaojian.com/fe-daily-'+date+'.html';
-
+    var headers = {
+        "Connection": "keep-alive",
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36'
+    }
     request({
         url: url,
-        encoding: null
+        encoding: null,
+        headers: headers,
+
     }, function (error, response, body) {
         if (response && response.statusCode == 200) {
             var body = Iconv.decode(body, 'utf-8');

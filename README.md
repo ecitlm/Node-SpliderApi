@@ -4,7 +4,7 @@
 <a href="http://ecitlm.oschina.io/splider/docs/">查看文档</a>
 
 ### 环境要求
-需要 NodeJS 6.0+ 环境
+需要 NodeJS+express
 
 ### 安装
 ``` shell
@@ -126,11 +126,48 @@ $ node app.js
 ```
 
 
+### 2.前端框架 top 排行榜
+说明:获取前前端框架排名
 
-### 2.妹纸图片福利接口
+#### 2.1 获取前前端框架排名
+**必选参数:**
+`page` : 页码 1 (每页返回100条数据)
+
+**接口地址:**
+`/web_frame?page=1`
+
+**调用例子:**
+`http://localhost:3000/web_frame?page=1`
+
+返回数据(每页返回30条 由于长度就展示2条看)如下JSON:
+```javascript
+{
+    "msg" : "success",
+    "data": [
+        {
+            "index": "1",
+            "thumb": "https://awesomes.oss-cn-beijing.aliyuncs.com/repo/151007151317-91-1.png?x-oss-process=style/subject_repo",
+            "title": "\n            grunt\n          ",
+            "description": "\n            Grunt: JavaScript 任务执行器\n          ",
+            "url": "https://www.awesomes.cn/repo/gruntjs/grunt"
+        },
+        {
+            "index": "2",
+            "thumb": "https://awesomes.oss-cn-beijing.aliyuncs.com/repo/151003224032-16-1.png?x-oss-process=style/repo",
+            "title": "\n  riot\n",
+            "description": "\n A React-like, user interface library\n            ",
+            "url": "https://www.awesomes.cn/repo/riot/riot"
+        }
+       ],
+    "code": 1
+    }
+```
+
+
+### X.妹纸图片福利接口
 说明:获取图片列表数据、和某个妹纸图片集合
 
-#### 2.1 妹纸图片列表接口
+#### X.1 妹纸图片列表接口
 **必选参数:**
 `page` : 页码 1
 
@@ -162,7 +199,7 @@ $ node app.js
 }
 ```
 
-#### 2.2 图片详情列表
+#### X.2 图片详情列表
 **必选参数:**
 `id` :  列表下图片集合id  5525
 

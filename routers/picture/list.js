@@ -1,10 +1,10 @@
 const express = require('express')
 const http = require('http')
-var cheerio = require("cheerio")
+const cheerio = require("cheerio")
 const app = express()
-var request = require("request");
-var fs = require('fs');
-var Iconv = require('iconv-lite');
+const request = require("request");
+const fs = require('fs');
+const Iconv = require('iconv-lite');
 
 
 function list(req, res) {

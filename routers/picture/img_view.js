@@ -1,9 +1,9 @@
 const express = require('express')
 const http = require('http')
-var cheerio = require("cheerio")
+const cheerio = require("cheerio")
 const app = express()
-var request = require("request");
-var Iconv = require('iconv-lite');
+const request = require("request");
+const Iconv = require('iconv-lite');
 
 
 function view(req, res) {

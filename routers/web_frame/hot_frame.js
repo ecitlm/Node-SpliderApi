@@ -10,33 +10,42 @@ const Iconv = require('iconv-lite');
 function list(req, res) {
     var res = res;
     var req = req;
-    var url = 'http://caibaojian.com/c/feature';
+    var page = parseInt(req.query.page) || 0;
+    console.log(page)
+    var url = 'https://www.awesomes.cn/rank?sort=hot&page='+page;
     console.log(url)
-
+    var headers = {
+        "Connection": "keep-alive",
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36'
+    }
     request({
         url: url,
-        encoding: null
+        encoding: null,
+        headers: headers,
+
     }, function (error, response, body) {
-        var links = [];
         if (response && response.statusCode == 200) {
             var body = Iconv.decode(body, 'utf-8');
             $ = cheerio.load(body);
-            $('#content article ').each(function () {
-                var title = $(this).find('.entry-title span').text();
-                var description = $(this).find('.entry-content p').text();
-                var href = $(this).find('.read-more').attr('href');
-                var date = $(this).find('.entry-date').text();
+            var link = []
+            $('.list-group-item').each(function () {
+                var index = $(this).find('.index').text();
+                var thumb = $(this).find('.cover').attr('src') || $(this).find('.cover').attr('data-original') ;
+                var title=$(this).find('h3').text();
+                var description=$(this).find('p').text();
+                var href = $(this).attr('href');
                 var tmp = {
-                    title: title,
+                    index: index,
+                    thumb:thumb,
+                    title:title,
                     description: description,
-                    date: date,
                     url: href
                 };
-                links.push(tmp);
+                link.push(tmp);
             });
             res.send({
                 msg: "success",
-                data: links,
+                data: link,
                 code: 1
             });
         } else {
