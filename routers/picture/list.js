@@ -5,12 +5,12 @@
 * @Last Modified time: 2017-05-25 18:00:37
 */
 const express = require('express')
-const http    = require('http')
+const http = require('http')
 const cheerio = require("cheerio")
-const app     = express()
+const app = express()
 const request = require("request");
-const fs      = require('fs');
-const Iconv   = require('iconv-lite');
+const fs = require('fs');
+const Iconv = require('iconv-lite');
 
 
 function list(req, res) {

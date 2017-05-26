@@ -29,7 +29,8 @@ const daily_list          = require('./routers/web_daily/daily_list');
 const recommend_list      = require('./routers/web_daily/recommend');
 const one_day_list        = require('./routers/web_daily/one_day_list');
 const web_frame           = require('./routers/web_frame/hot_frame');
-
+const zhihu_news          = require('./routers/zhihu_daily/zhihu_news');
+const zhihu_news_detail   = require('./routers/zhihu_daily/news_detail');
 
 app.use('/', index);
 //图片列表
@@ -43,6 +44,10 @@ app.use('/daily_list', daily_list);
 app.use('/recommend_list', recommend_list);
 app.use('/one_day_list', one_day_list);
 app.use('/web_frame', web_frame);
+
+//知乎日报
+app.use('/zhihu_news',zhihu_news);
+app.use('/zhihu_news_detail',zhihu_news_detail);
 
 
 app.use('/until', require('./routers/untils/until'));
