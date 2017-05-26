@@ -126,7 +126,7 @@ $ node app.js
 ```
 
 
-### 2.前端框架 top 排行榜
+### 2.框架 top 排行榜
 说明:获取前前端框架排名,我们可以看看web前端世界的框架排名
 
 #### 2.1 获取前端框架top 20排名
@@ -165,19 +165,47 @@ $ node app.js
 
 
 ### X.妹纸图片福利接口
-说明:获取图片列表数据、和某个妹纸图片集合
+说明:获取美女分类、分类下图片列表、图片列表数据、和某个妹纸图片集合
 
-#### X.1 妹纸图片列表接口
+#### X.1 妹纸美女分类标签 tags
 **必选参数:**
-`page` : 页码 1
+`无` :
 
 **接口地址:**
-`/list?page=2`
+`/classify`
 
 **调用例子:**
-`http://localhost:3000/list?page=1`
+`http://localhost:3000/classify`
 
-返回数据(每页返回30条 由于长度就展示2条看)如下JSON:
+返回数据(由于长度就展示2条看)如下JSON:
+```javascript
+{
+    "msg": "success",
+    "data": [
+        {
+            "title": "清纯",
+            "id": "qingchun"
+        },
+        {
+            "title": "私房",
+            "id": "sifang"
+        }
+    ],
+    "code": 1
+}
+```
+
+#### X.2 妹纸分类下 图片列表接口
+**必选参数:**
+`tags` : 分类 如： qingchun
+
+**接口地址:**
+`/classify_tags_list?tags=luoli`
+
+**调用例子:**
+`http://localhost:3000/classify_tags_list?tags=luoli`
+
+返回数据(由于长度就展示2条看)如下JSON:
 ```javascript
 {
     "msg": "success",
@@ -199,7 +227,7 @@ $ node app.js
 }
 ```
 
-#### X.2 图片详情列表
+#### X.3 图片详情列表
 **必选参数:**
 `id` :  列表下图片集合id  5525
 

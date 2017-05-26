@@ -13,11 +13,17 @@ const fs      = require('fs');
 const Iconv   = require('iconv-lite');
 
 
+
+function regx(str){
+    const reg = /\/([^\/]+)\.html/;
+    if (reg.test(str)) {
+    return(RegExp.$1);
+ }
+}
 function list(req, res) {
     var res = res;
     var req = req;
-    var page = parseInt(req.query.page) || 1;
-    var url = 'http://www.meizitu.com/a/qingchun_3_' + page + '.html';
+    var url = 'http://www.meizitu.com/';
     console.log(url)
     request({
         url: url,
@@ -27,12 +33,12 @@ function list(req, res) {
         if (response && response.statusCode == 200) {
             var body = Iconv.decode(body, 'gb2312');
             $ = cheerio.load(body);
-            $('.pic a img').each(function () {
+           
+            $('.tags a').each(function () {
                 var tmp = {
-                    img: $(this).attr('src'),
-                    title: $(this).attr('alt'),
-                    url: $(this).parent('a').attr('href'),
-                    id: parseInt($(this).parent('a').attr('href').replace(/\D/g, ""))
+                    title: $(this).text(),
+                    //url  : $(this).attr('href'),
+                    id: regx($(this).attr('href'))
                 }
                 links.push(tmp);
             });
@@ -54,13 +60,6 @@ function list(req, res) {
 }
 
 app.get('/', function (req, res) {
-    if(isNaN(req.query.page)){
-        res.send({
-            msg: "请正确填写page参数 int类型",
-            code: 0,
-        });
-        return false;
-    }
     list(req, res)
 });
 module.exports = app;

@@ -20,17 +20,21 @@ app.all('*', function(req, res, next) {
 });
 
 /**路由列表**/
-const index           = require('./index');
-const list            = require('./routers/picture/list');
-const img_view        = require('./routers/picture/img_view');
-const daily_list      = require('./routers/web_daily/daily_list');
-const recommend_list  = require('./routers/web_daily/recommend');
-const one_day_list    = require('./routers/web_daily/one_day_list');
-const web_frame       = require('./routers/web_frame/hot_frame');
+const index               = require('./index');
+const classify            = require('./routers/picture/classify');
+const classify_tags_list  = require('./routers/picture/classify_tags_list');
+const list                = require('./routers/picture/list');
+const img_view            = require('./routers/picture/img_view');
+const daily_list          = require('./routers/web_daily/daily_list');
+const recommend_list      = require('./routers/web_daily/recommend');
+const one_day_list        = require('./routers/web_daily/one_day_list');
+const web_frame           = require('./routers/web_frame/hot_frame');
 
 
-app.use('/index', index);
+app.use('/', index);
 //图片列表
+app.use('/classify', classify);
+app.use('/classify_tags_list', classify_tags_list);
 app.use('/list', list);
 app.use('/img_view', img_view);
 
