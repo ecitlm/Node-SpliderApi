@@ -51,7 +51,7 @@ app.use('/zhihu_news_detail',zhihu_news_detail);
 
 
 app.use('/until', require('./routers/untils/until'));
-
+app.use('/huaban', require('./routers/picture/huaban'));
 
 app.use(router);
 app.listen(3000);

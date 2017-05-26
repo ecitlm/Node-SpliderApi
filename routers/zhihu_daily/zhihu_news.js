@@ -5,9 +5,8 @@
 * @Last Modified time: 2017-05-25 18:00:43
 */
 const express = require('express')
-const http = require('http')
-const cheerio = require("cheerio")
-const app = express()
+const http    = require('http')
+const app     = express()
 
 function requests(req, res) {
     var req = req;
@@ -47,7 +46,8 @@ function requests(req, res) {
             code: 0
         })
     })
-    httpRequest.end(); //必须要要写，
+    httpRequest.end(); 
+    //必须要要写http  end，
 }
 
 app.get('/', function (req, res) {
