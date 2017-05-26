@@ -1,15 +1,15 @@
 /* 
 * @Author: ecitlm
 * @Date:   2017-05-23 17:59:30
-* @Last Modified by:   ecitlm
-* @Last Modified time: 2017-05-25 18:00:32
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2017-05-26 21:36:35
 */
 const express = require('express')
-const http = require('http')
+const http    = require('http')
 const cheerio = require("cheerio")
-const app = express()
+const app     = express()
 const request = require("request");
-const Iconv = require('iconv-lite');
+const Iconv   = require('iconv-lite');
 
 
 function view(req, res) {

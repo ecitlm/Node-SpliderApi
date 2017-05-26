@@ -1,5 +1,7 @@
 # PHPStorm
 .idea
+.vscode
+.vscode/
 #采集的图片
 images/
 node_modules/
