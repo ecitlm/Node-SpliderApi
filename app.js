@@ -1,8 +1,8 @@
 /* 
 * @Author: ecitlm
 * @Date:   2017-05-23 17:59:30
-* @Last Modified by:   ecitlm
-* @Last Modified time: 2017-05-25 18:01:03
+ * @Last Modified by: ecitlm
+ * @Last Modified time: 2017-05-27 17:19:22
 */
 const express = require('express');
 const http = require('http');
@@ -34,6 +34,7 @@ const zhihu_news_detail   = require('./routers/zhihu_daily/news_detail');
 
 app.use('/', index);
 //图片列表
+app.use('/huaban', require('./routers/picture/huaban'));
 app.use('/classify', classify);
 app.use('/classify_tags_list', classify_tags_list);
 app.use('/list', list);
@@ -49,9 +50,11 @@ app.use('/web_frame', web_frame);
 app.use('/zhihu_news',zhihu_news);
 app.use('/zhihu_news_detail',zhihu_news_detail);
 
-
+//新闻头条
+app.use('/news_list', require('./routers/news_toutiao/news_list'));
+app.use('/news_detail', require('./routers/news_toutiao/news_detail'));
 app.use('/until', require('./routers/untils/until'));
-app.use('/huaban', require('./routers/picture/huaban'));
+
 
 app.use(router);
 app.listen(3000);
