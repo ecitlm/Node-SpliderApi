@@ -224,7 +224,7 @@ $ node app.js
 `type` : 新闻类型 <br />   0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文
   <table>
 <tr>
-	<td>类型</td>
+	<td>type</td>
 	<td>0</td>
 	<td>1</td>
 	<td>2</td>
@@ -298,39 +298,30 @@ $ node app.js
 
 #### X.1 妹纸美女类型分类
 **必选参数:**
-`page` : 分页数第几页 <br/> `catid`  分类id
+`page` : 分页数第几页 <br/>
+**必选参数:**
+ `catid`  分类id
 
-<table>
+  <table>
 <tr>
 	<td>catid</td>
-	<td>名称</td>
-</tr>
-<tr>
 	<td>34</td>
-	<td>大胸妹</td>
-</tr>
-<tr>
 	<td>35</td>
-	<td>小清新</td>
-</tr>
-<tr>
 	<td>36</td>
-	<td>文艺范</td>
-</tr>
-<tr>
 	<td>37</td>
-	<td>性感妹</td>
-</tr>
-<tr>
 	<td>38</td>
-	<td>大长腿</td>
-</tr>
-<tr>
-	<td>39</td>
-	<td>黑丝袜</td>
-</tr>
-<tr>
+	<td>39</td>	
 	<td>40</td>
+
+</tr>
+<tr>
+	<td>名称</td>
+	<td>大胸妹</td>
+	<td>小清新</td>
+	<td>文艺范</td>
+	<td>性感妹</td>
+	<td>大长腿</td>
+	<td>黑丝袜</td>
 	<td>小翘臀</td>
 </tr>
 </table>
