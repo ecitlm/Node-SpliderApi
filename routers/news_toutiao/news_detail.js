@@ -2,7 +2,7 @@
 * @Author: ecitlm
 * @Date:   2017-05-23 17:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-05-27 17:37:21
+ * @Last Modified time: 2017-05-27 17:46:16
 */
 const express = require('express')
 const http    = require('http')
@@ -36,7 +36,7 @@ function requests(req, res) {
 
         response.on("end", function () {
             console.log('----------------------------end output data--------------------------');
-            console.log(body.toString())
+            res.send(JSON.parse(body));
 
         })
     })
