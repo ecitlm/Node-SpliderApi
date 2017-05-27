@@ -215,71 +215,86 @@ $ node app.js
     ]
 }
 ```
-### 花瓣APi 接口
-说明:获取美女分类图片集合
 
-#### X.1 妹纸美女类型分类
+### 4.今天头条数据新闻
+说明:获取新闻头条分类新闻、新闻详情
+
+#### 4.1 新闻头条新闻列表
 **必选参数:**
-`page` : 分页数第几页 <br/> `catid`  分类id
+`type` : 新闻类型 <br />   0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文
+  <table>
+<tr>
+	<td>类型</td>
+	<td>0</td>
+	<td>1</td>
+	<td>2</td>
+	<td>3</td>
+	<td>4</td>
 
-<table>
+</tr>
+
 <tr>
-	<td>catid</td>
 	<td>名称</td>
-</tr>
-<tr>
-	<td>34</td>
-	<td>大胸妹</td>
-</tr>
-<tr>
-	<td>35</td>
-	<td>小清新</td>
-</tr>
-<tr>
-	<td>36</td>
-	<td>文艺范</td>
-</tr>
-<tr>
-	<td>37</td>
-	<td>性感妹</td>
-</tr>
-<tr>
-	<td>38</td>
-	<td>大长腿</td>
-</tr>
-<tr>
-	<td>39</td>
-	<td>黑丝袜</td>
-</tr>
-<tr>
-	<td>40</td>
-	<td>小翘臀</td>
+	<td>热点</td>
+	<td>社会</td>
+	<td>娱乐</td>
+	<td>体育</td>
+	<td>美文</td>
+
 </tr>
 </table>
 
+
+
 **接口地址:**
-`/huaban?page=page&catid=catid`
+`/news_list?type=1`
 
 **调用例子:**
-`http://localhost:3000/huaban?page=1&catid=34`
+`http://localhost:3000/news_list?type=1`
+
+返回数据(由于长度就展示2条看)如下JSON:
+```javascript
+
+```
+
+#### 4.2 新闻详情数据
+**必选参数:**
+`item_id` : 新闻类型 <br /> 
+
+**接口地址:**
+`/news_detail?item_id=item_id`
+
+**调用例子:**
+`http://localhost:3000/news_detail?item_id=64246032347483345941`
 
 返回数据(由于长度就展示2条看)如下JSON:
 ```javascript
 {
-    "msg": "success",
-    "data": [
-        {
-            "title": "清纯",
-            "id": "qingchun"
+    "_ck": {},
+    "data": {
+        "detail_source": "东方IC图说国际",
+        "media_user": {
+            "no_display_pgc_icon": false,
+            "avatar_url": "http://p3.pstatp.com/thumb/ef500036ebc81557fb9",
+            "id": "5784742177",
+            "screen_name": "东方IC图说国际"
         },
-        {
-            "title": "私房",
-            "id": "sifang"
-        }
-    ],
-    "code": 1
+        "publish_time": 1495844280,
+        "title": "埃及一大巴遭枪击28人死亡 遇难者葬礼举行",
+        "url": "http://m.dfic.cn/ttPhoto/6277",
+        "is_original": false,
+        "is_pgc_article": false,
+        "content": "<div class=\"gallery\"><div class=\"image_content\"><p class=\"image_title\"></p><img src=\"http://p3.pstatp.com/large/22b800052b6615dfc09e\" img_width=\"900\" img_height=\"625\" inline=\"0\" alt=\"埃及一大巴遭枪击28人死亡 遇难者葬礼举行\" onerror=\"javascript:errorimg.call(this);\"><p class=\"image_desc\">当地时间2017年5月26日，埃及开罗，一名大巴枪击的受害女子被送往医院。据埃及安全部门称，一辆满载科普特基督徒的公交车在该国明亚省遭不明身份武装分子枪击。埃及卫生部官员表示，袭击造成至少28人死亡，25人受伤。（图片署名： 东方IC）    \"</p></div><div class=\"image_content\"><p class=\"image_title\"></p><img src=\"http://p3.pstatp.com/large/22b800052b67152267fe\" img_width=\"900\" img_height=\"495\" inline=\"0\" alt=\"埃及一大巴遭枪击28人死亡 遇难者葬礼举行\" onerror=\"javascript:errorimg.call(this);\"><p class=\"image_desc\">当地时间2017年5月26日，埃及明亚省，安全人员站在遭袭击的大巴旁。据埃及安全部门称，一辆满载科普特基督徒的公交车在该国明亚省遭不明身份武装分子枪击。埃及卫生部官员表示，袭击造成至少28人死亡，25人受伤。（图片署名： 东方IC）    \"</p></div><div class=\"image_content\"><p class=\"image_title\"></p><img src=\"http://p9.pstatp.com/large/22bf000535650aa2e1e0\" img_width=\"900\" img_height=\"600\" inline=\"0\" alt=\"埃及一大巴遭枪击28人死亡 遇难者葬礼举行\" onerror=\"javascript:errorimg.call(this);\"><p class=\"image_desc\">当地时间2017年5月26日，埃及明亚省，大巴袭击遇难者的葬礼举行，亲属悲痛欲绝。据埃及安全部门称，一辆满载科普特基督徒的公交车在该国明亚省遭不明身份武装分子枪击。埃及卫生部官员表示，袭击造成至少28人死亡，25人受伤。（图片署名： 东方IC）    \"</p></div><div class=\"image_content\"><p class=\"image_title\"></p><img src=\"http://p1.pstatp.com/large/22bb0004ed4b8ed54b1f\" img_width=\"900\" img_height=\"600\" inline=\"0\" alt=\"埃及一大巴遭枪击28人死亡 遇难者葬礼举行\" onerror=\"javascript:errorimg.call(this);\"><p class=\"image_desc\">当地时间2017年5月26日，埃及明亚省，大巴袭击遇难者的葬礼举行，亲属悲痛欲绝。据埃及安全部门称，一辆满载科普特基督徒的公交车在该国明亚省遭不明身份武装分子枪击。埃及卫生部官员表示，袭击造成至少28人死亡，25人受伤。（图片署名： 东方IC）    \"</p></div><div class=\"image_content\"><p class=\"image_title\"></p><img src=\"http://p1.pstatp.com/large/22c000050b6e4a7c694a\" img_width=\"900\" img_height=\"600\" inline=\"0\" alt=\"埃及一大巴遭枪击28人死亡 遇难者葬礼举行\" onerror=\"javascript:errorimg.call(this);\"><p class=\"image_desc\">当地时间2017年5月26日，埃及开罗，医疗人员在医院外将受害女子从救护车上抬下。据埃及安全部门称，一辆满载科普特基督徒的公交车在该国明亚省遭不明身份武装分子枪击。埃及卫生部官员表示，袭击造成至少28人死亡，25人受伤。（图片署名： 东方IC）    \"</p></div><div class=\"image_content\"><p class=\"image_title\"></p><img src=\"http://p3.pstatp.com/large/22b800052b6972f16de1\" img_width=\"900\" img_height=\"600\" inline=\"0\" alt=\"埃及一大巴遭枪击28人死亡 遇难者葬礼举行\" onerror=\"javascript:errorimg.call(this);\"><p class=\"image_desc\">当地时间2017年5月26日，埃及明亚省，大巴袭击遇难者的葬礼举行，亲属悲痛欲绝。据埃及安全部门称，一辆满载科普特基督徒的公交车在该国明亚省遭不明身份武装分子枪击。埃及卫生部官员表示，袭击造成至少28人死亡，25人受伤。（图片署名： 东方IC）    \"</p></div><div class=\"image_content\"><p class=\"image_title\"></p><img src=\"http://p3.pstatp.com/large/22b70008fd0505f16dc6\" img_width=\"900\" img_height=\"600\" inline=\"0\" alt=\"埃及一大巴遭枪击28人死亡 遇难者葬礼举行\" onerror=\"javascript:errorimg.call(this);\"><p class=\"image_desc\">当地时间2017年5月26日，埃及明亚省，大巴袭击遇难者的葬礼举行，亲属悲痛欲绝。据埃及安全部门称，一辆满载科普特基督徒的公交车在该国明亚省遭不明身份武装分子枪击。埃及卫生部官员表示，袭击造成至少28人死亡，25人受伤。（图片署名： 东方IC）    \"</p></div></div>",
+        "source": "东方IC图说国际",
+        "video_play_count": 0
+    },
+    "success": true
 }
+
 ```
+
+
+
 
 ### X.妹纸图片福利接口
 说明:获取美女分类、分类下图片列表、图片列表数据、和某个妹纸图片集合
