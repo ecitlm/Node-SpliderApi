@@ -2,7 +2,7 @@
 * @Author: ecitlm
 * @Date:   2017-05-23 17:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-05-27 11:01:44
+ * @Last Modified time: 2017-05-27 20:54:21
 */
 const express = require('express')
 const http    = require('http')
@@ -12,7 +12,7 @@ const app     = express()
 function requests(req, res) {
     var req = req;
     var res = res;
-    var catid=req.query.catid || 34;
+    var catid=req.query.catid || 35;
     var page=req.query.page || 1;
     var options = {
         hostname: 'www.hbmeinv.com',

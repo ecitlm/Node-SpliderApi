@@ -293,7 +293,58 @@ $ node app.js
 
 ```
 
+### 花瓣APi 接口
+说明:获取美女分类图片集合
 
+#### X.1 妹纸美女类型分类
+**必选参数:**
+`page` : 分页数第几页 <br/> `catid`  分类id
+
+<table>
+<tr>
+	<td>catid</td>
+	<td>名称</td>
+</tr>
+<tr>
+	<td>34</td>
+	<td>大胸妹</td>
+</tr>
+<tr>
+	<td>35</td>
+	<td>小清新</td>
+</tr>
+<tr>
+	<td>36</td>
+	<td>文艺范</td>
+</tr>
+<tr>
+	<td>37</td>
+	<td>性感妹</td>
+</tr>
+<tr>
+	<td>38</td>
+	<td>大长腿</td>
+</tr>
+<tr>
+	<td>39</td>
+	<td>黑丝袜</td>
+</tr>
+<tr>
+	<td>40</td>
+	<td>小翘臀</td>
+</tr>
+</table>
+
+**接口地址:**
+`/huaban?page=page&catid=catid`
+
+**调用例子:**
+`http://localhost:3000/huaban?page=1&catid=34`
+
+返回数据(由于长度就展示2条看)如下JSON:
+```javascript
+
+```
 
 
 ### X.妹纸图片福利接口
