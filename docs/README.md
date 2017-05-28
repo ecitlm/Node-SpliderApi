@@ -216,12 +216,12 @@ $ node app.js
 }
 ```
 
-### 4.今天头条数据新闻
-说明:获取新闻头条分类新闻、新闻详情
+### 4.头条新闻数据
+说明:获取新闻头条分类新闻、新闻详情 
 
 #### 4.1 新闻头条新闻列表
 **必选参数:**
-`type` : 新闻类型 <br />   0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文
+`type` : 新闻类型 <br />   0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文 5科技 6财经 7 时尚
   <table>
 <tr>
 	<td>type</td>
@@ -230,9 +230,10 @@ $ node app.js
 	<td>2</td>
 	<td>3</td>
 	<td>4</td>
-
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
 </tr>
-
 <tr>
 	<td>名称</td>
 	<td>热点</td>
@@ -240,7 +241,9 @@ $ node app.js
 	<td>娱乐</td>
 	<td>体育</td>
 	<td>美文</td>
-
+    <td>科技</td>
+    <td>财经</td>
+    <td>时尚</td>
 </tr>
 </table>
 
@@ -293,6 +296,48 @@ $ node app.js
 
 ```
 
+
+#### 4.3   视频数据
+**必选参数:**
+`type` : 视频类型 <br /> 
+ // 0搞笑视频  1美女视频  2体育视频  3 新闻现场 4涨姿势  5猎奇  6 黑科技 默认搞笑视频
+ `page` : 分页 如:10/20/30 
+  <table>
+<tr>
+	<td>type</td>
+	<td>0</td>
+	<td>1</td>
+	<td>2</td>
+	<td>3</td>
+	<td>4</td>
+    <td>5</td>
+    <td>6</td>
+</tr>
+<tr>
+	<td>名称</td>
+    <td>搞笑</td>
+	<td>美女</td>
+	<td>体育</td>
+	<td>新闻现场</td>
+	<td>涨姿势</td>
+	<td>猎奇</td>
+    <td>黑科技</td>
+</tr>
+</table>
+
+
+
+**接口地址:**
+`/video_list?type=0&page=10`
+
+**调用例子:**
+`http://localhost:3000//video_list?type=0&page=10`
+
+返回数据(由于长度就展示2条看)如下JSON:
+```javascript
+
+```
+
 ### 花瓣APi 接口
 说明:获取美女分类图片集合
 
@@ -301,7 +346,6 @@ $ node app.js
 `page` : 分页数第几页 <br/>
 **必选参数:**
  `catid`  分类id
-
   <table>
 <tr>
 	<td>catid</td>
@@ -409,7 +453,7 @@ $ node app.js
 `/img_view?id=5525`
 
 **调用例子:**
-`http://localhost:3000//img_view?id=5525`
+`http://localhost:3000/img_view?id=5525`
 
 返回数据如下JSON:
 ```javascript

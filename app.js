@@ -2,7 +2,7 @@
 * @Author: ecitlm
 * @Date:   2017-05-23 17:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-05-27 22:55:18
+ * @Last Modified time: 2017-05-28 21:42:05
 */
 const express = require('express');
 const http = require('http');
@@ -53,6 +53,9 @@ app.use('/zhihu_news_detail',zhihu_news_detail);
 //新闻头条
 app.use('/news_list', require('./routers/news_toutiao/news_list'));
 app.use('/news_detail', require('./routers/news_toutiao/news_detail'));
+app.use('/video_list', require('./routers/news_toutiao/video_list'));
+
+
 app.use('/until', require('./routers/untils/until'));
 
 
