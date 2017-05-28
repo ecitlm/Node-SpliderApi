@@ -216,7 +216,7 @@ $ node app.js
 }
 ```
 
-### 4.今天头条数据新闻
+### 4.头条新闻数据
 说明:获取新闻头条分类新闻、新闻详情
 
 #### 4.1 新闻头条新闻列表
@@ -301,7 +301,6 @@ $ node app.js
 `page` : 分页数第几页 <br/>
 **必选参数:**
  `catid`  分类id
-
   <table>
 <tr>
 	<td>catid</td>
@@ -409,7 +408,7 @@ $ node app.js
 `/img_view?id=5525`
 
 **调用例子:**
-`http://localhost:3000//img_view?id=5525`
+`http://localhost:3000/img_view?id=5525`
 
 返回数据如下JSON:
 ```javascript
