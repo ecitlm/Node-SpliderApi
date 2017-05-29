@@ -9,3 +9,5 @@
 
 [GitHub](https://git.oschina.net/ecitlm/splider)
 [Get Started](#/?id=splider)
+
+![color](#ffffff)
