@@ -2,7 +2,7 @@
 * @Author: ecitlm
 * @Date:   2017-05-23 17:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-05-28 21:42:05
+ * @Last Modified time: 2017-05-29 11:42:07
 */
 const express = require('express');
 const http = require('http');
@@ -56,7 +56,6 @@ app.use('/news_detail', require('./routers/news_toutiao/news_detail'));
 app.use('/video_list', require('./routers/news_toutiao/video_list'));
 
 
-app.use('/until', require('./routers/untils/until'));
 
 
 //music router

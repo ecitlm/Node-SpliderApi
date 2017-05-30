@@ -1,6 +1,6 @@
 ![logo](api.png)
 
-# IT开发者-Node 数据接口
+# IT开发者-Node 爬虫数据接口
 
  基于node+express api接口数据.
 
@@ -8,6 +8,6 @@
 - 新闻热点、段子笑话、搞笑视频 API
 
 [GitHub](https://git.oschina.net/ecitlm/splider)
-[Get Started](#/?id=splider)
+[Get Started](?id=spliderapi)
 
 ![color](#ffffff)

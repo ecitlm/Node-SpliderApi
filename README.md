@@ -333,7 +333,7 @@ $ node app.js
 `/video_list?type=0&page=10`
 
 **调用例子:**
-`http://localhost:3000//video_list?type=0&page=10`
+`http://localhost:3000/video_list?type=0&page=10`
 
 返回数据(由于长度就展示2条看)如下JSON:
 ```javascript
