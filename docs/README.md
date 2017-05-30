@@ -3,14 +3,14 @@
 基于Node 的一个网络爬虫 API接口
 包括前端开发日报、知乎日报、前端top框架排行、妹纸福利、搞笑视频、各类视频新闻资讯 热点详情接口数
 
-<a href="http://ecitlm.oschina.io/splider/docs/">查看文档</a>
+<a href="https://ecitlm.github.io/SpliderApi/#/">查看文档</a>
 
 ### 环境要求
 需要 NodeJS+express
 
 ### 安装
 ``` shell
-$ git clone https://git.oschina.net/ecitlm/splider
+$ git clone https://github.com/ecitlm/SpliderApi.git
 $ npm install
 
 ### 运行
@@ -333,7 +333,7 @@ $ node app.js
 `/video_list?type=0&page=10`
 
 **调用例子:**
-`http://localhost:3000//video_list?type=0&page=10`
+`http://localhost:3000/video_list?type=0&page=10`
 
 返回数据(由于长度就展示2条看)如下JSON:
 ```javascript
