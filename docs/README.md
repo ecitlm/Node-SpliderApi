@@ -1,14 +1,16 @@
-## Splider
-基于Node 的一个网络爬虫 API接口
+## SpliderApi
 
-<a href="http://ecitlm.oschina.io/splider/docs/">查看文档</a>
+基于Node 的一个网络爬虫 API接口
+包括前端开发日报、知乎日报、前端top框架排行、妹纸福利、搞笑视频、各类视频新闻资讯 热点详情接口数
+
+<a href="https://ecitlm.github.io/SpliderApi/#/">查看文档</a>
 
 ### 环境要求
 需要 NodeJS+express
 
 ### 安装
 ``` shell
-$ git clone https://git.oschina.net/ecitlm/splider
+$ git clone https://github.com/ecitlm/SpliderApi.git
 $ npm install
 
 ### 运行
@@ -216,23 +218,24 @@ $ node app.js
 }
 ```
 
-### 4.今天头条数据新闻
-说明:获取新闻头条分类新闻、新闻详情
+### 4.头条新闻数据
+说明:获取新闻头条分类新闻、新闻详情 
 
 #### 4.1 新闻头条新闻列表
 **必选参数:**
-`type` : 新闻类型 <br />   0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文
+`type` : 新闻类型 <br />   0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文 5科技 6财经 7 时尚
   <table>
 <tr>
-	<td>类型</td>
+	<td>type</td>
 	<td>0</td>
 	<td>1</td>
 	<td>2</td>
 	<td>3</td>
 	<td>4</td>
-
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
 </tr>
-
 <tr>
 	<td>名称</td>
 	<td>热点</td>
@@ -240,7 +243,9 @@ $ node app.js
 	<td>娱乐</td>
 	<td>体育</td>
 	<td>美文</td>
-
+    <td>科技</td>
+    <td>财经</td>
+    <td>时尚</td>
 </tr>
 </table>
 
@@ -294,6 +299,89 @@ $ node app.js
 ```
 
 
+#### 4.3   视频数据
+**必选参数:**
+`type` : 类型 <br /> 0搞笑视频  1美女视频  2体育视频  3 新闻现场 4涨姿势  5猎奇  6 黑科技 默认搞笑视频
+<br /> 
+ `page` : 分页 如:10/20/30 
+  <table>
+<tr>
+	<td>type</td>
+	<td>0</td>
+	<td>1</td>
+	<td>2</td>
+	<td>3</td>
+	<td>4</td>
+    <td>5</td>
+    <td>6</td>
+</tr>
+<tr>
+	<td>名称</td>
+    <td>搞笑</td>
+	<td>美女</td>
+	<td>体育</td>
+	<td>新闻现场</td>
+	<td>涨姿势</td>
+	<td>猎奇</td>
+    <td>黑科技</td>
+</tr>
+</table>
+
+
+
+**接口地址:**
+`/video_list?type=0&page=10`
+
+**调用例子:**
+`http://localhost:3000/video_list?type=0&page=10`
+
+返回数据(由于长度就展示2条看)如下JSON:
+```javascript
+
+```
+
+### 花瓣APi 接口
+说明:获取美女分类图片集合
+
+#### X.1 妹纸美女类型分类
+**必选参数:**
+`page` : 分页数第几页 <br/>
+**必选参数:**
+ `catid`  分类id
+  <table>
+<tr>
+	<td>catid</td>
+	<td>34</td>
+	<td>35</td>
+	<td>36</td>
+	<td>37</td>
+	<td>38</td>
+	<td>39</td>	
+	<td>40</td>
+
+</tr>
+<tr>
+	<td>名称</td>
+	<td>大胸妹</td>
+	<td>小清新</td>
+	<td>文艺范</td>
+	<td>性感妹</td>
+	<td>大长腿</td>
+	<td>黑丝袜</td>
+	<td>小翘臀</td>
+</tr>
+</table>
+
+**接口地址:**
+`/huaban?page=page&catid=catid`
+
+**调用例子:**
+`http://localhost:3000/huaban?page=1&catid=34`
+
+返回数据(由于长度就展示2条看)如下JSON:
+```javascript
+
+```
 
 
 ### X.妹纸图片福利接口
@@ -367,7 +455,7 @@ $ node app.js
 `/img_view?id=5525`
 
 **调用例子:**
-`http://localhost:3000//img_view?id=5525`
+`http://localhost:3000/img_view?id=5525`
 
 返回数据如下JSON:
 ```javascript

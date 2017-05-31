@@ -14,12 +14,15 @@
 <script>
   window.$docsify = {
     name: 'Node+API接口',
-    repo: 'https://git.oschina.net/ecitlm/splider',
-    coverpage: true,
-	auto2top: true,
-    formatUpdated: '{MM}/{DD} {HH}:{mm}'
+    repo: 'https://github.com/ecitlm/SpliderApi.git',
+    coverpage: true
   }
 
 </script>
 <script src="https://cdn.bootcss.com/docsify/3.7.1/docsify.min.js"></script>
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
 </html>
