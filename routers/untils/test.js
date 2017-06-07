@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const httpServer= require('./httpServer.js')
+const Server= require('./httpServer.js')
 
 
 app.get('/', function (req,res) {
@@ -11,7 +11,7 @@ app.get('/', function (req,res) {
         'daily_id':20170601
     }
     //false:http请求  true:https请求
-    httpServer.httpServer(host,path, method, data,true).then(function(body){
+    Server.httpServer(host,path, method, data,true).then(function(body){
          res.send({
                 msg: "success",
                 data: JSON.parse(body),
