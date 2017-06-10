@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-06-07 16:22:29 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-07 18:18:01
+ * @Last Modified time: 2017-06-10 23:09:08
  */
 const express = require('express')
 var http = require('http')
@@ -14,12 +14,15 @@ const app = express()
  * @param {string} url  路径 
  * @param {string} method 请求方式
  * @param {object} data  请求参数
- * @param {string} bool  判断是http 还是https请求
+ * @param {string} bool true :https ,false:http 判断是http 还是https请求
  * @returns 
  */
 
 function httpServer(host, path, method, data, status) {
 
+     if (method == 'GET') {
+           var path=path+"?"+data;
+        }
     var options = {
         hostname: host,
         port: 80,
@@ -31,7 +34,6 @@ function httpServer(host, path, method, data, status) {
         }//伪造请求头
     };
     if (status) {
-        console.log("--------https 443 -----------")
         http = require('https')
         options.port = 443
     }
@@ -41,7 +43,6 @@ function httpServer(host, path, method, data, status) {
         var httpRequest = http.request(options, function (response) {
             response.on("data", function (chunk) {
                 body += chunk;
-                console.log("----------------success----------------")
             })
 
             response.on('end', () => {
@@ -56,6 +57,7 @@ function httpServer(host, path, method, data, status) {
         if (method == 'POST') {
             httpRequest.write(data)
         }
+        
         httpRequest.end();
     })
 }
