@@ -11,14 +11,16 @@ app.get('/', function (req,res) {
         'daily_id':20170601
     }
     //false:http请求  true:https请求
-    Server.httpServer(host,path, method, data,true).then(function(body){
+    Server.httpServer(host,path, method, data,true)
+    .then(function(body){
          res.send({
                 msg: "success",
                 data: JSON.parse(body),
                 code: 1
             });
     
-    }).catch(function(err){
+    })
+    .catch(function(err){
         console.log(err)
     })
 });
