@@ -12,7 +12,7 @@ app.get('/:page', function (req, res) {
     var data =req.params// querystring.stringify(req.params)
     //false:http请求  true:https请求
     Server.httpServer(host, path, method, data,false).then(function (body) {
-        res.send(body);
+        res.send(JSON.parse(body));
 
     }).catch(function (err) {
         console.log(err)
