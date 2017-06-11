@@ -4,14 +4,14 @@ const Server = require('./httpServer.js')
 const querystring = require("querystring");
 
 //http://192.168.1.2:8097/Public/?service=Index.index
-app.get('/:daily_id', function (req, res) {
-    var host = "api.it919.cn";
+app.get('/:page', function (req, res) {
+    var host = "192.168.1.2";
     console.log(req.params)
-    var path="/index.php/api/Web/every_daily_list";
-    var method = "GET"; //POST GET
-    var data = querystring.stringify(req.params)
+    var path="/Public/?service=Index.query";
+    var method = "POST"; //POST GET
+    var data =req.params// querystring.stringify(req.params)
     //false:http请求  true:https请求
-    Server.httpServer(host, path, method, data,true).then(function (body) {
+    Server.httpServer(host, path, method, data,false).then(function (body) {
         res.send(body);
 
     }).catch(function (err) {
