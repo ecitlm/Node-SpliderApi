@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-06-07 16:22:29 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-12 13:07:18
+ * @Last Modified time: 2017-06-12 17:52:19
  */
 const express = require('express')
 var http = require('http')
@@ -13,9 +13,9 @@ const request = require("request");
 
 /**
  * http get网络请求封装
- * @param {any} 域名 
- * @param {any} 参数 
- * @param {any} 接口路径 
+ * @param {string} 域名 
+ * @param {obj} 参数 
+ * @param {string} 接口路径 
  * @param {bool} true false 是否为https
  * @returns 
  */
@@ -27,8 +27,8 @@ function httpGet(host, data, path, status) {
         path: path + querystring.stringify(data),
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json',
-            "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36"
+            'Content-Type':'application/json',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'
         }
     };
     //判断是否为https请求
@@ -61,8 +61,8 @@ function httpGet(host, data, path, status) {
 /**
  * http POST 请求
  * @param {string} 域名 
- * @param {any} 参数 
- * @param {any} 接口路径 
+ * @param {obj} 参数 
+ * @param {string} 接口路径 
  * @param {bool} true false 是否为https
  * @returns 
  */
@@ -77,8 +77,8 @@ function httpPost(host, data, path, status) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36",
-            'Content-Length': Buffer.byteLength(data)
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36',
+            'Content-Length': Buffer.byteLength(data) //返回字符串实际占据的字节长度
         }
     }
     //判断是否为https请求

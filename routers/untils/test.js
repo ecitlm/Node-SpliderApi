@@ -3,7 +3,6 @@ const app = express()
 const Server = require('./httpServer.js')
 const querystring = require("querystring");
 
-//http://192.168.1.2:8097/Public/?service=Index.index
 app.get('/:daily_id', function (req, res) {
     var host = "api.it919.cn";
     console.log(req.params)
