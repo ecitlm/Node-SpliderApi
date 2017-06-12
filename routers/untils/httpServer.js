@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-06-07 16:22:29 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-12 12:48:14
+ * @Last Modified time: 2017-06-12 13:07:18
  */
 const express = require('express')
 var http = require('http')
@@ -20,8 +20,6 @@ const request = require("request");
  * @returns 
  */
 function httpGet(host, data, path, status) {
-
-    //var path=path+"&"+querystring.stringify(data);
     console.log("===================HttpGet=====================");
     var options = {
         host: host,
@@ -42,6 +40,7 @@ function httpGet(host, data, path, status) {
     return new Promise(function (resolve, reject) {
         let body = "";
         var get_req = http.request(options, function (response) {
+            //response.setEncoding('utf8');
             response.on("data", function (chunk) {
                 body += chunk;
             })
@@ -53,11 +52,8 @@ function httpGet(host, data, path, status) {
             response.on('error', err => {
                 reject(err)
             })
-
         })
-
         get_req.end();
-
     });
 }
 

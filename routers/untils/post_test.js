@@ -10,7 +10,7 @@ app.get('/:page', function (req, res) {
     var path="/Public/?service=Index.query&";
     var data =req.params
     //false:http请求  true:https请求
-    Server.httpGet(host,data,path,false).then(function (body) {
+    Server.httpPost(host,data,path,false).then(function (body) {
         res.send(JSON.parse(body));
 
     }).catch(function (err) {
