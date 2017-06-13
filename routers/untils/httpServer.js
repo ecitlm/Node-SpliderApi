@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-06-07 16:22:29 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-12 17:52:19
+ * @Last Modified time: 2017-06-13 15:02:40
  */
 const express = require('express')
 var http = require('http')
@@ -71,7 +71,7 @@ function httpPost(host, data, path, status) {
     console.log("---------httpPost---------------")
     console.log(data)
     var options = {
-        host: '192.168.1.2',
+        host: host,
         port: '8097',
         path: path,
         method: 'POST',
@@ -89,6 +89,7 @@ function httpPost(host, data, path, status) {
     return new Promise(function (resolve, reject) {
         let body = "";
         var post_req = http.request(options, function (response) {
+            //console.log(response.statusCode);
             response.on("data", function (chunk) {
                 body += chunk;
             })
