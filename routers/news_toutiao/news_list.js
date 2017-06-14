@@ -2,11 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-05-27 14:52:05 
  * @Last Modified by: ecitlm
-<<<<<<< HEAD
- * @Last Modified time: 2017-05-27 17:48:42
-=======
- * @Last Modified time: 2017-05-28 20:53:15
->>>>>>> c138d11ce6ec58ec59016e2bfa172222d4d053b3
+ * @Last Modified time: 2017-06-14 20:18:15
  */
 const express = require('express')
 const http    = require('http')

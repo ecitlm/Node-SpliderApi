@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-06-07 16:22:29 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-13 15:02:40
+ * @Last Modified time: 2017-06-14 20:13:45
  */
 const express = require('express')
 var http = require('http')
@@ -23,7 +23,7 @@ function httpGet(host, data, path, status) {
     console.log("===================HttpGet=====================");
     var options = {
         host: host,
-        port: 8097,
+        port: 80,
         path: path + querystring.stringify(data),
         method: 'GET',
         headers: {
