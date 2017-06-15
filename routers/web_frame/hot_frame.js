@@ -2,14 +2,13 @@
 * @Author: ecitlm
 * @Date:   2017-05-23 17:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-05-26 21:45:59
+ * @Last Modified time: 2017-06-15 22:03:55
 */
 const express = require('express')
 const http    = require('http')
 const cheerio = require("cheerio")
 const app     = express()
 const request = require("request");
-const fs      = require('fs');
 const Iconv   = require('iconv-lite');
 
 
