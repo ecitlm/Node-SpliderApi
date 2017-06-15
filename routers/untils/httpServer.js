@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-06-07 16:22:29 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-14 20:13:45
+ * @Last Modified time: 2017-06-15 21:51:16
  */
 const express = require('express')
 var http = require('http')
@@ -26,6 +26,7 @@ function httpGet(host, data, path, status) {
         port: 80,
         path: path + querystring.stringify(data),
         method: 'GET',
+        encoding: null,
         headers: {
             'Content-Type':'application/json',
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'

@@ -2,11 +2,9 @@
  * @Author: ecitlm 
  * @Date: 2017-05-27 22:53:50 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-14 20:18:51
+ * @Last Modified time: 2017-06-15 21:06:45
  */
 const express = require('express')
-const http    = require('http')
-const cheerio = require("cheerio")
 const app     = express()
 const Server = require('../untils/httpServer.js')
 
