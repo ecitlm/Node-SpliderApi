@@ -2,7 +2,7 @@
 * @Author: ecitlm
 * @Date:   2017-05-23 17:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-16 14:20:02
+ * @Last Modified time: 2017-06-19 10:21:59
 */
 const express = require('express')
 const app = express()
@@ -14,7 +14,6 @@ app.get('/', function (req, res) {
     var path = `/api/3/news/${id}`;
     var data = {}
     //false:http请求  true:https请求
-    console.log(path)
     Server.httpGet(host, data, path, false).then(function (body) {
         res.send({
             msg: "success",
