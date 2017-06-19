@@ -2,7 +2,7 @@
 * @Author: ecitlm
 * @Date:   2017-05-23 17:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-19 10:21:59
+ * @Last Modified time: 2017-06-19 10:23:09
 */
 const express = require('express')
 const app = express()
@@ -29,6 +29,5 @@ app.get('/', function (req, res) {
         console.log(err)
     })
 });
-
 
 module.exports = app;
