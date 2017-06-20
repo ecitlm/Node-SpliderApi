@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-06-19 14:50:54 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-19 15:42:15
+ * @Last Modified time: 2017-06-19 15:48:30
  */
 
 const express = require('express');
@@ -40,6 +40,7 @@ app.use('/classify', classify);
 app.use('/classify_tags_list', classify_tags_list);
 app.use('/list', list);
 app.use('/img_view', img_view);
+
 
 //前端日报
 app.use('/daily_list', daily_list);
