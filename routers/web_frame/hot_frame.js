@@ -1,15 +1,15 @@
 /* 
-* @Author: ecitlm
-* @Date:   2017-05-23 17:59:30
+ * @Author: ecitlm
+ * @Date:   2017-05-23 17:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-15 22:03:55
-*/
+ * @Last Modified time: 2017-06-22 14:06:47
+ */
 const express = require('express')
-const http    = require('http')
+const http = require('http')
 const cheerio = require("cheerio")
-const app     = express()
+const app = express()
 const request = require("request");
-const Iconv   = require('iconv-lite');
+const Iconv = require('iconv-lite');
 
 
 function list(req, res) {
@@ -26,26 +26,26 @@ function list(req, res) {
         encoding: null,
         headers: headers,
 
-    }, function (error, response, body) {
+    }, function(error, response, body) {
         if (response && response.statusCode == 200) {
             var body = Iconv.decode(body, 'utf-8');
             $ = cheerio.load(body);
             var link = []
-            $('.list-group-item').each(function (i,v) {
+            $('.list-group-item').each(function(i, v) {
                 var index = $(this).find('.index').text();
-                var thumb = $(this).find('.cover').attr('src') || $(this).find('.cover').attr('data-original') ;
-                var title=$(this).find('h3').text();
-                var description=$(this).find('p').text();
+                var thumb = $(this).find('.cover').attr('src') || $(this).find('.cover').attr('data-original');
+                var title = $(this).find('h3').text();
+                var description = $(this).find('p').text();
                 var href = $(this).attr('href');
                 var tmp = {
                     index: index,
-                    thumb:thumb,
-                    title:title,
+                    thumb: thumb,
+                    title: title,
                     description: description,
                     url: href
                 };
-                console.log("------------"+i+"-------------")
-                if(i==20){
+                console.log("------------" + i + "-------------")
+                if (i == 20) {
                     return false;
                 }
                 link.push(tmp);
@@ -64,8 +64,7 @@ function list(req, res) {
     });
 
 }
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
     list(req, res)
 });
 module.exports = app;
-
