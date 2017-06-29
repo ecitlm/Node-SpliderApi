@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-06-19 14:50:54 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-29 16:29:51
+ * @Last Modified time: 2017-06-29 17:43:10
  */
 
 const express = require('express');
@@ -69,5 +69,5 @@ app.use('/joke', require('./routers/joke/joke'));
 app.use('/test', require('./routers/untils/test'));
 app.use('/post_test', require('./routers/untils/post_test'));
 app.use(router);
-app.listen(4000);
-console.log(4000);
+app.listen(3000);
+console.log(3000);
