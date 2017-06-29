@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-06-19 14:50:54 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-19 15:48:30
+ * @Last Modified time: 2017-06-29 16:29:51
  */
 
 const express = require('express');
@@ -57,16 +57,17 @@ app.use('/news_list', require('./routers/news_toutiao/news_list'));
 app.use('/news_detail', require('./routers/news_toutiao/news_detail'));
 app.use('/video_list', require('./routers/news_toutiao/video_list'));
 
-
-
-
 //music router
 app.use('/music_list', require('./routers/music/music_list'));
 
 
+//joke
+
+app.use('/joke_pic', require('./routers/joke/joke_pic'));
+app.use('/joke', require('./routers/joke/joke'));
 
 app.use('/test', require('./routers/untils/test'));
 app.use('/post_test', require('./routers/untils/post_test'));
 app.use(router);
-app.listen(3000);
-console.log(3000);
+app.listen(4000);
+console.log(4000);

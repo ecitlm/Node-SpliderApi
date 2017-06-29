@@ -1,20 +1,26 @@
 /*
  * @Author: ecitlm 
- * @Date: 2017-05-27 22:53:50 
+ * @Date: 2017-06-29 16:29:26 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-29 15:07:08
+ * @Last Modified time: 2017-06-29 16:29:50
  */
+
 const express = require('express')
 const app = express()
 const Server = require('../untils/httpServer.js')
 
 app.get('/', function(req, res) {
-    var host = "mobilecdn.kugou.com";
-    var path = "/api/v3/search/song?format=json&keyword=%E8%96%9B%E4%B9%8B%E8%B0%A6&page=3&pagesize=30&showtype=1";
-    var data = req.params
+
+    var host = "api.laifudao.com";
+    var path = `/open/xiaohua.json`;
+    var data = {}
         //false:http请求  true:https请求
     Server.httpGet(host, data, path, false).then(function(body) {
-        res.send(body);
+        res.send({
+            msg: "success",
+            code: 1,
+            data: eval('(' + body + ')')
+        })
 
     }).catch(function(err) {
         res.send({
