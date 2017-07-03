@@ -66,7 +66,6 @@ app.use('/music_list', require('./routers/music/music_list'));
 app.use('/joke_pic', require('./routers/joke/joke_pic'));
 app.use('/joke', require('./routers/joke/joke'));
 
-app.use('/test', require('./routers/untils/test'));
 app.use('/post_test', require('./routers/untils/post_test'));
 app.use(router);
 app.listen(3000);
