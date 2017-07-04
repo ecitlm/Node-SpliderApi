@@ -1,7 +1,9 @@
 ## SpliderApi
 
-基于Node 的一个网络爬虫 API接口
+基于Node+express 的一个网络爬虫 API接口
 包括前端开发日报、知乎日报、前端top框架排行、妹纸福利、搞笑视频、各类视频新闻资讯 热点详情接口数
+
+>接口文档使用的是 $docsify,
 
 <a href="https://ecitlm.github.io/SpliderApi/#/">查看文档</a>
 
