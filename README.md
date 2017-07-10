@@ -32,7 +32,6 @@ $ node app.js
  * @returns 
  */
 function httpGet(host, data, path, status) {
-    console.log("===================HttpGet=====================");
     var options = {
         host: host,
         port: 80,
