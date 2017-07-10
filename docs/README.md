@@ -28,10 +28,10 @@ $ node app.js
  * @param {string} 域名 
  * @param {obj} 参数 
  * @param {string} 接口路径 
- * @param {bool} true false 是否为https
+ * @param {bool} true http 请求 false 是否为https
  * @returns 
  */
-function httpGet(host, data, path, status) {
+function httpGet(GET方式请求)(host, data, path, status) {
     var options = {
         host: host,
         port: 80,
