@@ -5,7 +5,8 @@
 
 >接口文档使用的是 $docsify 生成
 
-<a href="https://ecitlm.github.io/SpliderApi/#/">__查看接口文档__</a>
+
+[查看接口文档:](https://ecitlm.github.io/SpliderApi) https://ecitlm.github.io/SpliderApi
 
 ![node.png](https://sfault-image.b0.upaiyun.com/394/844/3948447900-595b1d19aef6f_articlex)
 
