@@ -2,6 +2,9 @@
 
 基于Node 的一个网络爬虫 API接口
 包括前端开发日报、知乎日报、前端top框架排行、妹纸福利、搞笑视频、各类视频新闻资讯 热点详情接口数
+  <iframe src="https://ghbtns.com/github-btn.html?user=ecitlm&repo=SpliderApi&type=watch&count=true&size=large" frameborder="0"
+                        scrolling="0" width="170" height="30"></iframe>
+
 
 <a href="https://ecitlm.github.io/SpliderApi/#/">查看文档</a>
 
