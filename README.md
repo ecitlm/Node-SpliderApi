@@ -10,6 +10,10 @@
 
 ![apis.png](https://dn-coding-net-production-pp.qbox.me/e15fb746-4fe0-43c1-8517-d2ce33a26456.png)
 
+
+
+__项目目录结构:__
+
 ![node.png](https://sfault-image.b0.upaiyun.com/394/844/3948447900-595b1d19aef6f_articlex)
 
 ### 环境要求
