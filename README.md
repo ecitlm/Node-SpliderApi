@@ -12,6 +12,10 @@
 ### 环境要求
 需要 NodeJS+express
 
+__源码下载__
+
+[GitHub:](https://github.com/ecitlm/SpliderApi) https://github.com/ecitlm/SpliderApi
+
 ### 安装
 ``` shell
 $ git clone https://github.com/ecitlm/SpliderApi.git
