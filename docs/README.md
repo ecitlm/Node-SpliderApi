@@ -6,7 +6,7 @@
   <iframe src="https://ghbtns.com/github-btn.html?user=ecitlm&repo=SpliderApi&type=watch&count=true&size=large" frameborder="0"
                         scrolling="0" width="160" height="30"></iframe>
 			<iframe src="https://ghbtns.com/github-btn.html?user=ecitlm&amp;repo=SpliderApi&amp;type=fork&amp;count=true&amp;size=large"
-                        allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+                        allowtransparency="true" frameborder="0" scrolling="0" width="160" height="30"></iframe>
 <br/>
 <a href="https://ecitlm.github.io/SpliderApi/#/">查看文档</a>
 
