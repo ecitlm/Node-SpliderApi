@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-06-07 16:22:29 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-22 14:06:24
+ * @Last Modified time: 2017-07-18 15:25:24
  */
 const express = require('express')
 var http = require('http')
@@ -73,7 +73,7 @@ function httpPost(host, data, path, status) {
     console.log(data)
     var options = {
             host: host,
-            port: '8097',
+            port: '80',
             path: path,
             method: 'POST',
             headers: {
