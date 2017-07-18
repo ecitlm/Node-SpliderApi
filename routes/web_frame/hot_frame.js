@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-05-23 17:59:30
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-07-18 21:14:05
+ * @Last Modified time: 2017-07-18 22:06:27
  */
 const express = require('express')
 const http = require('http')
@@ -15,7 +15,7 @@ const Iconv = require('iconv-lite');
 function list(req, res) {
     var res = res;
     var req = req;
-    var url = 'http://orz7qm1c9.bkt.clouddn.com/frame.html';
+    var url = 'http://cdn.it919.cn/frame.html';
     var headers = {
         "Connection": "keep-alive",
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36'
@@ -29,7 +29,7 @@ function list(req, res) {
         if (response && response.statusCode == 200) {
             var body = Iconv.decode(body, 'utf-8');
             $ = cheerio.load(body);
-            var link = []
+            var link = [];
             $('.list-item').each(function(i, v) {
                 var index = $(this).find('.scord').text();
                 var thumb = $(this).find('.cover').attr('src').split('?')[0];
@@ -43,10 +43,6 @@ function list(req, res) {
                     description: description,
                     url: href
                 };
-                // console.log("------------" + i + "-------------")
-                // if (i == 20) {
-                //     return false;
-                // }
                 link.push(tmp);
             });
             res.send({
