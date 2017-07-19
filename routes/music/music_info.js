@@ -1,17 +1,20 @@
 /*
  * @Author: ecitlm 
- * @Date: 2017-05-27 22:53:50 
+ * @Date: 2017-07-19 17:11:18 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-07-19 10:41:15
+ * @Last Modified time: 2017-07-19 17:14:14
  */
+
+//音乐详情信息
 const express = require('express')
 const app = express()
 const Server = require('../untils/httpServer.js')
 
 app.get('/', function(req, res) {
-    var host = "mobilecdn.kugou.com";
-    var path = "/api/v3/search/song?format=json&keyword=%E8%96%9B%E4%B9%8B%E8%B0%A6&page=3&pagesize=30&showtype=1";
-    var data = req.params
+    var hash = req.query.hash || "CB7EE97F4CC11C4EA7A1FA4B516A5D97";
+    var host = "m.kugou.com";
+    var path = `/app/i/getSongInfo.php?cmd=playInfo&hash=${hash}`;
+    var data = {}
         //false:http请求  true:https请求
     Server.httpGet(host, data, path, false).then(function(body) {
         res.send(body);

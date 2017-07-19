@@ -1,15 +1,15 @@
 /* 
  * @Author: ecitlm
  * @Date:   2017-05-23 17:59:30
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-07-18 22:06:27
+ * @Last Modified by: ecitlm
+ * @Last Modified time: 2017-07-19 10:16:35
  */
 const express = require('express')
 const http = require('http')
 const cheerio = require("cheerio")
 const app = express()
-const request = require("request");
-const Iconv = require('iconv-lite');
+const request = require("request")
+const Iconv = require('iconv-lite')
 
 
 function list(req, res) {
@@ -35,7 +35,7 @@ function list(req, res) {
                 var thumb = $(this).find('.cover').attr('src').split('?')[0];
                 var title = $(this).find('h4').text();
                 var description = $(this).find('.sdesc').text();
-                var href ="https://github.com/"+$(this).find("a").attr('href').replace("/repo/","");  
+                var href = "https://github.com/" + $(this).find("a").attr('href').replace("/repo/", "");
                 var tmp = {
                     index: index,
                     thumb: thumb,

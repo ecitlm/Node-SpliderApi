@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-07-14 11:38:15 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-07-15 10:17:35
+ * @Last Modified time: 2017-07-19 17:14:50
  */
 
 //排行榜下的音乐列表
@@ -11,7 +11,7 @@ const app = express()
 const Server = require('../untils/httpServer.js')
 
 app.get('/', function(req, res) {
-    var rankid = req.rankid.rankid;
+    var rankid = req.query.rankid;
     if (!rankid) {
         res.send({
             msg: "rankid参数为必填",

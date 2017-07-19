@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-06-19 14:50:54 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-07-14 14:39:41
+ * @Last Modified time: 2017-07-19 10:57:35
  */
 
 const express = require('express');
@@ -16,7 +16,6 @@ app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
     res.header("X-Powered-By", ' 3.2.1');
-    //res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
 
@@ -62,8 +61,8 @@ app.use('/music_list', require('./routes/music/music_list'));
 app.use('/new_songs', require('./routes/music/new_songs'));
 app.use('/rank_list', require('./routes/music/rank_list'));
 app.use('/rank_info_list', require('./routes/music/rank_info_list'));
-
-
+app.use('/plist', require('./routes/music/plist'));
+app.use('/plist_music', require('./routes/music/plist_music'));
 //joke
 app.use('/joke_pic', require('./routes/joke/joke_pic'));
 app.use('/joke', require('./routes/joke/joke'));
