@@ -1,9 +1,9 @@
 /* 
-* @Author: ecitlm
-* @Date:   2017-05-23 17:59:30
+ * @Author: ecitlm
+ * @Date:   2017-05-23 17:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-05-26 21:43:28
-*/
+ * @Last Modified time: 2017-07-19 18:14:22
+ */
 const express = require('express')
 const http = require('http')
 const cheerio = require("cheerio")
@@ -17,17 +17,17 @@ function list(req, res) {
     var res = res;
     var req = req;
     var page = parseInt(req.query.page) || 1;
-    var url = 'http://www.meizitu.com/a/qingchun_3_' + page + '.html';
+    var url = `http://www.meizitu.com/a/qingchun_3_${page}.html`;
     console.log(url)
     request({
         url: url,
         encoding: null
-    }, function (error, response, body) {
+    }, function(error, response, body) {
         var links = [];
         if (response && response.statusCode == 200) {
             var body = Iconv.decode(body, 'gb2312');
             $ = cheerio.load(body);
-            $('.pic a img').each(function () {
+            $('.pic a img').each(function() {
                 var tmp = {
                     img: $(this).attr('src'),
                     title: $(this).attr('alt'),
@@ -53,8 +53,8 @@ function list(req, res) {
 
 }
 
-app.get('/', function (req, res) {
-    if(isNaN(req.query.page)){
+app.get('/', function(req, res) {
+    if (isNaN(req.query.page)) {
         res.send({
             msg: "请正确填写page参数 int类型",
             code: 0,
@@ -64,4 +64,3 @@ app.get('/', function (req, res) {
     list(req, res)
 });
 module.exports = app;
-
