@@ -1,8 +1,8 @@
 /*
  * @Author: ecitlm 
  * @Date: 2017-06-19 14:50:54 
- * @Last Modified by: ecitlm
- * @Last Modified time: 2017-07-19 10:57:35
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2017-07-19 20:26:11
  */
 
 const express = require('express');
@@ -63,6 +63,8 @@ app.use('/rank_list', require('./routes/music/rank_list'));
 app.use('/rank_info_list', require('./routes/music/rank_info_list'));
 app.use('/plist', require('./routes/music/plist'));
 app.use('/plist_music', require('./routes/music/plist_music'));
+app.use('/music_info', require('./routes/music/music_info'));
+
 //joke
 app.use('/joke_pic', require('./routes/joke/joke_pic'));
 app.use('/joke', require('./routes/joke/joke'));

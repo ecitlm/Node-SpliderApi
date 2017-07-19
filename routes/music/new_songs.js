@@ -1,8 +1,8 @@
 /*
  * @Author: ecitlm 
  * @Date: 2017-07-14 10:16:06 
- * @Last Modified by: ecitlm
- * @Last Modified time: 2017-07-14 11:36:01
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2017-07-19 20:18:11
  */
 //音乐新歌榜
 const express = require('express')
@@ -11,7 +11,7 @@ const Server = require('../untils/httpServer.js')
 
 app.get('/', function(req, res) {
     var host = "m.kugou.com";
-    var path = "&json=true";
+    var path = "/?json=true";
     var data = req.params
         //false:http请求  true:https请求
     Server.httpGet(host, data, path, false).then(function(body) {
