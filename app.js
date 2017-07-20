@@ -1,8 +1,8 @@
 /*
  * @Author: ecitlm 
  * @Date: 2017-06-19 14:50:54 
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-07-19 20:26:11
+ * @Last Modified by: ecitlm
+ * @Last Modified time: 2017-07-20 10:09:15
  */
 
 const express = require('express');
@@ -68,6 +68,9 @@ app.use('/music_info', require('./routes/music/music_info'));
 //joke
 app.use('/joke_pic', require('./routes/joke/joke_pic'));
 app.use('/joke', require('./routes/joke/joke'));
+
+//weather
+app.use('/weather', require('./routes/weather/weather'));
 
 app.use('/post_test', require('./routes/untils/post_test'));
 app.use(router);

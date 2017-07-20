@@ -690,3 +690,99 @@ function httpGet(GET方式请求)(host, data, path, status) {
 
 
 
+### 天气预报接口
+说明:获取天气预报数据
+
+#### .1 天气预报数据
+**必选参数:**
+`location` : 城市: 如    `深圳市`  `广州市` <br/>
+
+**接口地址:**
+`/weather?location=深圳市`
+
+**调用例子:**
+
+`http://localhost:3000/weather?location=深圳市`
+
+返回数据如下JSON:
+```javascript
+{
+    "error": 0,
+    "status": "success",
+    "date": "2017-07-20",
+    "results": [
+        {
+            "currentCity": "深圳市",
+            "pm25": "20",
+            "index": [
+                {
+                    "title": "穿衣",
+                    "zs": "炎热",
+                    "tipt": "穿衣指数",
+                    "des": "天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。"
+                },
+                {
+                    "title": "洗车",
+                    "zs": "不宜",
+                    "tipt": "洗车指数",
+                    "des": "不宜洗车，未来24小时内有雨，如果在此期间洗车，雨水和路上的泥水可能会再次弄脏您的爱车。"
+                },
+                {
+                    "title": "感冒",
+                    "zs": "少发",
+                    "tipt": "感冒指数",
+                    "des": "各项气象条件适宜，发生感冒机率较低。但请避免长期处于空调房间中，以防感冒。"
+                },
+                {
+                    "title": "运动",
+                    "zs": "较不宜",
+                    "tipt": "运动指数",
+                    "des": "有较强降水，建议您选择在室内进行健身休闲运动。"
+                },
+                {
+                    "title": "紫外线强度",
+                    "zs": "弱",
+                    "tipt": "紫外线强度指数",
+                    "des": "紫外线强度较弱，建议出门前涂擦SPF在12-15之间、PA+的防晒护肤品。"
+                }
+            ],
+            "weather_data": [
+                {
+                    "date": "周四 07月20日 (实时：30℃)",
+                    "dayPictureUrl": "http://api.map.baidu.com/images/weather/day/zhongyu.png",
+                    "nightPictureUrl": "http://api.map.baidu.com/images/weather/night/zhongyu.png",
+                    "weather": "中雨",
+                    "wind": "无持续风向微风",
+                    "temperature": "32 ~ 25℃"
+                },
+                {
+                    "date": "周五",
+                    "dayPictureUrl": "http://api.map.baidu.com/images/weather/day/dayu.png",
+                    "nightPictureUrl": "http://api.map.baidu.com/images/weather/night/dayu.png",
+                    "weather": "大雨",
+                    "wind": "东风3-4级",
+                    "temperature": "33 ~ 26℃"
+                },
+                {
+                    "date": "周六",
+                    "dayPictureUrl": "http://api.map.baidu.com/images/weather/day/zhongyu.png",
+                    "nightPictureUrl": "http://api.map.baidu.com/images/weather/night/zhongyu.png",
+                    "weather": "小到中雨",
+                    "wind": "东风5-6级",
+                    "temperature": "31 ~ 25℃"
+                },
+                {
+                    "date": "周日",
+                    "dayPictureUrl": "http://api.map.baidu.com/images/weather/day/dayu.png",
+                    "nightPictureUrl": "http://api.map.baidu.com/images/weather/night/leizhenyu.png",
+                    "weather": "大雨转雷阵雨",
+                    "wind": "东南风3-4级",
+                    "temperature": "30 ~ 26℃"
+                }
+            ]
+        }
+    ]
+}
+
+```
+

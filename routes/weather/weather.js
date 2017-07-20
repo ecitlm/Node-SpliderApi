@@ -1,23 +1,31 @@
 /*
  * @Author: ecitlm 
- * @Date: 2017-07-19 17:11:18 
+ * @Date: 2017-07-20 10:06:22 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-07-20 09:58:46
+ * @Last Modified time: 2017-07-20 10:33:40
  */
+//天气预报
 
-//音乐详情信息
 const express = require('express')
 const app = express()
 const Server = require('../untils/httpServer.js')
 
 app.get('/', function(req, res) {
-    var hash = req.query.hash || "CB7EE97F4CC11C4EA7A1FA4B516A5D97";
-    var host = "m.kugou.com";
-    var path = `/app/i/getSongInfo.php?cmd=playInfo&hash=${hash}`;
+    var location = encodeURI(req.query.location);
+    if (!req.query.location) {
+        res.send({
+            msg: "请填写 location 必选参数",
+            code: 0
+        })
+        return false;
+    }
+    var host = "api.map.baidu.com";
+    var path = `/telematics/v3/weather?location=${location}&output=json&ak=32da004455c52b48d84a3a484c0dbc99`;
     var data = {}
         //false:http请求  true:https请求
+    console.log(data)
     Server.httpGet(host, data, path, false).then(function(body) {
-        res.send(body);
+        res.send(body)
 
     }).catch(function(err) {
         res.send({
