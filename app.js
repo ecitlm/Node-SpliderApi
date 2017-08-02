@@ -31,6 +31,7 @@ const one_day_list = require('./routes/web_daily/one_day_list');
 const web_frame = require('./routes/web_frame/hot_frame');
 const zhihu_news = require('./routes/zhihu_daily/zhihu_news');
 const zhihu_news_detail = require('./routes/zhihu_daily/news_detail');
+const juejin_list = require('./routes/juejin/daily_list');
 
 app.use('/', index);
 //图片列表
@@ -73,6 +74,10 @@ app.use('/joke', require('./routes/joke/joke'));
 app.use('/weather', require('./routes/weather/weather'));
 
 app.use('/post_test', require('./routes/untils/post_test'));
+
+//掘金
+app.use('/juejin', juejin_list);
+
 app.use(router);
 app.listen(3000);
 console.log(3000);
