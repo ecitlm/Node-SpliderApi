@@ -196,7 +196,7 @@ function httpGet(host, data, path, status) {
 
 ```
 
-#### 1.4 掘进资讯内容
+#### 1.4 掘进热门资讯内容
 **必选参数:**
 `无`: 
 
