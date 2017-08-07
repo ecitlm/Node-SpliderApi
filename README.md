@@ -166,7 +166,7 @@ function httpGet(host, data, path, status) {
 `date`: 日期 20170522
 
 **接口地址:**
-`//one_day_list?date=20170521`
+`/one_day_list?date=20170521`
 
 **调用例子:**
 `http://localhost:3000/one_day_list?date=20170521`
@@ -194,6 +194,49 @@ function httpGet(host, data, path, status) {
     "code": 1
 }
 
+```
+
+#### 1.4 掘进资讯内容
+**必选参数:**
+`无`: 
+
+**接口地址:**
+`/juejin`
+
+**调用例子:**
+`http://localhost:3000/juejin`
+返回数据(由于长度就展示2条看)如下JSON:
+```javascript
+{
+    "msg": "success",
+    "data": [
+        {
+            "title": "翻译 | 一行 JavaScript 代码的逆向工程",
+            "date": "1小时前",
+            "url": "https://juejin.im/post/5988411251882526185d634a"
+        },
+        {
+            "title": "人人都会写的富文本编辑器",
+            "date": "10小时前",
+            "url": "https://juejin.im/post/5987c4a66fb9a03c5539cfce"
+        },
+        {
+            "title": "基于 Vue.js 的消息气泡插件",
+            "date": "2小时前",
+            "url": "https://juejin.im/post/598832486fb9a03c594587fd"
+        },
+        {
+            "title": "[译] 渐进增强的 CSS 布局：从浮动到 Flexbox 到 Grid",
+            "date": "12小时前",
+            "url": "https://juejin.im/post/5987acfd6fb9a03c502288f3"
+        },
+        {
+            "title": "为什么我的新项目使用 Angular 而不是 Vue",
+            "date": "10小时前",
+            "url": "https://juejin.im/entry/5987c690f265da3e3678c259"
+        },
+    ]
+}
 ```
 
 
