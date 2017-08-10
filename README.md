@@ -88,7 +88,7 @@ function httpGet(host, data, path, status) {
 
 
 
-[menu]
+[OTC]
 
 ### 1.前端开发日报接口
 说明:获取前端开发博客日报列表、推荐列表、单日文章列表数据
