@@ -1,6 +1,6 @@
 /*
- * @Author: ecitlm 
- * @Date: 2017-06-19 14:50:54 
+ * @Author: ecitlm
+ * @Date: 2017-06-19 14:50:54
  * @Last Modified by: ecitlm
  * @Last Modified time: 2017-07-20 10:09:15
  */
@@ -71,6 +71,11 @@ app.use('/joke', require('./routes/joke/joke'));
 
 //weather
 app.use('/weather', require('./routes/weather/weather'));
+
+
+//oschina
+app.use('/osc_project', require('./routes/osc/osc_project'));
+
 
 app.use('/post_test', require('./routes/untils/post_test'));
 app.use(router);

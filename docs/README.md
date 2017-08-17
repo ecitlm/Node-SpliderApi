@@ -30,11 +30,11 @@ $ node app.js
 ```javascript
 /**
  * http get网络请求封装
- * @param {string} 域名 
- * @param {obj} 参数 
- * @param {string} 接口路径 
+ * @param {string} 域名
+ * @param {obj} 参数
+ * @param {string} 接口路径
  * @param {bool} true http 请求 false 是否为https
- * @returns 
+ * @returns
  */
 function httpGet(GET方式请求)(host, data, path, status) {
     var options = {
@@ -192,7 +192,7 @@ function httpGet(GET方式请求)(host, data, path, status) {
 
 #### 2.1 获取前端框架top 100排名
 **必选参数:**
-`无` : 
+`无` :
 
 **接口地址:**
 `/web_frame`
@@ -230,7 +230,7 @@ function httpGet(GET方式请求)(host, data, path, status) {
 
 #### 3.1 每日知乎日报数据
 **必选参数:**
-`无参数` : 
+`无参数` :
 
 **接口地址:**
 `/zhihu_news`
@@ -278,7 +278,7 @@ function httpGet(GET方式请求)(host, data, path, status) {
 ```
 
 ### 4.头条新闻数据
-说明:获取新闻头条分类新闻、新闻详情 
+说明:获取新闻头条分类新闻、新闻详情
 
 #### 4.1 新闻头条新闻列表
 **必选参数:**
@@ -323,7 +323,7 @@ function httpGet(GET方式请求)(host, data, path, status) {
 
 #### 4.2 新闻详情数据
 **必选参数:**
-`item_id` : 新闻类型 <br /> 
+`item_id` : 新闻类型 <br />
 
 **接口地址:**
 `/news_detail?item_id=item_id`
@@ -361,8 +361,8 @@ function httpGet(GET方式请求)(host, data, path, status) {
 #### 4.3   视频数据
 **必选参数:**
 `type` : 类型 <br /> 0搞笑视频  1美女视频  2体育视频  3 新闻现场 4涨姿势  5猎奇  6 黑科技 默认搞笑视频
-<br /> 
- `page` : 分页 如:10/20/30 
+<br />
+ `page` : 分页 如:10/20/30
   <table>
 <tr>
 	<td>type</td>
@@ -404,7 +404,7 @@ function httpGet(GET方式请求)(host, data, path, status) {
 
 #### 5.1   笑话段子
 **必选参数:**
-`无` 
+`无`
 
 **接口地址:**
 `/joke`
@@ -543,7 +543,7 @@ function httpGet(GET方式请求)(host, data, path, status) {
 
 #### 5.2   搞笑图片
 **必选参数:**
-`无` 
+`无`
 
 **接口地址:**
 `/joke_pic`
@@ -555,6 +555,35 @@ function httpGet(GET方式请求)(host, data, path, status) {
 
 ```
 
+### 6.oschina 资讯
+说明:获取前端开发博客日报列表、推荐列表、单日文章列表数据
+
+#### 6.1 软件更新
+**必选参数:**
+`page` : 分页数第几页 <br/> 默认1
+
+**接口地址:**
+`/osc_project?page=1`
+
+**调用例子:**
+`http://localhost:3000/osc_project?page=1`
+
+返回数据(每次返回是10条数据,这里就不全部列出来了)如下图:
+```javascript
+{
+    "msg": "success",
+    "data": [
+        {
+            "title": "IntelliJ IDEA 2017.2.2 发布",
+            "description": "IntelliJ IDEA 2017.2.2 已发布，部分更新内容： IDEA-176666 \"Call Hierarchy\" tab in find usage steals focus IDEA-175921 access visibility inspection: fix global inspection in case of inner classes IDEA-176666 \"Call Hierarchy\" tab in find usage steals focus Bug IDEA-175921 access visibility inspection: fix global inspection in case of inner classes Bug IDEA-174594 100% of one core CPU usage while idle when specific file open and in front Bug IDEA-173669 IOException from get / put / append should set corrupted state for PersistentHashMap Bug IDEA-177146 Orphaned threads running ChooseByNameBase$CalcElementsThread Bug IDEA-176128 2017.2 Can't load project with character \"|\" in its name Cosmetics IDEA-176383 Grammar error on renewal message 更多详情可查看更新日志 下载地址： https://www.jetbrains.com/idea/download/#section=windows",
+            "href": "http://www.oschina.net/news/87791/intellij idea-2017-2-2",
+            "thumb": "http://www.oschina.nethttps://static.oschina.net/uploads/logo/intellij+idea_AIEOh.png",
+            "date": " 2017-08-16"
+        },
+      ]
+    }
+
+```
 
 ### 花瓣APi 接口
 说明:获取美女分类图片集合
@@ -572,7 +601,7 @@ function httpGet(GET方式请求)(host, data, path, status) {
 	<td>36</td>
 	<td>37</td>
 	<td>38</td>
-	<td>39</td>	
+	<td>39</td>
 	<td>40</td>
 
 </tr>
@@ -785,4 +814,3 @@ function httpGet(GET方式请求)(host, data, path, status) {
 }
 
 ```
-
