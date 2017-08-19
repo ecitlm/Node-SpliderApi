@@ -639,6 +639,144 @@ function httpGet(host, data, path, status) {
 
 ```
 
+### 7.酷狗音乐web接口 
+说明:获取酷狗音乐web api接口整理 具体可参看[Kugou-api](https://github.com/ecitlm/Kugou-api)
+
+#### 7.1 音乐新歌榜
+**必选参数:**
+`无` : 
+
+**接口地址:**
+`/new_songs`
+
+**调用例子:**
+`http://localhost:3000//new_songs`
+
+返回数据(每次返回是10条数据,这里就不全部列出来了)如下图:
+```javascript
+
+```
+
+#### 7.2 音乐详情信息
+**必选参数:**
+`hash` :  音乐hsah id 
+
+**接口地址:**
+`/music_info?hash=CB7EE97F4CC11C4EA7A1FA4B516A5D97`
+
+**调用例子:**
+`http://localhost:3000/music_info?hash=CB7EE97F4CC11C4EA7A1FA4B516A5D97`
+
+返回数据如下图:
+```javascript
+{
+    "fileHead": 100,
+    "q": 0,
+    "extra": {
+        "320filesize": 7998693,
+        "sqfilesize": 23222557,
+        "sqhash": "CAC59E48D58853BF40BB6158F2F5B0C5",
+        "128hash": "CB7EE97F4CC11C4EA7A1FA4B516A5D97",
+        "320hash": "47F63F15A7C048829FA796BC7F74E62B",
+        "128filesize": 3198974
+    },
+    "fileSize": 3198974,
+    "hash": "CB7EE97F4CC11C4EA7A1FA4B516A5D97",
+    "choricSinger": "李玉刚",
+    "error": "",
+    "topic_remark": "",
+    "imgUrl": "http://singerimg.kugou.com/uploadpic/softhead/{size}/20140304/20140304154338526832.jpg",
+    "url": "http://fs.open.kugou.com/cf3bcafa721e836250c6a2c4edbf337e/59983d4e/G078/M08/18/17/jg0DAFgi6G-AKqsqADDP_nSW5F4051.mp3",
+    "time": 1503150000,
+    "bitRate": 128,
+    "songName": "刚好遇见你",
+    "req_hash": "CB7EE97F4CC11C4EA7A1FA4B516A5D97",
+    "singerHead": "",
+    "album_img": "http://imge.kugou.com/stdmusic/{size}/20161109/20161109171040932108.jpg",
+    "privilege": 0,
+    "status": 1,
+    "stype": 11323,
+    "singerId": 2018,
+    "singerName": "李玉刚",
+    "ctype": 1009,
+    "fileName": "李玉刚 - 刚好遇见你",
+    "topic_url": "",
+    "intro": "",
+    "mvhash": "C4AFAEFC84A7D1B6B413288377203B38",
+    "extName": "mp3",
+    "errcode": 0,
+    "timeLength": 200
+}
+
+```
+
+
+#### 7.3 音乐排行榜
+
+**必选参数:**
+`无` : 
+
+**接口地址:**
+`/rank_list`
+
+**调用例子:**
+`http://localhost:3000/rank_list`
+
+返回数据如下图:
+```
+```
+
+
+
+
+
+#### 7.4 排行榜下的音乐列表
+
+**必选参数:**
+`rankid` :  `rankid`   8888
+
+**接口地址:**
+`/rank_info_list?rankid=8888`
+
+**调用例子:**
+`http://localhost:3000/rank_info_list?rankid=8888`
+
+返回数据如下图:
+```
+```
+
+
+#### 7.5 音乐歌单
+**必选参数:**
+`无` : 
+
+**接口地址:**
+`/plist`
+
+**调用例子:**
+`http://localhost:3000/plist`
+
+返回数据如下图:
+```
+```
+
+#### 7.5 音乐歌单下的音乐列表
+**必选参数:**
+`specialid` :  specialid  122445
+
+**接口地址:**
+`/plist_music`
+
+**调用例子:**
+`http://localhost:3000/plist_music?specialid=122445`
+
+返回数据如下图:
+```
+```
+
+
+
+
 
 ### 花瓣APi 接口
 说明:获取美女分类图片集合
