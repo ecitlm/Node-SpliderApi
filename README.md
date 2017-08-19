@@ -726,10 +726,6 @@ function httpGet(host, data, path, status) {
 ```
 ```
 
-
-
-
-
 #### 7.4 排行榜下的音乐列表
 
 **必选参数:**
@@ -744,7 +740,6 @@ function httpGet(host, data, path, status) {
 返回数据如下图:
 ```
 ```
-
 
 #### 7.5 音乐歌单
 **必选参数:**
@@ -773,9 +768,6 @@ function httpGet(host, data, path, status) {
 返回数据如下图:
 ```
 ```
-
-
-
 
 
 ### 花瓣APi 接口
