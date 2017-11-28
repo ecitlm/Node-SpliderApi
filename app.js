@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date: 2017-06-19 14:50:54
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-07-20 10:09:15
+ * @Last Modified time: 2017-11-28 17:45:18
  */
 
 const express = require('express');
@@ -32,7 +32,7 @@ const web_frame = require('./routes/web_frame/hot_frame');
 const zhihu_news = require('./routes/zhihu_daily/zhihu_news');
 const zhihu_news_detail = require('./routes/zhihu_daily/news_detail');
 const juejin_list = require('./routes/juejin/daily_list');
-
+const photo = require('./routes/sql/photo');
 app.use('/', index);
 //图片列表
 app.use('/huaban', require('./routes/picture/huaban'));
@@ -40,7 +40,7 @@ app.use('/classify', classify);
 app.use('/classify_tags_list', classify_tags_list);
 app.use('/list', list);
 app.use('/img_view', img_view);
-
+app.use('/photo', photo);
 
 //前端日报
 app.use('/daily_list', daily_list);

@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-05-23 17:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-19 16:19:06
+ * @Last Modified time: 2017-11-28 17:43:34
  */
 const express = require('express')
 const http = require('http')
@@ -17,7 +17,6 @@ function view(req, res) {
     var req = req;
     var id = req.query.id || 1;
     var url = `http://www.meizitu.com/a/${id}.html`;
-
     request({
         url: url,
         encoding: null
