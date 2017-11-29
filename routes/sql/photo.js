@@ -1,8 +1,8 @@
 /* 
  * @Author: ecitlm
  * @Date:   2017-11-28 17:59:30
- * @Last Modified by: ecitlm
- * @Last Modified time: 2017-11-28 23:50:52
+ * @Last Modified by:   ecitlm
+ * @Last Modified time: 2017-11-29 14:47:24
  */
 const express = require('express')
 const http = require('http')
@@ -10,7 +10,22 @@ const cheerio = require("cheerio")
 const app = express()
 const request = require("request");
 const Iconv = require('iconv-lite');
+colors = require('colors'); //控制台彩色输出
 const connection = require('../untils/sql'); //导入mysq配置文件
+
+
+colors.setTheme({
+    silly: 'rainbow',
+    input: 'grey',
+    verbose: 'cyan',
+    prompt: 'grey',
+    info: 'green',
+    data: 'grey',
+    help: 'cyan',
+    warn: 'yellow',
+    debug: 'blue',
+    error: 'red'
+});
 
 //创建一个connection
 connection.connect(function(err) {
@@ -18,7 +33,7 @@ connection.connect(function(err) {
         console.log('[query] - :' + err);
         return;
     }
-    console.log('[connection connect]  succeed!');
+    console.log('数据库链接成功-connection success');
 });
 
 function view(req, res) {
@@ -30,28 +45,31 @@ function view(req, res) {
     //先查询数据库是否有该数据
     var sql = "SELECT  list FROM photo_detail WHERE (id =" + id + ")";
     connection.query(sql, function(err, rows, fields) {
+        console.log("===================================".green)
+        console.log(sql.green); //输出sql语句
+        console.log("===================================".green)
         if (err) {
             console.log('[query] - :' + err);
             return;
         } else {
             console.log(rows[0]);
             if (rows[0]) {
-                console.log("========select  from database 数据库中的数据=====================")
+                console.log("========select data  from database 数据库中的数据=====================".verbose)
                 res.send({
                     msg: "success",
                     data: JSON.parse(rows[0].list),
                     code: 1
                 })
             } else {
-                console.log("===============else===================");
-                // requestApi(res, id);
-                for (var i = 3950; i < 4000; i++) {
+                console.log("===============else splider data form curl===================\n".verbose);
+                requestApi(res, id);
+                /* for (var i = 0; i < 10; i++) {
                     requestApi(res, i);
                     setTimeout(function() {}, 100)
                 }
-
+                */
             }
-            console.log(fields);
+            //console.log(fields); //返回数据库的基本信息、表字段数据长度等
         }
     });
     return false;
@@ -65,12 +83,15 @@ function view(req, res) {
 function insert(links, id) {
     var sql = "INSERT INTO photo_detail (`list`, `id`, `title`, `tag`) VALUES ('" + JSON.stringify(links) + "'," + id + ",'" + title + "','" + tag + "')";
     connection.query(sql, function(err, rows, fields) {
-        console.log(sql);
-        return;
+        console.log("===================================".green)
+        console.log(sql.green); //输出sql语句
+        console.log("===================================".green)
         if (err) {
             console.log('[query] - :' + err);
             return;
         }
+        console.log(`-----------------数据写入成功-success->>>>id:${id}------------------`);
+
     });
 }
 
@@ -94,17 +115,18 @@ function requestApi(res, id) {
                 links.push($(this).attr('src'));
             });
             console.log(links);
-            // res.send({
-            //     msg: "success",
-            //     data: links,
-            //     code: 1
-            // });
-            console.log('-----------------开始插入数据库>>>>id:' + id + '------------------');
+            res.send({
+                msg: "success",
+                data: links,
+                code: 1
+            });
+            console.log('\n-----------------开始写入数据库-start>>>>id:' + id + '------------------');
             insert(links, id, title, tag);
 
         } else {
             res.send({
                 msg: "网络好像有，点问题",
+                data: "",
                 code: 0
             })
         }
@@ -112,7 +134,6 @@ function requestApi(res, id) {
 }
 
 app.get('/', function(req, res) {
-    console.log(req.query.id); //输出index
     view(req, res)
 });
 

@@ -1,8 +1,8 @@
 /* 
  * @Author: ecitlm
  * @Date:   2017-05-23 17:59:30
- * @Last Modified by: ecitlm
- * @Last Modified time: 2017-07-19 18:14:22
+ * @Last Modified by:   ecitlm
+ * @Last Modified time: 2017-11-29 14:25:49
  */
 const express = require('express')
 const http = require('http')
@@ -29,7 +29,7 @@ function list(req, res) {
             $ = cheerio.load(body);
             $('.pic a img').each(function() {
                 var tmp = {
-                    img: $(this).attr('src'),
+                    img:( $(this).attr('src')).replace('mm.howkuai.com','mm.chinasareview.com'),
                     title: $(this).attr('alt'),
                     url: $(this).parent('a').attr('href'),
                     id: parseInt($(this).parent('a').attr('href').replace(/\D/g, ""))

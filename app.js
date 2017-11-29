@@ -1,8 +1,8 @@
 /*
  * @Author: ecitlm
  * @Date: 2017-06-19 14:50:54
- * @Last Modified by: ecitlm
- * @Last Modified time: 2017-11-28 17:45:18
+ * @Last Modified by:   ecitlm
+ * @Last Modified time: 2017-11-29 12:49:57
  */
 
 const express = require('express');
@@ -85,4 +85,4 @@ app.use('/juejin', juejin_list);
 
 app.use(router);
 app.listen(3000);
-console.log(3000);
+console.log("app start success port:3000");
