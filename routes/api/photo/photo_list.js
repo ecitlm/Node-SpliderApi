@@ -1,9 +1,9 @@
 /*
-* @Author: ecitlm
-* @Date:   2017-11-30 22:20:05
-* @Last Modified by:   ecitlm
-* @Last Modified time: 2017-11-30 22:53:08
-*/
+ * @Author: ecitlm
+ * @Date:   2017-11-30 22:20:05
+ * @Last Modified by:   ecitlm
+ * @Last Modified time: 2017-11-30 23:24:17
+ */
 const express = require('express')
 const http = require('http')
 const cheerio = require("cheerio")
@@ -42,12 +42,11 @@ function list(req, res) {
                 code: 200,
                 data: links,
                 msg: ""
-
             })
         } else {
             res.send({
-               code: 404,
-               msg: "网络好像有，点问题"
+                code: 404,
+                msg: "网络好像有，点问题"
             })
         }
     });

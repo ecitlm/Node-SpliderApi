@@ -1,9 +1,9 @@
 /*
-* @Author: ecitlm
-* @Date:   2017-11-30 23:00:03
-* @Last Modified by:   ecitlm
-* @Last Modified time: 2017-11-30 23:02:49
-*/
+ * @Author: ecitlm
+ * @Date:   2017-11-30 23:00:03
+ * @Last Modified by:   ecitlm
+ * @Last Modified time: 2017-11-30 23:24:23
+ */
 colors = require('colors'); //控制台彩色输出
 module.exports = colors.setTheme({
     silly: 'rainbow',

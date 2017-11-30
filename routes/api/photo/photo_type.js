@@ -1,27 +1,26 @@
 /*
-* @Author: ecitlm
-* @Date:   2017-11-30 22:40:46
-* @Last Modified by:   ecitlm
-* @Last Modified time: 2017-11-30 22:45:05
-*/
+ * @Author: ecitlm
+ * @Date:   2017-11-30 22:40:46
+ * @Last Modified by:   ecitlm
+ * @Last Modified time: 2017-11-30 23:24:48
+ */
 const express = require('express')
-const http    = require('http')
+const http = require('http')
 const cheerio = require("cheerio")
-const app     = express()
+const app = express()
 const request = require("request");
-const fs      = require('fs');
-const Iconv   = require('iconv-lite');
+const fs = require('fs');
+const Iconv = require('iconv-lite');
 
-
-
-function regx(str){
+function regx(str) {
     const reg = /\/([^\/]+)\.html/;
     if (reg.test(str)) {
-    return(RegExp.$1);
- }
+        return (RegExp.$1);
+    }
 }
+
 function list(req, res) {
-	console.log("photo_type")
+    console.log("photo_type")
     var res = res;
     var req = req;
     var url = 'http://www.meizitu.com/';
@@ -29,13 +28,13 @@ function list(req, res) {
     request({
         url: url,
         encoding: null
-    }, function (error, response, body) {
+    }, function(error, response, body) {
         var links = [];
         if (response && response.statusCode == 200) {
             var body = Iconv.decode(body, 'gb2312');
             $ = cheerio.load(body);
-           
-            $('.tags a').each(function () {
+
+            $('.tags a').each(function() {
                 var tmp = {
                     title: $(this).text(),
                     id: regx($(this).attr('href'))
@@ -51,16 +50,15 @@ function list(req, res) {
             })
         } else {
             res.send({
-                 code: 404,
-                 msg: "网络好像有，点问题"
+                code: 404,
+                msg: "网络好像有，点问题"
             })
         }
     });
 
 }
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
     list(req, res)
 });
 module.exports = app;
-

@@ -1,9 +1,9 @@
 /*
-* @Author: ecitlm
-* @Date:   2017-11-30 21:33:20
-* @Last Modified by:   ecitlm
-* @Last Modified time: 2017-11-30 23:02:26
-*/
+ * @Author: ecitlm
+ * @Date:   2017-11-30 21:33:20
+ * @Last Modified by:   ecitlm
+ * @Last Modified time: 2017-11-30 23:24:54
+ */
 const express = require('express')
 const http = require('http')
 const cheerio = require("cheerio")
@@ -45,7 +45,7 @@ function view(req, res) {
                 res.send({
                     code: 200,
                     data: JSON.parse(rows[0].list),
-	                msg: ""
+                    msg: ""
 
                 })
             } else {
@@ -99,7 +99,7 @@ function requestApi(res, id) {
             });
             console.log(links);
             res.send({
-            	code: 200,
+                code: 200,
                 data: links,
                 msg: ""
             });
@@ -108,7 +108,7 @@ function requestApi(res, id) {
 
         } else {
             res.send({
-            	code: 404,
+                code: 404,
                 data: "",
                 msg: "网络好像有，点问题"
             })
@@ -117,7 +117,7 @@ function requestApi(res, id) {
 }
 
 app.get('/:id', function(req, res) {
-	console.log(req.params)
+    console.log(req.params)
     view(req, res)
 });
 

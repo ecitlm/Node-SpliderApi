@@ -1,9 +1,9 @@
 /*
-* @Author: ecitlm
-* @Date:   2017-11-30 21:16:16
-* @Last Modified by:   ecitlm
-* @Last Modified time: 2017-11-30 21:16:39
-*/
+ * @Author: ecitlm
+ * @Date:   2017-11-30 21:16:16
+ * @Last Modified by:   ecitlm
+ * @Last Modified time: 2017-11-30 23:25:48
+ */
 var mysql = require('mysql'); //调用MySQL模块
 //创建一个connection
 var connection = mysql.createConnection({
