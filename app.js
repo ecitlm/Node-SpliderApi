@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date: 2017-06-19 14:50:54
  * @Last Modified by:   ecitlm
- * @Last Modified time: 2017-11-29 16:29:37
+ * @Last Modified time: 2017-11-30 14:18:07
  */
 
 const express = require('express');
@@ -33,9 +33,17 @@ const zhihu_news = require('./routes/zhihu_daily/zhihu_news');
 const zhihu_news_detail = require('./routes/zhihu_daily/news_detail');
 const juejin_list = require('./routes/juejin/daily_list');
 const photo = require('./routes/sql/photo');
+const huaban = require('./routes/picture/huaban');
+const news_list = require('./routes/news_toutiao/news_list');
+const news_detail = require('./routes/news_toutiao/news_detail');
+const video_list = require('./routes/news_toutiao/video_list');
+const joke_pic = require('./routes/joke/joke_pic');
+const joke = require('./routes/joke/joke');
+const weather = require('./routes/weather/weather');
+const osc_project = require('./routes/osc/osc_project')
 app.use('/', index);
 //图片列表
-app.use('/huaban', require('./routes/picture/huaban'));
+app.use('/huaban', huaban);
 app.use('/classify', classify);
 app.use('/classify_tags_list', classify_tags_list);
 app.use('/list', list);
@@ -47,15 +55,13 @@ app.use('/daily_list', daily_list);
 app.use('/recommend_list', recommend_list);
 app.use('/one_day_list', one_day_list);
 app.use('/web_frame', web_frame);
-
 //知乎日报
 app.use('/zhihu_news', zhihu_news);
 app.use('/zhihu_news_detail', zhihu_news_detail);
-
 //新闻头条
-app.use('/news_list', require('./routes/news_toutiao/news_list'));
-app.use('/news_detail', require('./routes/news_toutiao/news_detail'));
-app.use('/video_list', require('./routes/news_toutiao/video_list'));
+app.use('/news_list', news_list);
+app.use('/news_detail', news_detail);
+app.use('/video_list', video_list);
 
 //music router
 app.use('/music_list', require('./routes/music/music_list'));
@@ -67,19 +73,13 @@ app.use('/plist_music', require('./routes/music/plist_music'));
 app.use('/music_info', require('./routes/music/music_info'));
 
 //joke
-app.use('/joke_pic', require('./routes/joke/joke_pic'));
-app.use('/joke', require('./routes/joke/joke'));
-
+app.use('/joke_pic', joke_pic);
+app.use('/joke', joke);
 //weather
-app.use('/weather', require('./routes/weather/weather'));
-
-
+app.use('/weather', weather);
 //oschina
-app.use('/osc_project', require('./routes/osc/osc_project'));
-
-
+app.use('/osc_project', osc_project);
 app.use('/post_test', require('./routes/untils/post_test'));
-
 //掘金
 app.use('/juejin', juejin_list);
 

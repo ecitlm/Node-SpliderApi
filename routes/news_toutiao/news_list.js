@@ -1,8 +1,8 @@
 /*
  * @Author: ecitlm 
  * @Date: 2017-05-27 14:52:05 
- * @Last Modified by: ecitlm
- * @Last Modified time: 2017-06-15 21:16:45
+ * @Last Modified by:   ecitlm
+ * @Last Modified time: 2017-11-30 14:21:13
  */
 const express = require('express')
 const app = express()
@@ -47,7 +47,7 @@ app.get('/', function (req, res) {
     var path = path;
     var data = {}
     //false:http请求  true:https请求
-    console.log(path)
+    console.log("m.toutiao.com"+path)
     Server.httpGet(host, data, path, false).then(function (body) {
          res.send({
             msg: "success",
