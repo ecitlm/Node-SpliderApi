@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 22:40:46
  * @Last Modified by:   ecitlm
- * @Last Modified time: 2017-11-30 23:24:48
+ * @Last Modified time: 2017-11-30 23:33:23
  */
 const express = require('express')
 const http = require('http')
@@ -51,7 +51,7 @@ function list(req, res) {
         } else {
             res.send({
                 code: 404,
-                msg: "网络好像有，点问题"
+                msg: "网络好像有点问题"
             })
         }
     });

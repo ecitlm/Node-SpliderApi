@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 22:20:05
  * @Last Modified by:   ecitlm
- * @Last Modified time: 2017-11-30 23:24:17
+ * @Last Modified time: 2017-11-30 23:29:58
  */
 const express = require('express')
 const http = require('http')
@@ -37,6 +37,7 @@ function list(req, res) {
                 }
                 links.push(tmp);
             });
+            console.log(links);
             console.log('-----------------------------splider success-----------------------------');
             res.send({
                 code: 200,
