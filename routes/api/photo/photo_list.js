@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 22:20:05
  * @Last Modified by:   ecitlm
- * @Last Modified time: 2017-11-30 23:29:58
+ * @Last Modified time: 2017-12-01 15:50:28
  */
 const express = require('express')
 const http = require('http')
@@ -39,6 +39,10 @@ function list(req, res) {
             });
             console.log(links);
             console.log('-----------------------------splider success-----------------------------');
+            /*        fs.writeFile(`./download/${page}.json`, JSON.stringify(links), function(err) {
+                        if (err) throw err;
+                        console.log('文件写入成功');
+                    });*/
             res.send({
                 code: 200,
                 data: links,

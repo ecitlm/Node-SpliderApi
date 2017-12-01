@@ -1,25 +1,34 @@
 /*
  * @Author: ecitlm
- * @Date:   2017-11-30 23:12:53
+ * @Date:   2017-12-01 09:34:53
  * @Last Modified by:   ecitlm
- * @Last Modified time: 2017-12-01 09:52:45
+ * @Last Modified time: 2017-12-01 09:52:27
  */
-//音乐排行榜
+
+//排行榜下的音乐列表
 const express = require('express')
 const app = express()
 const Server = require('../../../utils/httpServer')
 
-app.get('/', function(req, res) {
+app.get('/:rankid', function(req, res) {
+    var rankid = req.params.rankid;
     var host = "m.kugou.com";
-    var path = "/rank/list&json=true";
+    var path = `/rank/info/${rankid}&json=true`;
     var data = {}
     //false:http请求  true:https请求
     Server.httpGet(host, data, path, false).then(function(body) {
+        var body = JSON.parse(body);
+        var result = {
+            "info": body['info'],
+            "songs": body['songs'],
+            "pagesize": body['pagesize']
+        }
         res.send({
             code: 200,
-            data: JSON.parse(body)['rank'],
+            data: result,
             msg: ""
         })
+
     }).catch(function(err) {
         res.send({
             code: 404,
