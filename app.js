@@ -18,6 +18,7 @@ const index = require('./routes/web/index');
 const photo_type = require('./routes/api/photo/photo_type');
 const photo_list = require('./routes/api/photo/photo_list');
 const photo_view = require('./routes/api/photo/photo_view');
+const huaban = require('./routes/api/photo/huaban');
 //音樂
 const plist = require('./routes/api/music/plist');
 const plist_songs = require('./routes/api/music/plist_songs');
@@ -30,10 +31,17 @@ const singer_classify = require('./routes/api/music/singer_classify');
 const singer_list = require('./routes/api/music/singer_list');
 const singer_info = require('./routes/api/music/singer_info');
 const music_search = require('./routes/api/music/search');
+const web_frame = require('./routes/api/it/web_frame');
+const daily_list = require('./routes/api/it/daily_list');
+const daily_info = require('./routes/api/it/daily_info');
+const joke_list = require('./routes/api/joke/joke_list');
+const joke_img = require('./routes/api/joke/joke_img');
 
 
 app.use('/', index);
 app.use('/api/photo_type', photo_type);
+app.use('/api/huaban', huaban);
+
 app.use('/api/photo_list', photo_list);
 app.use('/api/photo_view', photo_view);
 app.use('/api/rank_list', rank_list);
@@ -47,6 +55,12 @@ app.use('/api/singer_classify', singer_classify);
 app.use('/api/singer_list', singer_list);
 app.use('/api/singer_info', singer_info);
 app.use('/api/music_search', music_search);
+
+app.use('/api/web_frame', web_frame);
+app.use('/api/daily_list', daily_list);
+app.use('/api/daily_info', daily_info);
+app.use('/api/joke_list', joke_list);
+app.use('/api/joke_img', joke_img);
 
 app.use(router);
 app.listen(3001);
