@@ -63,7 +63,7 @@ app.use('/api/joke_list', joke_list);
 app.use('/api/joke_img', joke_img);
 
 app.use(router);
-app.listen(3001);
+//app.listen(3001);
 console.log("app start success port:3001");
 
 
