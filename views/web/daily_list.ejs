@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="ecitlm">
+    <meta name="Author" content="ecitlm">
+    <meta name="Keywords" content="ecitlm">
+    <meta name="Description" content="ecitlm">
+    <title>前端日报</title>
+</head>
+
+<body>
+    <h3>前端日报</h3>
+    <ul>
+        <%for(var i=0;i<data.length;i++){%>
+            <li>
+                <p> <%= data[i]['title']%></p>
+                <p> <%= data[i]['des']%></p>
+                 <img src="<%= data[i]['url']%>">
+            </li>
+        <%}%>
+    </ul>
+</body>
+
+</html>

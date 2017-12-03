@@ -17,12 +17,14 @@
   },
   "devDependencies": {
     "async": "^2.6.0",
+    "axios": "^0.17.1",
     "cheerio": "^1.0.0-rc.2",
     "colors": "^1.1.2",
     "fs": "^0.0.1-security",
     "iconv-lite": "^0.4.19",
     "md5": "^2.2.1",
     "mkdirp": "^0.5.1",
+    "qs": "^6.5.1",
     "request": "^2.83.0"
   }
 }

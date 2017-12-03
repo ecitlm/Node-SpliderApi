@@ -4,9 +4,13 @@ const app = express();
 const router = express.Router();
 //const routerConfig=require('./config/routes');
 //const filter = require('./utils/filter_sign')
+//
+var path = require('path');
+app.use('/public', express.static('public'));//设置静态资源地址
 
 
 app.all('*', function(req, res, next) {
+	console.log(req.path)
      res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
@@ -62,8 +66,14 @@ app.use('/api/daily_info', daily_info);
 app.use('/api/joke_list', joke_list);
 app.use('/api/joke_img', joke_img);
 
+
+
+//web
+const web_daily = require('./routes/web/daily_list');
+app.use('/web/daily_list', web_daily);
+
 app.use(router);
-//app.listen(3001);
+app.listen(3001);
 console.log("app start success port:3001");
 
 
