@@ -2,14 +2,15 @@
  * @Author: ecitlm
  * @Date:   2017-12-01 22:00:20
  * @Last Modified by:   ecitlm
- * @Last Modified time: 2017-12-01 22:49:05
+ * @Last Modified time: 2017-12-04 22:57:16
  */
 
 const express = require('express');
 const app = express();
 const Server = require('../../../utils/httpServer');
-
-
+const async=require('async')
+const fs=require('fs')
+const request=require('request')
 function MathRand() {
     var Num = "";
     for (var i = 0; i < 8; i++) {
@@ -23,20 +24,30 @@ app.get('/', function(req, res) {
     var host = "huaban.com";
     var random = MathRand();
     console.log(MathRand())
-    var path = `/favorite/beauty?jao0fn1x&max=11${random}&limit=30&wfl=1`;
+    var path = `/favorite/beauty?jao0fn1x&max=21${random}&limit=50&wfl=1`;
     var data = {}
     //false:http请求  true:https请求
     Server.ajaxGet(host, data, path, false).then(function(body) {
         var list = JSON.parse(body)['pins'];
+        console.log(list)
         var arr = [];
         for (var i in list) {
             arr.push({
                 "url": "http://img.hb.aicdn.com/" + list[i]['file']['key'],
+                "file": list[i]['file']['key'],
                 "title": list[i]['board']['title'],
                 'desc': list[i]['board']['description'],
                 'like': list[i]['like_count']
             })
         }
+
+        var dir="C:/Users/Administrator/Desktop/img";
+        async.mapSeries(arr, function(item, callback) {
+            console.log(item.url)
+            download(item.url, dir,  item.file+ ".png");
+            console.log("-------------正在下载图片-------------")
+            callback(null, item);
+        }, function(err, results) {});
 
         res.send({
             code: 200,
@@ -52,4 +63,10 @@ app.get('/', function(req, res) {
     })
 });
 
+//文件下载
+var download = function(url, dir, filename) {
+    request.head(url, function(err, res, body) {
+        request(url).pipe(fs.createWriteStream(dir + "/" + filename));
+    });
+};
 module.exports = app;
