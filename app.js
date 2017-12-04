@@ -70,7 +70,9 @@ app.use('/api/joke_img', joke_img);
 
 //web
 const web_daily = require('./routes/web/daily_list');
+const web_daily_info = require('./routes/web/daily_info');
 app.use('/web/daily_list', web_daily);
+app.use('/web/daily_info', web_daily_info);
 
 app.use(router);
 app.listen(3001);

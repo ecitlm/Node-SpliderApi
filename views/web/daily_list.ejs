@@ -7,20 +7,49 @@
     <meta name="Author" content="ecitlm">
     <meta name="Keywords" content="ecitlm">
     <meta name="Description" content="ecitlm">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css-v=3.3.5.css">
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/public/css/animate.min.css" rel="stylesheet">
+    <link href="/public/css/style.min.css-v=4.0.0.css" rel="stylesheet">
     <title>前端日报</title>
 </head>
 
-<body>
-    <h3>前端日报</h3>
-    <ul>
-        <%for(var i=0;i<data.length;i++){%>
-            <li>
-                <p> <%= data[i]['title']%></p>
-                <p> <%= data[i]['des']%></p>
-                 <img src="<%= data[i]['url']%>">
-            </li>
-        <%}%>
-    </ul>
+<body class="gray-bg top-navigation">
+    <div class="wrapper   animated fadeInRight blog container">
+        <div class="row">
+            <div class="col-lg-12">
+                <%for(var i=0;i<data.length;i++){%>
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <a href="/web/daily_info/<%=data[i]['id'] %>" class="btn-link" target="_blank">
+                                <h2>
+                                    <%= data[i]['title']%>
+                                </h2>
+                            </a>
+                            <div class="small m-b-xs">
+                                <strong>李 谋</strong> <span class="text-muted"><i class="fa fa-clock-o"></i>  7 小时前</span>
+                            </div>
+                            <p>
+                                <%= data[i]['description']%>
+                            </p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>标签：</h5>
+                                    <button class="btn btn-primary btn-xs" type="button">前端开发</button>
+                                    <button class="btn btn-primary btn-xs" type="button">web</button>
+                                     <button class="btn btn-primary btn-xs" type="button">javascript</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%}%>
+            </div>
+        </div>
+    </div>
+    <script src="/public/js/jquery.min.js-v=2.1.4.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
 </body>
 
 </html>
