@@ -45,7 +45,6 @@ const joke_img = require('./routes/api/joke/joke_img');
 app.use('/', index);
 app.use('/api/photo_type', photo_type);
 app.use('/api/huaban', huaban);
-
 app.use('/api/photo_list', photo_list);
 app.use('/api/photo_view', photo_view);
 app.use('/api/rank_list', rank_list);
@@ -59,14 +58,11 @@ app.use('/api/singer_classify', singer_classify);
 app.use('/api/singer_list', singer_list);
 app.use('/api/singer_info', singer_info);
 app.use('/api/music_search', music_search);
-
 app.use('/api/web_frame', web_frame);
 app.use('/api/daily_list', daily_list);
 app.use('/api/daily_info', daily_info);
 app.use('/api/joke_list', joke_list);
 app.use('/api/joke_img', joke_img);
-
-
 
 //web
 const web_daily = require('./routes/web/daily_list');
