@@ -15,8 +15,13 @@
     <link rel="stylesheet" type="text/css" href="/public/css/blueimp/css/blueimp-gallery.min.css">
         <style>
         .lightBoxGallery img {
-            margin: 5px;
+            margin: 3px;
             width: 170px;
+            max-width: 170px;
+            width: 46%;
+        }
+        .wrapper{
+            padding: 0 0;
         }
     </style>
 
@@ -32,8 +37,8 @@
                         <div class="lightBoxGallery">
 
                         <%for(var i=0;i<data.length;i++){%>
-                            <a href="https://wxapp.it919.cn/?service=common.huaban&imgurl=<%= data[i]['file']%>"  title="<%= data[i]['title']%>" data-gallery="">
-                            	<img src="https://wxapp.it919.cn/?service=common.huaban&imgurl=<%= data[i]['file']%>">
+                            <a href="http://p0fy79s6b.bkt.clouddn.com/<%= data[i]['file']%>.png"  title="<%= data[i]['title']%>" data-gallery="">
+                            	<img src="http://p0fy79s6b.bkt.clouddn.com/<%= data[i]['file']%>.png">
                             </a>
                           <%}%>
 
