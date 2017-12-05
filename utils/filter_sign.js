@@ -1,12 +1,12 @@
 /*
  * @Author: ecitlm
  * @Date:   2017-12-01 11:23:08
- * @Last Modified by:   ecitlm
- * @Last Modified time: 2017-12-01 13:01:10
+ * @Last Modified by: ecitlm
+ * @Last Modified time: 2017-12-05 21:21:00
  */
 'use strict';
-const md5 = require('md5')
-const appkey = "nodeapliderapi"
+const md5 = require('md5');
+const appkey = 'nodeapliderapi';
 
 /**
  * [Exception_BadRequest 抛出异常请求错误]
@@ -16,33 +16,31 @@ const appkey = "nodeapliderapi"
 function Exception_BadRequest(msg, res) {
     res.send({
         code: 2,
-        msg: msg
+        msg: msg,
     });
     return false;
 }
-
 
 /**
  *  将参数按照字典排序等到签名sign
  * @param {object} params  参数集合
  */
-var getSign = (params) => {
+var getSign = params => {
     for (var key in params) {
         if (!params[key]) {
-            delete params[key]
-        };
+            delete params[key];
+        }
     }
     var keyArr = Object.keys(params).sort();
     var newObj = {};
-    var Kstr = "";
+    var Kstr = '';
     for (var i = 0; i < keyArr.length; i++) {
         newObj[keyArr[i]] = params[keyArr[i]];
-        Kstr += keyArr[i] + "=" + params[keyArr[i]];
+        Kstr += keyArr[i] + '=' + params[keyArr[i]];
     }
     Kstr = Kstr + appkey;
     return md5(Kstr);
-}
-
+};
 
 /**
  * [simpleFilter 接口请求校验]
@@ -54,16 +52,16 @@ function simpleFilter(req, res) {
     params.sign = req.query.sign;
     params.times = req.query.times;
     if (!params.sign) {
-        Exception_BadRequest("缺少参数sign", res);
+        Exception_BadRequest('缺少参数sign', res);
         return false;
     }
     if (!params.times) {
-        Exception_BadRequest("缺少参数times", res);
+        Exception_BadRequest('缺少参数times', res);
         return false;
     }
     return true;
 }
 
 module.exports = {
-    simpleFilter
-}
+    simpleFilter,
+};

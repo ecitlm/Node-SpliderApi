@@ -24,18 +24,25 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
                         <h2>
-                         <span class="text-navy"><%= data.title%></span>
-                      
-                    </h2>
-                     <%for(var i=0;i<(data.links).length;i++){%>
-                        <div class="hr-line-dashed"></div>
-                        <div class="search-result">
-                            <h3><a href="<%=data['links'][i]['url'] %>" target="_blank" class="text-navy"><%=data['links'][i]['title'] %></a></h3>
-                            <a href="<%=data['links'][i]['url'] %>" target="_blank" class="search-link "><%=data['links'][i]['url'] %></a>
-                            <p>
-                                    <%= data['links'][i]['description']%> </p>
-                        </div>
-                        <%}%>
+                            <span class="text-navy"><%= data.title%></span>
+
+                        </h2>
+                        <%for(var i=0;i<(data.links).length;i++){%>
+                            <div class="hr-line-dashed"></div>
+                            <div class="search-result">
+                                <h3>
+                                    <a href="<%=data['links'][i]['url'] %>" target="_blank" class="text-navy">
+                                        <%=data['links'][i]['title'] %>
+                                    </a>
+                                </h3>
+                                <a href="<%=data['links'][i]['url'] %>" target="_blank" class="search-link ">
+                                    <%=data['links'][i]['url'] %>
+                                </a>
+                                <p>
+                                    <%= data['links'][i]['description']%>
+                                </p>
+                            </div>
+                            <%}%>
                     </div>
                 </div>
             </div>

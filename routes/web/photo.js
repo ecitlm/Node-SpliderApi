@@ -1,9 +1,9 @@
 /*
-* @Author: ecitlm
-* @Date:   2017-12-04 21:34:09
-* @Last Modified by:   ecitlm
-* @Last Modified time: 2017-12-04 21:36:54
-*/
+ * @Author: ecitlm
+ * @Date:   2017-12-04 21:34:09
+ * @Last Modified by: ecitlm
+ * @Last Modified time: 2017-12-05 21:20:53
+ */
 'use strict';
 var express = require('express');
 var app = express();
@@ -15,15 +15,17 @@ app.set('view engine', 'ejs'); //设置模板扩展名后缀自动添加
 app.set('views', './views/web'); //设置模板路径
 app.get('/', function(req, res) {
     var date = parseInt(req.params.date);
-    myajax.get("/api/huaban/", {}).then(function(response) {
-        res.render('photo', {
-            title: 'blog',
-            data: response['data']
+    myajax
+        .get('/api/huaban/', {})
+        .then(function(response) {
+            res.render('photo', {
+                title: 'blog',
+                data: response['data'],
+            });
+        })
+        .catch(function(err) {
+            console.log(err);
         });
-    }).catch(function(err) {
-        console.log(err)
-    })
-
 });
 
 module.exports = app;

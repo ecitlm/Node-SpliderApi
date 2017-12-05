@@ -1,8 +1,8 @@
 /*
  * @Author: ecitlm
  * @Date:   2017-12-04 09:16:11
- * @Last Modified by:   ecitlm
- * @Last Modified time: 2017-12-04 14:03:27
+ * @Last Modified by: ecitlm
+ * @Last Modified time: 2017-12-05 21:20:43
  */
 
 'use strict';
@@ -16,15 +16,17 @@ app.set('view engine', 'ejs'); //设置模板扩展名后缀自动添加
 app.set('views', './views/web'); //设置模板路径
 app.get('/:date', function(req, res) {
     var date = parseInt(req.params.date);
-    myajax.get("/api/daily_info/" + date, {}).then(function(response) {
-        res.render('daily_info', {
-            title: 'blog',
-            data: response['data']
+    myajax
+        .get('/api/daily_info/' + date, {})
+        .then(function(response) {
+            res.render('daily_info', {
+                title: 'blog',
+                data: response['data'],
+            });
+        })
+        .catch(function(err) {
+            console.log(err);
         });
-    }).catch(function(err) {
-        console.log(err)
-    })
-
 });
 
 module.exports = app;

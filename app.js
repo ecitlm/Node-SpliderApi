@@ -6,15 +6,14 @@ const router = express.Router();
 //const filter = require('./utils/filter_sign')
 //
 var path = require('path');
-app.use('/public', express.static('public'));//设置静态资源地址
-
+app.use('/public', express.static('public')); //设置静态资源地址
 
 app.all('*', function(req, res, next) {
-	console.log(req.path)
-     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-    res.header("X-Powered-By", ' 3.2.1');
+    console.log(req.path);
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+    res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
+    res.header('X-Powered-By', ' 3.2.1');
     next();
 });
 
@@ -40,7 +39,6 @@ const daily_list = require('./routes/api/it/daily_list');
 const daily_info = require('./routes/api/it/daily_info');
 const joke_list = require('./routes/api/joke/joke_list');
 const joke_img = require('./routes/api/joke/joke_img');
-
 
 app.use('/', index);
 app.use('/api/photo_type', photo_type);
@@ -74,7 +72,6 @@ app.use('/web/photo', web_photo);
 
 app.use(router);
 app.listen(3001);
-console.log("app start success port:3001");
-
+console.log('app start success port:3001');
 
 module.exports = app;

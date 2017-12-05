@@ -1,8 +1,8 @@
 /*
  * @Author: ecitlm
  * @Date:   2017-11-30 21:16:16
- * @Last Modified by:   ecitlm
- * @Last Modified time: 2017-11-30 23:25:48
+ * @Last Modified by: ecitlm
+ * @Last Modified time: 2017-12-05 21:21:35
  */
 var mysql = require('mysql'); //调用MySQL模块
 //创建一个connection
@@ -12,8 +12,7 @@ var connection = mysql.createConnection({
     password: '',
     port: '3306',
     database: 'blog_cms',
-    charset: 'UTF8_GENERAL_CI'
+    charset: 'UTF8_GENERAL_CI',
 });
 
-
-module.exports = connection
+module.exports = connection;
