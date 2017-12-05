@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-12-01 22:00:20
  * @Last Modified by:   ecitlm
- * @Last Modified time: 2017-12-05 15:12:23
+ * @Last Modified time: 2017-12-05 16:54:10
  */
 
 const express = require('express');
@@ -19,6 +19,7 @@ function MathRand() {
     }
     return Num;
 }
+
 
 app.get('/', function(req, res) {
     var host = "huaban.com";
