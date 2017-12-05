@@ -13,10 +13,10 @@
     <link href="/public/css/animate.min.css" rel="stylesheet">
     <link href="/public/css/style.min.css-v=4.0.0.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/public/css/blueimp/css/blueimp-gallery.min.css">
+    <link href="/public/favicon.ico" rel="icon" type="image/x-icon">
         <style>
         .lightBoxGallery img {
             margin: 3px;
-            width: 170px;
             max-width: 170px;
             width: 46%;
         }
@@ -38,7 +38,7 @@
 
                         <%for(var i=0;i<data.length;i++){%>
                             <a href="http://p0fy79s6b.bkt.clouddn.com/<%= data[i]['file']%>.png"  title="<%= data[i]['title']%>" data-gallery="">
-                            	<img src="http://p0fy79s6b.bkt.clouddn.com/<%= data[i]['file']%>.png">
+                            	<img src="http://p0fy79s6b.bkt.clouddn.com/<%= data[i]['file']%>.png?imageView2/3/w/200/h/200/q/75|imageslim">
                             </a>
                           <%}%>
 
