@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 22:40:46
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-05 21:20:34
+ * @Last Modified time: 2017-12-06 17:34:50
  */
 const express = require('express');
 const http = require('http');
@@ -42,9 +42,6 @@ function list(req, res) {
                     };
                     links.push(tmp);
                 });
-                console.log(
-                    '-----------------------------success-----------------------------'
-                );
                 console.log(links);
                 res.send({
                     code: 200,
