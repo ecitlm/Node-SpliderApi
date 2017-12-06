@@ -1,3 +1,9 @@
+/*
+ * @Author: ecitlm 
+ * @Date: 2017-12-06 16:20:03 
+ * @Last Modified by:   ecitlm 
+ * @Last Modified time: 2017-12-06 16:20:03 
+ */
 const express = require('express');
 const http = require('http');
 const app = express();
@@ -7,10 +13,9 @@ const router = express.Router();
 //
 var path = require('path');
 app.use('/public', express.static('public')); //设置静态资源地址
-
+app.use('/docs', express.static('docs')); //设置静态资源地址
 app.all('*', function(req, res, next) {
-    console.log(req.path);
-    res.header('Access-Control-Allow-Origin', '*');
+    //res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With');
     res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
     res.header('X-Powered-By', ' 3.2.1');
@@ -39,6 +44,7 @@ const daily_list = require('./routes/api/it/daily_list');
 const daily_info = require('./routes/api/it/daily_info');
 const joke_list = require('./routes/api/joke/joke_list');
 const joke_img = require('./routes/api/joke/joke_img');
+const joke_photo = require('./routes/api/joke/joke_photo');
 const news_list = require('./routes/api/news/news_list');
 const video_list = require('./routes/api/news/video_list');
 const news_detail = require('./routes/api/news/news_detail');
@@ -63,7 +69,7 @@ app.use('/api/daily_list', daily_list);
 app.use('/api/daily_info', daily_info);
 app.use('/api/joke_list', joke_list);
 app.use('/api/joke_img', joke_img);
-
+app.use('/api/joke_photo', joke_photo);
 
 app.use('/api/news_list', news_list);
 app.use('/api/video_list', video_list);
