@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-12-06 22:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-06 11:49:10
+ * @Last Modified time: 2017-12-06 21:27:10
  */
 const express = require('express')
 const http = require('http')
@@ -42,13 +42,15 @@ app.get('/:type/:page', function(req, res) {
 
     var host = "c.m.163.com";
     var path = `/nc/video/list/${id}/y/${page}-20.html`;
+    console.log(path)
     var data = {}
         //false:http请求  true:https请求
     console.log(path)
     Server.httpGet(host, data, path, false).then(function(body) {
+        var arr = JSON.parse(body)
         res.send({
             code: 200,
-            data: JSON.parse(body)[id],
+            data: arr[id],
             msg: "",
         })
 

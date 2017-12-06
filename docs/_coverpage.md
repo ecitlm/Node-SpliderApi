@@ -8,4 +8,4 @@
 - 新闻头条新闻热点、笑话段子，搞笑图片、搞笑视频 API,知乎日报数据,kugou音乐数据API、天气预报
 
 [GitHub](https://github.com/ecitlm/Node-SpliderApi)
-[Get Started](?id=spliderapi)
+[Get Started](?id=splderapi2)

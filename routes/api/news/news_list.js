@@ -2,14 +2,14 @@
  * @Author: ecitlm
  * @Date:   2017-12-06 21:41:02
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-06 11:43:02
+ * @Last Modified time: 2017-12-06 21:15:04
  */
 const express = require('express')
 const app = express()
 const Server = require('../../../utils/httpServer');
 
-app.get('/', function(req, res) {
-    var type = parseInt(req.query.type) || 0;
+app.get('/:type', function(req, res) {
+    var type = parseInt(req.query.type);
     var path;
     //0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文 散文 5科技 6 财经 7 时尚
     switch (type) {

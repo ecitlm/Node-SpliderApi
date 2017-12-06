@@ -2,14 +2,14 @@
  * @Author: ecitlm
  * @Date:   2017-12-05 20:59:30
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-06 11:53:14
+ * @Last Modified time: 2017-12-06 21:18:01
  */
 const express = require('express')
 const app = express()
 const Server = require('../../../utils/httpServer');
 
-app.get('/', function(req, res) {
-    var item_id = req.query.item_id || "6424603234748334594";
+app.get('/:item_id', function(req, res) {
+    var item_id = req.params.item_id || "6424603234748334594";
     var host = "m.toutiao.com";
     var path = `/i${item_id}/info/`;
     var data = {}
