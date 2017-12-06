@@ -39,7 +39,9 @@ const daily_list = require('./routes/api/it/daily_list');
 const daily_info = require('./routes/api/it/daily_info');
 const joke_list = require('./routes/api/joke/joke_list');
 const joke_img = require('./routes/api/joke/joke_img');
-
+const news_list = require('./routes/api/news/news_list');
+const video_list = require('./routes/api/news/video_list');
+const news_detail = require('./routes/api/news/news_detail');
 app.use('/', index);
 app.use('/api/photo_type', photo_type);
 app.use('/api/huaban', huaban);
@@ -61,6 +63,11 @@ app.use('/api/daily_list', daily_list);
 app.use('/api/daily_info', daily_info);
 app.use('/api/joke_list', joke_list);
 app.use('/api/joke_img', joke_img);
+
+
+app.use('/api/news_list', news_list);
+app.use('/api/video_list', video_list);
+app.use('/api/news_detail', news_detail);
 
 //web
 const web_daily = require('./routes/web/daily_list');
