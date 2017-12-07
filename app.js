@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-12-06 16:20:03 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-07 15:02:44
+ * @Last Modified time: 2017-12-07 22:50:22
  */
 const express = require('express')
 const http = require('http')
@@ -29,6 +29,7 @@ const photo_type = require('./routes/api/photo/photo_type')
 const photo_list = require('./routes/api/photo/photo_list')
 const photo_view = require('./routes/api/photo/photo_view')
 const huaban = require('./routes/api/photo/huaban')
+const jandan = require('./routes/api/photo/jandan')
     // 音樂
 const plist = require('./routes/api/music/plist')
 const plist_songs = require('./routes/api/music/plist_songs')
@@ -51,6 +52,7 @@ const news_list = require('./routes/api/news/news_list')
 const video_list = require('./routes/api/news/video_list')
 const news_detail = require('./routes/api/news/news_detail')
 const job_list = require('./routes/api/job/job_list')
+
 app.use('/', index)
 app.use('/api/photo_type', photo_type)
 app.use('/api/huaban', huaban)
@@ -73,6 +75,7 @@ app.use('/api/daily_info', daily_info)
 app.use('/api/joke_list', joke_list)
 app.use('/api/joke_img', joke_img)
 app.use('/api/joke_photo', joke_photo)
+app.use('/api/jandan', jandan)
 
 app.use('/api/news_list', news_list)
 app.use('/api/video_list', video_list)
@@ -83,6 +86,7 @@ app.use('/api/job_list', job_list)
 const web_daily = require('./routes/web/daily_list')
 const web_daily_info = require('./routes/web/daily_info')
 const web_photo = require('./routes/web/photo.js')
+
 app.use('/web/daily_list', web_daily)
 app.use('/web/daily_info', web_daily_info)
 app.use('/web/photo', web_photo)
