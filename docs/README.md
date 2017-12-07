@@ -12,7 +12,7 @@ __[地址](https://github.com/ecitlm/Node-SpliderApi/tree/splider2)__
 <br/>
 <a href="https://ecitlm.github.io/SpliderApi/#/">查看文档</a>
 
-![project.png](https://i.loli.net/2017/12/06/5a2774d83e4d7.png)
+![project.png](https://i.loli.net/2017/12/07/5a28ea5c3468d.png)
 
 
 ### 环境要求
@@ -603,6 +603,27 @@ __接口返回数据__
 
 **调用例子:**
 `http://localhost:3001/api/new_songs`
+
+
+__接口返回数据__
+
+
+###  5 job工作搜索
+>获取某个城市的某个工作岗位
+
+#### 5.1  工作搜索
+
+**必选参数:**
+
+`city` : 城市  
+`positionName` 职位  
+`pageNo` 页码  
+
+**接口地址:**
+`api/job_list/:city/:positionName/:pageNo`
+
+**调用例子:**
+`http://localhost:3001/api/job_list/深圳/前端开发/1`
 
 
 __接口返回数据__
