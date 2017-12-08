@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-12-06 16:20:03 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-07 22:50:22
+ * @Last Modified time: 2017-12-08 14:24:23
  */
 const express = require('express')
 const http = require('http')
@@ -76,7 +76,6 @@ app.use('/api/joke_list', joke_list)
 app.use('/api/joke_img', joke_img)
 app.use('/api/joke_photo', joke_photo)
 app.use('/api/jandan', jandan)
-
 app.use('/api/news_list', news_list)
 app.use('/api/video_list', video_list)
 app.use('/api/news_detail', news_detail)
@@ -85,12 +84,12 @@ app.use('/api/job_list', job_list)
 // web
 const web_daily = require('./routes/web/daily_list')
 const web_daily_info = require('./routes/web/daily_info')
-const web_photo = require('./routes/web/photo.js')
-
+const web_photo = require('./routes/web/photo')
+const web_jandan = require('./routes/web/jandan')
 app.use('/web/daily_list', web_daily)
 app.use('/web/daily_info', web_daily_info)
 app.use('/web/photo', web_photo)
-
+app.use('/web/jandan', web_jandan)
 app.use(router)
 app.listen(3001)
 console.log('app start success port:3001')

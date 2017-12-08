@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-12-07 19:56:26 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-07 22:35:33
+ * @Last Modified time: 2017-12-08 10:37:50
  */
 const express = require('express')
 const http = require('http')
@@ -20,7 +20,6 @@ function list(req, res) {
     var req = req
     var page = parseInt(req.params.page)
     var url = `http://jandan.net/ooxx/page-${page}#comments`;
-    console.log(url)
     var headers = {
         'connection': 'keep-alive',
         'Cookie': "__cfduid=d34c02daf3555deb8443c4202ca0ca7d41511794384; gif-click-load=off; _ga=GA1.2.498763940.1511794387; _gid=GA1.2.1281594283.1512647401",
@@ -40,14 +39,11 @@ function list(req, res) {
             if (response) {
                 var body = Iconv.decode(body, 'utf-8')
                 $ = cheerio.load(body)
-                console.log(body)
                 $('.img-hash').each(function(index, item) {
                     links.push("http:" + jandan.getSrc($(this).text()));
                 })
                 console.log(links)
-                console.log(
-                    '-----------------------------splider success-----------------------------'
-                )
+                console.log('------------------------success----------------------')
                 res.send({
                     code: 200,
                     data: links,
