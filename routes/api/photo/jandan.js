@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-12-07 19:56:26 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-08 10:37:50
+ * @Last Modified time: 2017-12-09 18:28:06
  */
 const express = require('express')
 const http = require('http')
@@ -13,7 +13,7 @@ const fs = require('fs')
 const Iconv = require('iconv-lite')
 const async = require('async')
 
-const jandan = require('../../../utils/jandan_Decrypt');
+const jandan = require('../../../utils/jandan_decrypt');
 
 function list(req, res) {
     var res = res
