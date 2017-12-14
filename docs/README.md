@@ -5,11 +5,6 @@ __Node-SplderApi2 第二版__
 __源代码目录结构__
 __[地址](https://github.com/ecitlm/Node-SpliderApi/tree/splider2)__
 
-  <iframe src="https://ghbtns.com/github-btn.html?user=ecitlm&repo=Node-SpliderApi&type=watch&count=true&size=large" frameborder="0"
-                        scrolling="0" width="160" height="30"></iframe>
-			<iframe src="https://ghbtns.com/github-btn.html?user=ecitlm&amp;repo=Node-SpliderApi&amp;type=fork&amp;count=true&amp;size=large"
-                        allowtransparency="true" frameborder="0" scrolling="0" width="160" height="30"></iframe>
-<br/>
 <a href="https://ecitlm.github.io/SpliderApi/#/">查看文档</a>
 
 ![project.png](https://i.loli.net/2017/12/07/5a28ea5c3468d.png)
@@ -26,6 +21,9 @@ $ npm install
 $ node app.js
 ```
 服务器启动默认端口为3001 、启动之后就可以开启了接口服务了.
+
+浏览器打开`http://localhost:3001/docs` 可以查看所有接口文档
+
 
 
 __接口文件__
