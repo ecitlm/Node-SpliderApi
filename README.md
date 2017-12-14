@@ -588,7 +588,7 @@ __接口返回数据__
 >音乐新歌榜单、音乐歌单、排行榜、音乐详情、歌词、搜索、歌手信息、
 >详细可看源代码 `api/music`
 
-#### 1.1  音乐新歌榜单
+#### 4.1  音乐新歌榜单
 
 **必选参数:**
 无
@@ -601,6 +601,646 @@ __接口返回数据__
 
 
 __接口返回数据__
+
+#### 4.2  音乐歌单
+
+**必选参数:**
+'无'  
+
+**接口地址:**
+`api/plist/`
+
+**调用例子:**
+`http://localhost:3001/api/plist/`
+
+__接口返回数据__
+
+```javascript
+{
+    "code": 200,
+    "data": {
+        "list": {
+            "timestamp": 1513235759,
+            "info": [
+                {
+                    "recommendfirst": 1,
+                    "specialname": "2017 Billboard公告牌单曲年终榜",
+                    "intro": "2017年Billboard Hot100公告牌单曲年终榜终于揭晓！形状Shape of You夺冠，力压西语Despacito！火星哥Bruno Mars、喇嘛Kendrick Lamar、烟鬼The Chainsmokers、王者Migos分别获得第3至6，去年冠单Closer居然爆冷延续成绩今年夺第7，披萨哥Sam Hunt成为拯救乡村获第8，梦龙Imagine Dragons成功回春第9，沙县哥Post Malone人气高涨跑第10，完整100首为你送上！",
+                    "songs": [
+                        {
+                            "pay_type_320": 0,
+                            "m4afilesize": 0,
+                            "price_sq": 0,
+                            "filesize": 3261752,
+                            "bitrate": 128,
+                            "price": 0,
+                            "inlist": 1,
+                            "old_cpy": 1,
+                            "pkg_price_sq": 0,
+                            "pay_type": 0,
+                            "topic_url": "",
+                            "rp_type": "audio",
+                            "pkg_price": 0,
+                            "feetype": 0,
+                            "filename": "Imagine Dragons - Believer",
+                            "price_320": 0,
+                            "topic_url_320": "",
+                            "hash": "AE807FE1E770339DFB442CCC9089ED83",
+                            "mvhash": "2D5001E399F9311134049BBF4FB8BBD7",
+                            "privilege": 0,
+                            "album_id": "2983162",
+                            "sqhash": "EC771C3EB4293E80C4AD78D2850A918E",
+                            "album_audio_id": 68368922,
+                            "pkg_price_320": 0,
+                            "320filesize": 8390523,
+                            "rp_publish": 1,
+                            "duration": 204,
+                            "topic_url_sq": "",
+                            "fail_process_320": 0,
+                            "remark": "《东方快车谋杀案》电影预告插曲",
+                            "extname": "mp3",
+                            "320privilege": 0,
+                            "fail_process": 0,
+                            "fail_process_sq": 0,
+                            "has_accompany": 0,
+                            "pay_type_sq": 0,
+                            "audio_id": 25013553,
+                            "sqprivilege": 0,
+                            "sqfilesize": 25490657,
+                            "320hash": "6365B9383F70DD1CCCE73D12A15A3BCB"
+                        },
+                      
+                        {
+                            "pay_type_320": 0,
+                            "m4afilesize": 0,
+                            "price_sq": 0,
+                            "filesize": 4086002,
+                            "bitrate": 128,
+                            "price": 0,
+                            "inlist": 1,
+                            "old_cpy": 1,
+                            "pkg_price_sq": 0,
+                            "pay_type": 0,
+                            "topic_url": "",
+                            "rp_type": "audio",
+                            "pkg_price": 0,
+                            "feetype": 0,
+                            "filename": "邱永传 - 十一年",
+                            "price_320": 0,
+                            "topic_url_320": "",
+                            "hash": "0EF197D2106F57E2B508387D5B3C6B77",
+                            "mvhash": "2A32DB55478F8FDE8061BE56CFEAE85E",
+                            "privilege": 0,
+                            "album_id": "580990",
+                            "sqhash": "",
+                            "album_audio_id": 61990788,
+                            "pkg_price_320": 0,
+                            "320filesize": 10197266,
+                            "rp_publish": 1,
+                            "duration": 255,
+                            "topic_url_sq": "",
+                            "fail_process_320": 0,
+                            "remark": "一年之前董鸿",
+                            "extname": "mp3",
+                            "320privilege": 0,
+                            "fail_process": 0,
+                            "fail_process_sq": 0,
+                            "has_accompany": 1,
+                            "pay_type_sq": 0,
+                            "audio_id": 255090,
+                            "sqprivilege": 0,
+                            "sqfilesize": 0,
+                            "320hash": "DA73E72E07D89E9F5CE98606B7EE9B4C"
+                        },
+                        {
+                            "pay_type_320": 0,
+                            "m4afilesize": 0,
+                            "price_sq": 0,
+                            "filesize": 3786506,
+                            "bitrate": 128,
+                            "price": 0,
+                            "inlist": 1,
+                            "old_cpy": 1,
+                            "pkg_price_sq": 0,
+                            "pay_type": 0,
+                            "topic_url": "",
+                            "rp_type": "audio",
+                            "pkg_price": 0,
+                            "feetype": 0,
+                            "filename": "张艾文 - 下辈子也要找到你",
+                            "price_320": 0,
+                            "topic_url_320": "",
+                            "hash": "C7040924FAA9C9E6A5AD8ACBD3138B04",
+                            "mvhash": "852CDC6A51E4542BA085DDF0A95F1CE7",
+                            "privilege": 0,
+                            "album_id": "2441508",
+                            "sqhash": "",
+                            "album_audio_id": 62581153,
+                            "pkg_price_320": 0,
+                            "320filesize": 9569304,
+                            "rp_publish": 1,
+                            "duration": 237,
+                            "topic_url_sq": "",
+                            "fail_process_320": 0,
+                            "remark": "把你的名字写在烟上吸进肺里正源",
+                            "extname": "mp3",
+                            "320privilege": 0,
+                            "fail_process": 0,
+                            "fail_process_sq": 0,
+                            "has_accompany": 1,
+                            "pay_type_sq": 0,
+                            "audio_id": 1147,
+                            "sqprivilege": 0,
+                            "sqfilesize": 0,
+                            "320hash": "76005E6C907D78DCB105FC1579A1D81A"
+                        }
+                    ],
+                    "collectcount": 160050,
+                    "is_selected": 0,
+                    "selected_reason": "",
+                    "slid": 27,
+                    "publishtime": "2016-08-23 00:00:00",
+                    "singername": "",
+                    "verified": 0,
+                    "songcount": 16,
+                    "user_avatar": "http://imge.kugou.com/kugouicon/165/20161103/20161103180849350.jpg",
+                    "playcount": 143379453,
+                    "suid": 509004185,
+                    "specialid": 117915,
+                    "username": "天逸",
+                    "imgurl": "http://imge.kugou.com/soft/collection/{size}/20161024/20161024164346240074.jpg",
+                    "user_type": 0
+                }
+            ],
+            "total": 18044
+        },
+        "pagesize": 30
+    },
+    "msg": ""
+}
+```
+
+
+#### 4.3  音乐歌单下的音乐列表
+
+**必选参数:**
+'specialid' 歌单specialid 
+
+**接口地址:**
+`api/plist_songs/:specialid`
+
+**调用例子:**
+`http://localhost:3001/api/plist_songs/125032`
+
+__接口返回数据__
+```javascript
+{
+    "code": 200,
+    "data": {
+        "list": {
+            "timestamp": 1513239718,
+            "info": [
+               
+                {
+                    "pay_type_320": 0,
+                    "m4afilesize": 0,
+                    "price_sq": 0,
+                    "filesize": 3515386,
+                    "bitrate": 128,
+                    "price": 0,
+                    "inlist": 1,
+                    "old_cpy": 1,
+                    "pkg_price_sq": 0,
+                    "pay_type": 0,
+                    "topic_url": "",
+                    "fail_process_320": 0,
+                    "pkg_price": 0,
+                    "feetype": 0,
+                    "filename": "张清芳 - 大雨的夜里",
+                    "price_320": 0,
+                    "extname": "mp3",
+                    "hash": "63243D4D3DAC30CF17838C385E1844B8",
+                    "mvhash": "0405F2379C0BB8B6BDDD58D8A7B929E6",
+                    "privilege": 0,
+                    "album_id": "575484",
+                    "album_audio_id": 28366279,
+                    "rp_type": "audio",
+                    "audio_id": 63023,
+                    "320filesize": 8611131,
+                    "rp_publish": 1,
+                    "duration": 219,
+                    "topic_url_sq": "",
+                    "pkg_price_320": 0,
+                    "remark": "大雨的夜里",
+                    "sqhash": "CA1C02011D022B2BC66C6D5E8FDD7DBA",
+                    "320privilege": 0,
+                    "fail_process": 0,
+                    "fail_process_sq": 0,
+                    "has_accompany": 1,
+                    "pay_type_sq": 0,
+                    "320hash": "FBBFDD7EB279668A319ECAEB6E4101AF",
+                    "sqprivilege": 0,
+                    "topic_url_320": "",
+                    "sqfilesize": 26690522
+                },
+                {
+                    "pay_type_320": 0,
+                    "m4afilesize": 0,
+                    "price_sq": 0,
+                    "filesize": 5102653,
+                    "bitrate": 128,
+                    "price": 0,
+                    "inlist": 1,
+                    "old_cpy": 1,
+                    "pkg_price_sq": 0,
+                    "pay_type": 0,
+                    "topic_url": "",
+                    "fail_process_320": 0,
+                    "pkg_price": 0,
+                    "feetype": 0,
+                    "filename": "王杰 - 说声珍重",
+                    "price_320": 0,
+                    "extname": "mp3",
+                    "hash": "82BB0AF731137BCC90BC434A9BA8D2FE",
+                    "mvhash": "E8B543DD9504DE25EA41E87A3682085F",
+                    "privilege": 0,
+                    "album_id": "1737853",
+                    "album_audio_id": 39562913,
+                    "rp_type": "audio",
+                    "audio_id": 32286,
+                    "320filesize": 12781380,
+                    "rp_publish": 1,
+                    "duration": 318,
+                    "topic_url_sq": "",
+                    "pkg_price_320": 0,
+                    "remark": "浪子情歌",
+                    "sqhash": "1B4AD517F10D38F0716F5A48298B2CEB",
+                    "320privilege": 0,
+                    "fail_process": 0,
+                    "fail_process_sq": 0,
+                    "has_accompany": 1,
+                    "pay_type_sq": 0,
+                    "320hash": "670FBEEF9A0B35832BBED65765F4EE57",
+                    "sqprivilege": 0,
+                    "topic_url_320": "",
+                    "sqfilesize": 31542218
+                }
+            ],
+            "total": 5
+        },
+        "pagesize": 30,
+        "page": 1
+    },
+    "msg": ""
+}
+```
+
+#### 4.4  音乐排行榜
+
+**必选参数:**
+'无' 
+
+**接口地址:**
+`api/rank_list/`
+
+**调用例子:**
+`http://localhost:3001/api/rank_list/`
+
+__接口返回数据__
+```javascript
+{
+    "code": 200,
+    "data": {
+        "total": 27,
+        "list": [
+            {
+                "rankid": 6666,
+                "id": 1,
+                "update_frequency": "每天",
+                "intro": "数据来源：酷狗\r\n排序方式：按歌曲搜索播放量的涨幅排序\r\n更新周期：每天",
+                "jump_url": "",
+                "jump_title": "",
+                "imgurl": "http://imge.kugou.com/mcommon/{size}/20150717/20150717100030907982.png",
+                "banner7url": "http://imge.kugou.com/mcommon/{size}/20150331/20150331161100773965.png",
+                "isvol": 1,
+                "bannerurl": "http://imge.kugou.com/mcommonbanner/{size}/20150331/20150331161102692497.jpg",
+                "custom_type": 0,
+                "rankname": "酷狗飙升榜",
+                "ranktype": 2
+            },
+           
+            {
+                "rankid": 24574,
+                "id": 123,
+                "update_frequency": "周三",
+                "intro": "数据来源：酷狗神曲及搞怪类歌曲\r\n排序方式：按搜索播放一周总量排序\r\n更新周期：周三",
+                "jump_url": "",
+                "jump_title": "",
+                "imgurl": "http://imge.kugou.com/mcommon/{size}/20160713/20160713115034579027.jpg",
+                "banner7url": "http://imge.kugou.com/mcommon/{size}/20160713/20160713115035225905.jpg",
+                "isvol": 0,
+                "bannerurl": "http://imge.kugou.com/mcommonbanner/{size}/20160713/20160713115036492119.jpg",
+                "custom_type": 0,
+                "rankname": "洗脑神曲",
+                "ranktype": 0
+            }
+        ]
+    },
+    "msg": ""
+}
+```
+
+#### 4.5  排行版分类歌曲列表
+
+**必选参数:**
+'rankid'  rankid
+
+**接口地址:**
+`api/rank_list_info/:rankid`
+
+**调用例子:**
+`http://localhost:3001/api/rank_list_info/8888`
+
+__接口返回数据__
+```javascript
+{
+    "code": 200,
+    "data": {
+        "info": {
+            "rankid": 8888,
+            "id": 2,
+            "update_frequency": "周四",
+            "intro": "数据来源：酷狗\r\n排序方式：按歌曲搜索播放一周总量排序\r\n更新周期：周四",
+            "jump_url": "",
+            "jump_title": "",
+            "imgurl": "http://imge.kugou.com/mcommon/{size}/20150717/20150717100046499341.png",
+            "banner7url": "http://imge.kugou.com/mcommon/{size}/20150331/20150331161158855874.png",
+            "isvol": 1,
+            "bannerurl": "http://imge.kugou.com/mcommonbanner/{size}/20150331/20150331161200306618.jpg",
+            "custom_type": 0,
+            "rankname": "酷狗TOP500",
+            "ranktype": 2
+        },
+        "songs": {
+            "total": 182,
+            "page": 1,
+            "pagesize": 30,
+            "timestamp": 1513239512,
+            "list": [
+                {
+                    "pay_type_320": 0,
+                    "m4afilesize": 0,
+                    "price_sq": 0,
+                    "first": 0,
+                    "filesize": 4334854,
+                    "bitrate": 128,
+                    "price": 0,
+                    "inlist": 1,
+                    "old_cpy": 1,
+                    "pkg_price_sq": 0,
+                    "pay_type": 0,
+                    "topic_url": "",
+                    "rp_type": "audio",
+                    "pkg_price": 0,
+                    "recommend_reason": "",
+                    "filename": "大壮 - 我们不一样",
+                    "price_320": 0,
+                    "extname": "mp3",
+                    "hash": "1035269C05791F1665E36DFFE478326C",
+                    "audio_id": 26902195,
+                    "privilege": 0,
+                    "topic_url_320": "",
+                    "addtime": "2017-12-14 09:00:02",
+                    "pkg_price_320": 0,
+                    "sqfilesize": 30589685,
+                    "fail_process_320": 0,
+                    "duration": 271,
+                    "feetype": 0,
+                    "320filesize": 10836758,
+                    "rp_publish": 1,
+                    "has_accompany": 1,
+                    "topic_url_sq": "",
+                    "remark": "我们不一样",
+                    "isfirst": 0,
+                    "sqhash": "E07225E4F5E60E6FA03F92025A54E2B2",
+                    "320privilege": 0,
+                    "320hash": "383CBD0CC555F7EC0E30BCC2E93042F2",
+                    "fail_process": 0,
+                    "album_id": "2699062",
+                    "pay_type_sq": 0,
+                    "mvhash": "F37AB57EC2D9823DB5C11CBBC6ED83D6",
+                    "sqprivilege": 0,
+                    "album_audio_id": 65887695,
+                    "fail_process_sq": 0
+                },
+               
+                {
+                    "pay_type_320": 0,
+                    "m4afilesize": 0,
+                    "price_sq": 0,
+                    "first": 0,
+                    "filesize": 3613875,
+                    "bitrate": 128,
+                    "price": 0,
+                    "inlist": 1,
+                    "old_cpy": 1,
+                    "pkg_price_sq": 0,
+                    "pay_type": 0,
+                    "topic_url": "",
+                    "rp_type": "audio",
+                    "pkg_price": 0,
+                    "recommend_reason": "",
+                    "filename": "校长 - 带你去旅行",
+                    "price_320": 0,
+                    "extname": "mp3",
+                    "hash": "F851405DBBE1DB329AF8E42B580DD7DC",
+                    "audio_id": 27716543,
+                    "privilege": 0,
+                    "topic_url_320": "",
+                    "addtime": "2017-12-14 09:00:04",
+                    "pkg_price_320": 0,
+                    "sqfilesize": 24425537,
+                    "fail_process_320": 0,
+                    "duration": 226,
+                    "feetype": 0,
+                    "320filesize": 9034387,
+                    "rp_publish": 1,
+                    "has_accompany": 1,
+                    "topic_url_sq": "",
+                    "remark": "带你去旅行",
+                    "isfirst": 0,
+                    "sqhash": "D166D042AC11EC0B9346D2FED72A8DBA",
+                    "320privilege": 0,
+                    "320hash": "C816B4527D955551FBD680DE02C7C694",
+                    "fail_process": 0,
+                    "album_id": "2998345",
+                    "pay_type_sq": 0,
+                    "mvhash": "C8714BF1FB79158FAB7252B73E8DC2DB",
+                    "sqprivilege": 0,
+                    "album_audio_id": 68441445,
+                    "fail_process_sq": 0
+                },
+                {
+                    "pay_type_320": 0,
+                    "m4afilesize": 0,
+                    "price_sq": 0,
+                    "first": 0,
+                    "filesize": 3774555,
+                    "bitrate": 127,
+                    "price": 0,
+                    "inlist": 1,
+                    "old_cpy": 1,
+                    "pkg_price_sq": 0,
+                    "pay_type": 0,
+                    "topic_url": "",
+                    "rp_type": "audio",
+                    "pkg_price": 0,
+                    "recommend_reason": "",
+                    "filename": "金志文、徐佳莹 - 远走高飞",
+                    "price_320": 0,
+                    "extname": "mp3",
+                    "hash": "ADE9E0BBFF0AD6E11FEE1D0C5D95D2E1",
+                    "audio_id": 26441731,
+                    "privilege": 0,
+                    "topic_url_320": "",
+                    "addtime": "2017-12-14 09:00:04",
+                    "pkg_price_320": 0,
+                    "sqfilesize": 28366405,
+                    "fail_process_320": 0,
+                    "duration": 235,
+                    "feetype": 0,
+                    "320filesize": 9437760,
+                    "rp_publish": 1,
+                    "has_accompany": 1,
+                    "topic_url_sq": "",
+                    "remark": "Hello 1",
+                    "isfirst": 0,
+                    "sqhash": "421B428535E37D6853E2BA3DED469198",
+                    "320privilege": 0,
+                    "320hash": "F8265A79F1EB53DB8090EFFCC124865E",
+                    "fail_process": 0,
+                    "album_id": "2139938",
+                    "pay_type_sq": 0,
+                    "mvhash": "",
+                    "sqprivilege": 0,
+                    "album_audio_id": 57559532,
+                    "fail_process_sq": 0
+                },
+                
+                {
+                    "pay_type_320": 0,
+                    "m4afilesize": 0,
+                    "price_sq": 0,
+                    "first": 0,
+                    "filesize": 3774215,
+                    "bitrate": 128,
+                    "price": 0,
+                    "inlist": 1,
+                    "old_cpy": 1,
+                    "pkg_price_sq": 0,
+                    "pay_type": 0,
+                    "topic_url": "",
+                    "rp_type": "audio",
+                    "pkg_price": 0,
+                    "recommend_reason": "",
+                    "filename": "岑宁儿 - 追光者",
+                    "price_320": 0,
+                    "extname": "mp3",
+                    "hash": "332D8257716EFD86D075809E61CFD5D5",
+                    "audio_id": 26952339,
+                    "privilege": 0,
+                    "topic_url_320": "",
+                    "addtime": "2017-12-14 09:00:06",
+                    "pkg_price_320": 0,
+                    "sqfilesize": 21884066,
+                    "fail_process_320": 0,
+                    "duration": 235,
+                    "feetype": 0,
+                    "320filesize": 9435472,
+                    "rp_publish": 1,
+                    "has_accompany": 1,
+                    "topic_url_sq": "",
+                    "remark": "《夏至未至》电视剧插曲",
+                    "isfirst": 0,
+                    "sqhash": "355D873021FAFC1CD8056FB51EF73DBF",
+                    "320privilege": 0,
+                    "320hash": "D3B95C20B11A808DAF17E7A8EBD67FF1",
+                    "fail_process": 0,
+                    "album_id": "2704683",
+                    "pay_type_sq": 0,
+                    "mvhash": "9AE275177F50D6BAFEB10649C7DB911D",
+                    "sqprivilege": 0,
+                    "album_audio_id": 65986345,
+                    "fail_process_sq": 0
+                },
+             
+                {
+                    "pay_type_320": 0,
+                    "m4afilesize": 0,
+                    "price_sq": 0,
+                    "first": 0,
+                    "filesize": 4321056,
+                    "bitrate": 128,
+                    "price": 0,
+                    "inlist": 1,
+                    "old_cpy": 1,
+                    "pkg_price_sq": 0,
+                    "pay_type": 0,
+                    "topic_url": "",
+                    "rp_type": "audio",
+                    "pkg_price": 0,
+                    "recommend_reason": "",
+                    "filename": "阿涵 - 过客",
+                    "price_320": 0,
+                    "extname": "mp3",
+                    "hash": "69EF01B327A5C8A8788CC8FF1B5B6CB6",
+                    "audio_id": 24349570,
+                    "privilege": 0,
+                    "topic_url_320": "",
+                    "addtime": "2017-12-14 09:00:22",
+                    "pkg_price_320": 0,
+                    "sqfilesize": 28560075,
+                    "fail_process_320": 0,
+                    "duration": 270,
+                    "feetype": 0,
+                    "320filesize": 10802349,
+                    "rp_publish": 1,
+                    "has_accompany": 1,
+                    "topic_url_sq": "",
+                    "remark": "过客",
+                    "isfirst": 0,
+                    "sqhash": "96742196CF62B569A237683EE5F183C2",
+                    "320privilege": 0,
+                    "320hash": "DA16770BE62BEE4F67627C64EC4374BA",
+                    "fail_process": 0,
+                    "album_id": "2584684",
+                    "pay_type_sq": 0,
+                    "mvhash": "672E85FFBC12278B3328563AFFFA95DD",
+                    "sqprivilege": 0,
+                    "album_audio_id": 64166856,
+                    "fail_process_sq": 0
+                }
+            ]
+        },
+        "pagesize": 30
+    },
+    "msg": ""
+}
+```
+#### 4.5  歌手分类
+
+**必选参数:**
+'无'  
+
+**接口地址:**
+`api/singer_classify/`
+
+**调用例子:**
+`http://localhost:3001/api/singer_classify`
+
+__接口返回数据__
+
+
 
 
 ###  5 job工作搜索
