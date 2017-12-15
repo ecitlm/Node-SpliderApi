@@ -1301,6 +1301,104 @@ __接口返回数据__
 }
 ```
 
+#### 4.6  歌手分类下面的歌手列表
+
+**必选参数:**
+'classid'   classid
+
+**接口地址:**
+`api/singer_list/:classid`
+
+**调用例子:**
+`http://localhost:3001/api/singer_list/88`
+
+__接口返回数据__
+
+
+
+
+#### 4.7  歌手信息
+
+**必选参数:**
+'singerid '   singerid 3060
+
+**接口地址:**
+`api/singer_info/:singerid `
+
+**调用例子:**
+`http://localhost:3001/api/singer_info/3060`
+
+__接口返回数据__
+```
+```
+
+#### 4.8  歌曲音乐详情
+
+**必选参数:**
+'hash'   hash  CB7EE97F4CC11C4EA7A1FA4B516A5D97
+
+**接口地址:**
+`api/song_info/:hash `
+
+**调用例子:**
+`http://localhost:3001/api/song_info/CB7EE97F4CC11C4EA7A1FA4B516A5D97`
+
+__接口返回数据__
+```javascript
+{
+    "code": 200,
+    "data": {
+        "fileHead": 100,
+        "q": 0,
+        "extra": {
+            "320filesize": 7998693,
+            "sqfilesize": 23222557,
+            "sqhash": "CAC59E48D58853BF40BB6158F2F5B0C5",
+            "128hash": "CB7EE97F4CC11C4EA7A1FA4B516A5D97",
+            "320hash": "47F63F15A7C048829FA796BC7F74E62B",
+            "128filesize": 3198974
+        },
+        "fileSize": 3198974,
+        "hash": "CB7EE97F4CC11C4EA7A1FA4B516A5D97",
+        "choricSinger": "李玉刚",
+        "error": "",
+        "topic_remark": "",
+        "imgUrl": "http://singerimg.kugou.com/uploadpic/softhead/{size}/20140304/20140304154338526832.jpg",
+        "url": "http://fs.open.kugou.com/f2ad1903c8c98c2aac2f9b1c85b66a86/5a336c48/G078/M08/18/17/jg0DAFgi6G-AKqsqADDP_nSW5F4051.mp3",
+        "time": 1513321293,
+        "bitRate": 128,
+        "songName": "刚好遇见你",
+        "req_hash": "CB7EE97F4CC11C4EA7A1FA4B516A5D97",
+        "singerHead": "",
+        "album_img": "http://imge.kugou.com/stdmusic/{size}/20161109/20161109171040932108.jpg",
+        "privilege": 0,
+        "status": 1,
+        "stype": 11323,
+        "singerId": 2018,
+        "singerName": "李玉刚",
+        "ctype": 1009,
+        "fileName": "李玉刚 - 刚好遇见你",
+        "topic_url": "",
+        "intro": "",
+        "mvhash": "C4AFAEFC84A7D1B6B413288377203B38",
+        "extName": "mp3",
+        "errcode": 0,
+        "timeLength": 200
+    },
+    "msg": ""
+}
+
+```
+#### 4.9  歌曲音乐歌词(已停止)
+
+**必选参数:**
+'hash'   hash  CB7EE97F4CC11C4EA7A1FA4B516A5D97
+
+**接口地址:**
+`api/song_lrc/:hash `
+
+**调用例子:**
+`http://localhost:3001/api/song_lrc/CB7EE97F4CC11C4EA7A1FA4B516A5D97`
 
 
 ###  5 job工作搜索
