@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-12-19 09:49:04 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-19 11:14:18
+ * @Last Modified time: 2017-12-19 11:27:14
  */
 const express = require("express");
 const http = require("http");
@@ -54,7 +54,7 @@ function list(req, res) {
                     workaddress: $("input[name='workAddress']").val(),
                     positionAddress: $("input[name='positionAddress']").val(),
                     temptation: $(".job-advantage").text(),
-                    content: entities.decode($(".job_bt").html())
+                    content: entities.decode($(".job_bt").find('div').html())
                 };
                 console.log(data)
                 res.send({
