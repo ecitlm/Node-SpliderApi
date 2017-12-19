@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-12-06 16:20:03 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-08 14:24:23
+ * @Last Modified time: 2017-12-19 09:59:15
  */
 const express = require('express')
 const http = require('http')
@@ -52,7 +52,7 @@ const news_list = require('./routes/api/news/news_list')
 const video_list = require('./routes/api/news/video_list')
 const news_detail = require('./routes/api/news/news_detail')
 const job_list = require('./routes/api/job/job_list')
-
+const job_info = require("./routes/api/job/job_info");
 app.use('/', index)
 app.use('/api/photo_type', photo_type)
 app.use('/api/huaban', huaban)
@@ -80,7 +80,7 @@ app.use('/api/news_list', news_list)
 app.use('/api/video_list', video_list)
 app.use('/api/news_detail', news_detail)
 app.use('/api/job_list', job_list)
-
+app.use("/api/job_info", job_info);
 // web
 const web_daily = require('./routes/web/daily_list')
 const web_daily_info = require('./routes/web/daily_info')

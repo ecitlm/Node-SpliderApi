@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 21:34:14
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-07 15:21:39
+ * @Last Modified time: 2017-12-19 11:08:41
  */
 const express = require('express');
 var http = require('http');
@@ -31,8 +31,7 @@ function httpGet(host, data, path, status) {
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36',
         },
     };
-    console.log(options.path)
-        //判断是否为https请求
+    //判断是否为https请求
     if (status) {
         http = require('https');
         options.port = 443;
