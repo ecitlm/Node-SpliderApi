@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-12-19 09:49:04 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-19 11:27:14
+ * @Last Modified time: 2017-12-22 20:23:48
  */
 const express = require("express");
 const http = require("http");
@@ -10,7 +10,8 @@ const cheerio = require("cheerio");
 const app = express();
 const request = require("request");
 const Iconv = require("iconv-lite");
-const Entities = require("html-entities").XmlEntities;
+const Entities = require('html-entities').XmlEntities;
+
 const entities = new Entities();
 
 function list(req, res) {

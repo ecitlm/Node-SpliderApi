@@ -27,6 +27,7 @@
     "btoa": "^1.1.2",
     "debug": "~0.7.4",
     "fs": "^0.0.1-security",
+    "html-entities": "^1.2.1",
     "mkdirp": "^0.5.1"
   }
 }
