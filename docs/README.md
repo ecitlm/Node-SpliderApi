@@ -1389,7 +1389,7 @@ __接口返回数据__
 }
 
 ```
-#### 4.9  歌曲音乐歌词(已停止)
+#### 4.9  歌曲音乐歌词
 
 **必选参数:**
 'hash'   hash  CB7EE97F4CC11C4EA7A1FA4B516A5D97
@@ -1399,6 +1399,18 @@ __接口返回数据__
 
 **调用例子:**
 `http://localhost:3001/api/song_lrc/CB7EE97F4CC11C4EA7A1FA4B516A5D97`
+
+
+#### 4.10  歌曲音乐搜索
+
+**必选参数:**
+'keyword'  keyword
+
+**接口地址:**
+`api/music_search/:keyword`
+
+**调用例子:**
+`http://localhost:3001/api/music_search/谭咏麟`
 
 
 ###  5 job工作搜索
@@ -1420,3 +1432,36 @@ __接口返回数据__
 
 
 __接口返回数据__
+
+
+#### 5.2  职位详情
+
+**必选参数:**
+
+`positionId` : 职位id  
+
+**接口地址:**
+`api/job_info/:positionId`
+
+**调用例子:**
+`http://localhost:3001/api/job_info/3844372`
+
+__接口返回数据__
+```javascript
+{
+    "code": 200,
+    "data": {
+        "title": "前端开发工程师招聘-7贷金融招聘-拉勾网",
+        "publishtime": "1天前  发布于拉勾网",
+        "job": "前端开发工程师",
+        "salary": "15k-25k",
+        "workyear": "经验1-3年 /",
+        "education": "本科及以上 /",
+        "workaddress": "深圳",
+        "positionAddress": "蛇口望海路招商局广场17楼",
+        "temptation": "\n        职位诱惑：\n        环境优美,福利多,交通便利\n    ",
+        "content": "\n        <h3 class=\"description\">职位描述：</h3>\n        <div>\n        <p>1.负责页面相关接入层开发；<br>2.负责前端架构建设，公共组件的设计开发；<br>3.与客户端，后端工程师对接共同协作完成项目。<br>工作要求：<br>1.三年以上前端开发经验；    <br>2.JavaScript基础扎实，熟知ES6的语法特性；<br>3.对MVVM模式有深刻的理解，熟知主流框架的数据绑定原理；<br>4.熟练掌握flexbox布局；<br>5.熟悉Node环境下的开发；<br>6.积极主动，责任心强；<br>7.善于沟通，抗压能力强；<br>8.有React-Native／Weex开发经验优先。<br></p>\n        </div>\n    "
+    },
+    "msg": ""
+}
+```
