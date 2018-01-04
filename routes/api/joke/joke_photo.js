@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-12-06 14:45:33
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-06 15:04:32
+ * @Last Modified time: 2018-01-04 14:44:20
  */
 
 const express = require('express');
@@ -32,7 +32,7 @@ function list(req, res) {
                 $('.cont-item').each(function() {
                     var tmp = {
                         title: $(this).children(".cont-list-title").text(),
-                        img: $(this).children(".cont-list-main").find("img").attr("data-src")
+                        img: "http://www.xiaoliaoba.cn" + $(this).children(".cont-list-main").find("img").attr("data-src")
                     };
                     links.push(tmp);
                 });
