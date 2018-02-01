@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-12-08 09:58:39 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-10 12:00:37
+ * @Last Modified time: 2018-01-31 09:55:56
  */
 'use strict'
 var express = require('express')
@@ -14,7 +14,7 @@ app.engine('ejs', ejs.__express); // 配置识别ejs模板
 app.set('view engine', 'ejs'); // 设置模板扩展名后缀自动添加
 app.set('views', './views/web'); // 设置模板路径
 app.get('/', function(req, res) {
-    var page = Math.floor(Math.random() * 380)
+    var page = Math.floor(Math.random() * 100)
     myajax
         .get('/api/jandan/' + page, {})
         .then(function(response) {

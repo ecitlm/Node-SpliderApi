@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-12-06 16:20:03 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-25 14:17:03
+ * @Last Modified time: 2018-02-01 17:28:56
  */
 const express = require('express')
 const http = require('http')
@@ -41,6 +41,7 @@ const singer_classify = require('./routes/api/music/singer_classify')
 const singer_list = require('./routes/api/music/singer_list')
 const singer_info = require('./routes/api/music/singer_info')
 const music_search = require('./routes/api/music/search')
+const mv_search = require("./routes/api/music/mv_search");
 const web_frame = require('./routes/api/it/web_frame')
 const daily_list = require('./routes/api/it/daily_list')
 const daily_info = require('./routes/api/it/daily_info')
@@ -68,6 +69,7 @@ app.use('/api/singer_classify', singer_classify)
 app.use('/api/singer_list', singer_list)
 app.use('/api/singer_info', singer_info)
 app.use('/api/music_search', music_search)
+app.use("/api/mv_search", mv_search);
 app.use('/api/web_frame', web_frame)
 app.use('/api/daily_list', daily_list)
 app.use('/api/daily_info', daily_info)
