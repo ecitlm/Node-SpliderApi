@@ -7,7 +7,8 @@ __[地址](https://github.com/ecitlm/Node-SpliderApi/tree/splider2)__
 
 <a href="https://ecitlm.github.io/SpliderApi/#/">查看文档</a>
 
-![project.png](https://i.loli.net/2017/12/07/5a28ea5c3468d.png)
+![project.png](https://i.loli.net/2018/02/02/5a73c0e9bf14b.png)
+
 
 
 ### 环境要求
@@ -1413,8 +1414,32 @@ __接口返回数据__
 `http://localhost:3001/api/music_search/谭咏麟`
 
 
+#### 4.11  MV音乐搜索
+
+**必选参数:**
+'keyword'  keyword
+
+**接口地址:**
+`api/music_search/:keyword`
+
+**调用例子:**
+`http://localhost:3001/api/mv_search/海阔天空`
+
+
+
+#### 4.12  MV音乐详情
+
+**必选参数:**
+'mvhash'  mvhash
+
+**接口地址:**
+`api/music_search/:MvHash
+
+**调用例子:**
+`http://localhost:3001/api/mv_info/4135FC477494AA522A85B515410C101A`
+
 ###  5 job工作搜索
->获取某个城市的某个工作岗位
+>获取某个城市的某个工作岗位2
 
 #### 5.1  工作搜索
 
