@@ -9,7 +9,7 @@ const app = express()
 const Server = require('../../../utils/httpServer');
 
 app.get('/:type', function(req, res) {
-    var type = parseInt(req.query.type);
+    var type = parseInt(req.params.type);
     var path;
     //0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文 散文 5科技 6 财经 7 时尚
     switch (type) {
