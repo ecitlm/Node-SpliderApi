@@ -47,8 +47,10 @@ app.get('/:type', function(req, res) {
     var path = path;
     var data = {}
         //false:http请求  true:https请求
-    console.log("m.toutiao.com" + path)
-    Server.httpGet(host, data, path, false).then(function(body) {
+    var cookiesHost = 'm.toutiao.com';
+    Server.httpHeadersGet(cookiesHost,{},'',false).then(function(headers){
+        console.log("GET toutiao cookies: "+headers['set-cookie']);
+        Server.httpGet(host, data, path, false,headers['set-cookie']).then(function(body) {
         res.send({
             code: 200,
             data: JSON.parse(body)['data'],
@@ -61,6 +63,13 @@ app.get('/:type', function(req, res) {
             msg: '网络好像有点问题',
         })
         console.log(err)
-    })
+    });
+    }).catch(function(err){
+        res.send({
+            code:500,
+            msg: 'toutiao cookies fetch error'
+        })
+        console.log(err)
+    });
 });
 module.exports = app;
