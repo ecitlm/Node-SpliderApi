@@ -9,7 +9,7 @@ const app = express()
 const Server = require('../../../utils/httpServer');
 
 app.get('/:type', function(req, res) {
-    var type = parseInt(req.query.type);
+    var type = parseInt(req.params.type);
     var path;
     //0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文 散文 5科技 6 财经 7 时尚
     switch (type) {
@@ -46,21 +46,19 @@ app.get('/:type', function(req, res) {
     var host = "m.toutiao.com";
     var path = path;
     var data = {}
-        //false:http请求  true:https请求
-    console.log("m.toutiao.com" + path)
-    Server.httpGet(host, data, path, false).then(function(body) {
+    var cookies = 'tt_webid=6529387942473385486';
+    Server.httpGet(host, data, path, false,cookies).then(function(body) {
         res.send({
             code: 200,
             data: JSON.parse(body)['data'],
             msg: '',
         })
-
     }).catch(function(err) {
         res.send({
             code: 404,
             msg: '网络好像有点问题',
         })
         console.log(err)
-    })
+    });
 });
 module.exports = app;
