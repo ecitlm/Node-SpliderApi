@@ -2,16 +2,14 @@
  * @Author: ecitlm 
  * @Date: 2017-12-06 16:20:03 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-19 09:59:15
+ * @Last Modified time: 2018-03-25 19:57:20
  */
 const express = require('express')
 const http = require('http')
 const app = express()
 const router = express.Router()
-    // const routerConfig=require('./config/routes')
 const filter = require('./utils/filter_sign')
-    //
-var path = require('path')
+const path = require('path')
 app.use('/public', express.static('public')); // 设置静态资源地址
 app.use('/docs', express.static('docs')); // 设置静态资源地址
 app.all('*', function(req, res, next) {
@@ -20,8 +18,6 @@ app.all('*', function(req, res, next) {
     res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
     res.header('X-Powered-By', ' 3.2.1')
     next()
-        //   if (filter.simpleFilter(req, res)) {
-        //   }
 })
 
 const index = require('./routes/web/index')
@@ -93,5 +89,4 @@ app.use('/web/jandan', web_jandan)
 app.use(router)
 app.listen(3001)
 console.log('app start success port:3001')
-
 module.exports = app

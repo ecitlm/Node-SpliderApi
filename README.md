@@ -1,5 +1,5 @@
 # SplderApi2
-__Node-SplderApi2 第二版__
+__Node-SplderApi2 数据爬虫__
 >基于Node 的网络爬虫 API接口 包括前端开发日报、kugou音乐、前端top框架排行、妹纸福利、搞笑视频、段子笑话、各类视频新闻资讯 热点详情接口数据
 
 __源代码目录结构__
@@ -72,7 +72,7 @@ __接口文件__
 
 ```
 
-__网络请求封装 `httpServer.js`__
+__`网络请求封装 `httpServer.js`__
 
 `get`方法
 ```javascript
