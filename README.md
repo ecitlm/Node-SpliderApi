@@ -1,6 +1,7 @@
 # SplderApi2
 __Node-SplderApi2 数据爬虫__
->基于Node 的网络爬虫 API接口 包括前端开发日报、kugou音乐、前端top框架排行、妹纸福利、搞笑视频、段子笑话、各类视频新闻资讯 热点详情接口数据
+>基于Node+Express 网络爬虫 API接口 包括前端开发日报、kugou音乐、前端top框架排行、妹纸福利、搞笑视频、段子笑话、各类视频新闻资讯 热点详情接口数据,接口数据更新目标数据变化而变化，
+接口可以用于框架学习前端对接练习使用.
 
 __源代码目录结构__
 __[地址](https://github.com/ecitlm/Node-SpliderApi/tree/splider2)__

@@ -2,14 +2,14 @@
  * @Author: ecitlm 
  * @Date: 2017-12-19 09:49:04 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-22 20:23:48
+ * @Last Modified time: 2018-03-31 20:27:17
  */
-const express = require("express");
-const http = require("http");
-const cheerio = require("cheerio");
+const express = require('express');
+const http = require('http');
+const cheerio = require('cheerio');
 const app = express();
-const request = require("request");
-const Iconv = require("iconv-lite");
+const request = require('request');
+const Iconv = require('iconv-lite');
 const Entities = require('html-entities').XmlEntities;
 
 const entities = new Entities();
