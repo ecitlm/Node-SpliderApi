@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-12-01 11:23:08
  * @Last Modified by: ecitlm
- * @Last Modified time: 2017-12-07 10:23:51
+ * @Last Modified time: 2018-04-14 23:37:24
  */
 'use strict'
 const md5 = require('md5')
@@ -14,32 +14,32 @@ const appkey = 'nodeapliderapi'
  * @param {[type]} res [callback]
  */
 function Exception_BadRequest(msg, res) {
-    res.send({
-        code: 2,
-        msg: msg
-    })
-    return false
+  res.send({
+    code: 2,
+    msg: msg
+  })
+  return false
 }
 
 /**
  *  将参数按照字典排序等到签名sign
  * @param {object} params  参数集合
  */
-var getSign = params => {
-    for (var key in params) {
-        if (!params[key]) {
-            delete params[key]
-        }
+const getSign = params => {
+  for (let key in params) {
+    if (!params[key]) {
+      delete params[key]
     }
-    var keyArr = Object.keys(params).sort()
-    var newObj = {}
-    var Kstr = ''
-    for (var i = 0; i < keyArr.length; i++) {
-        newObj[keyArr[i]] = params[keyArr[i]]
-        Kstr += keyArr[i] + '=' + params[keyArr[i]]
-    }
-    Kstr = Kstr + appkey
-    return md5(Kstr)
+  }
+  let keyArr = Object.keys(params).sort()
+  let newObj = {}
+  let Kstr = ''
+  for (let i = 0; i < keyArr.length; i++) {
+    newObj[keyArr[i]] = params[keyArr[i]]
+    Kstr += keyArr[i] + '=' + params[keyArr[i]]
+  }
+  Kstr = Kstr + appkey
+  return md5(Kstr)
 }
 
 /**
@@ -48,21 +48,21 @@ var getSign = params => {
  * @param  {[type]} res [description]
  */
 function simpleFilter(req, res) {
-    var params = {}
-    params.sign = req.query.sign
-    params.times = req.query.times
+  let params = {}
+  params.sign = req.query.sign
+  params.times = req.query.times
 
-    if (!params.sign) {
-        Exception_BadRequest('缺少参数sign', res)
-        return false
-    }
-    if (!params.times) {
-        Exception_BadRequest('缺少参数times', res)
-        return false
-    }
-    return true
+  if (!params.sign) {
+    Exception_BadRequest('缺少参数sign', res)
+    return false
+  }
+  if (!params.times) {
+    Exception_BadRequest('缺少参数times', res)
+    return false
+  }
+  return true
 }
 
 module.exports = {
-    simpleFilter
+  simpleFilter
 }

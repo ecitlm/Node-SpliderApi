@@ -2,7 +2,7 @@
  * @Author: ecitlm 
  * @Date: 2017-12-06 16:20:03 
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-03-25 19:57:20
+ * @Last Modified time: 2018-04-14 23:20:43
  */
 const express = require('express')
 const http = require('http')
@@ -10,14 +10,14 @@ const app = express()
 const router = express.Router()
 const filter = require('./utils/filter_sign')
 const path = require('path')
-app.use('/public', express.static('public')); // 设置静态资源地址
-app.use('/docs', express.static('docs')); // 设置静态资源地址
+app.use('/public', express.static('public')) // 设置静态资源地址
+app.use('/docs', express.static('docs')) // 设置静态资源地址
 app.all('*', function(req, res, next) {
-    // res.header('Access-Control-Allow-Origin', '*')
-    res.header('Access-Control-Allow-Headers', 'X-Requested-With')
-    res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
-    res.header('X-Powered-By', ' 3.2.1')
-    next()
+  // res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With')
+  res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
+  res.header('X-Powered-By', ' 3.2.1')
+  next()
 })
 
 const index = require('./routes/web/index')
@@ -26,7 +26,7 @@ const photo_list = require('./routes/api/photo/photo_list')
 const photo_view = require('./routes/api/photo/photo_view')
 const huaban = require('./routes/api/photo/huaban')
 const jandan = require('./routes/api/photo/jandan')
-    // 音樂
+// 音樂
 const plist = require('./routes/api/music/plist')
 const plist_songs = require('./routes/api/music/plist_songs')
 const rank_list = require('./routes/api/music/rank_list')
@@ -48,7 +48,7 @@ const news_list = require('./routes/api/news/news_list')
 const video_list = require('./routes/api/news/video_list')
 const news_detail = require('./routes/api/news/news_detail')
 const job_list = require('./routes/api/job/job_list')
-const job_info = require("./routes/api/job/job_info");
+const job_info = require('./routes/api/job/job_info')
 app.use('/', index)
 app.use('/api/photo_type', photo_type)
 app.use('/api/huaban', huaban)
@@ -76,7 +76,7 @@ app.use('/api/news_list', news_list)
 app.use('/api/video_list', video_list)
 app.use('/api/news_detail', news_detail)
 app.use('/api/job_list', job_list)
-app.use("/api/job_info", job_info);
+app.use('/api/job_info', job_info)
 // web
 const web_daily = require('./routes/web/daily_list')
 const web_daily_info = require('./routes/web/daily_info')

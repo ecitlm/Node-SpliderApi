@@ -71,7 +71,6 @@ $ node app.js
         daily_list.js
         index.js
         photo.js
-
 ```
 
 **网络请求封装 `httpServer.js`**
