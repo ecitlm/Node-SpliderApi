@@ -1,44 +1,47 @@
 # SplderApi2
-__Node-SplderApi2 第二版__
->基于Node 的网络爬虫 API接口 包括前端开发日报、kugou音乐、前端top框架排行、妹纸福利、搞笑视频、段子笑话、各类视频新闻资讯 热点详情接口数据
 
-__源代码目录结构__
-__[地址](https://github.com/ecitlm/Node-SpliderApi/tree/splider2)__
+**Node-SplderApi2 第二版**
+
+> 基于 Node 的网络爬虫 API 接口 包括前端开发日报、kugou 音乐、前端 top 框架排行、妹纸福利、搞笑视频、段子笑话、各类视频新闻资讯 热点详情接口数据
+
+**源代码目录结构**
+**[地址](https://github.com/ecitlm/Node-SpliderApi/tree/splider2)**
 
 <a href="https://ecitlm.github.io/SpliderApi/#/">查看文档</a>
 
 ![project.png](https://i.loli.net/2017/12/07/5a28ea5c3468d.png)
 
-
 ### 环境要求
->需要安装node express 
+
+> 需要安装 node express
 
 ### 部署运行
+
 ```javascript
 $ git clone https://github.com/ecitlm/Node-SpliderApi.git
 $ npm install
 ### 运行
 $ node app.js
 ```
-服务器启动默认端口为3001 、启动之后就可以开启了接口服务了.
+
+服务器启动默认端口为 3001 、启动之后就可以开启了接口服务了.
 
 浏览器打开`http://localhost:3001/docs` 可以查看所有接口文档
 
+**接口文件**
 
-
-__接口文件__
 ```txt
 ├─api
 │  ├─it
 │  │      daily_info.js
 │  │      daily_list.js
 │  │      web_frame.js
-│  │      
+│  │
 │  ├─joke
 │  │      joke_img.js
 │  │      joke_list.js
 │  │      joke_photo.js
-│  │      
+│  │
 │  ├─music
 │  │      new_songs.js
 │  │      plist.js
@@ -51,30 +54,30 @@ __接口文件__
 │  │      singer_list.js
 │  │      song_info.js
 │  │      song_lrc.js
-│  │      
+│  │
 │  ├─news
 │  │      news_detail.js
 │  │      news_list.js
 │  │      video_list.js
-│  │      
+│  │
 │  └─photo
 │          huaban.js
 │          photo_list.js
 │          photo_type.js
 │          photo_view.js
-│          
+│
 └─web
         daily_info.js
         daily_list.js
         index.js
         photo.js
-        
 
 ```
 
-__网络请求封装 `httpServer.js`__
+**网络请求封装 `httpServer.js`**
 
 `get`方法
+
 ```javascript
 /**
  * http get网络请求封装
@@ -85,41 +88,42 @@ __网络请求封装 `httpServer.js`__
  * @returns
  */
 function httpGet(host, data, path, status) {
-    var options = {
-        host: host,
-        port: 80,
-        path: path + querystring.stringify(data),
-        method: 'GET',
-        encoding: null,
-        headers: {
-            'Content-Type': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36',
-        },
-    };
-    //判断是否为https请求
-    if (status) {
-        http = require('https');
-        options.port = 443;
+  let options = {
+    host: host,
+    port: 80,
+    path: path + querystring.stringify(data),
+    method: 'GET',
+    encoding: null,
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent':
+        'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'
     }
+  }
+  //判断是否为https请求
+  if (status) {
+    http = require('https')
+    options.port = 443
+  }
 
-    return new Promise(function(resolve, reject) {
-        let body = '';
-        var get_req = http.request(options, function(response) {
-            //response.setEncoding('utf8');
-            response.on('data', function(chunk) {
-                body += chunk;
-            });
+  return new Promise(function(resolve, reject) {
+    let body = ''
+    let get_req = http.request(options, function(response) {
+      //response.setEncoding('utf8');
+      response.on('data', function(chunk) {
+        body += chunk
+      })
 
-            response.on('end', () => {
-                resolve(body);
-            });
+      response.on('end', () => {
+        resolve(body)
+      })
 
-            response.on('error', err => {
-                reject(err);
-            });
-        });
-        get_req.end();
-    });
+      response.on('error', err => {
+        reject(err)
+      })
+    })
+    get_req.end()
+  })
 }
 ```
 
@@ -135,51 +139,52 @@ function httpGet(host, data, path, status) {
  * @returns
  */
 function httpPost(host, data, path, status) {
-    var data = querystring.stringify(data);
-    var options = {
-        host: host,
-        port: '80',
-        path: path,
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36',
-            'Content-Length': Buffer.byteLength(data), //返回字符串实际占据的字节长度
-        },
-    };
-    //判断是否为https请求
-    if (status) {
-        http = require('https');
-        options.port = 443;
+  var data = querystring.stringify(data)
+  var options = {
+    host: host,
+    port: '80',
+    path: path,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'User-Agent':
+        'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36',
+      'Content-Length': Buffer.byteLength(data) //返回字符串实际占据的字节长度
     }
-    return new Promise(function(resolve, reject) {
-        let body = '';
-        var post_req = http.request(options, function(response) {
-            //console.log(response.statusCode);
-            response.on('data', function(chunk) {
-                body += chunk;
-            });
+  }
+  //判断是否为https请求
+  if (status) {
+    http = require('https')
+    options.port = 443
+  }
+  return new Promise(function(resolve, reject) {
+    let body = ''
+    let post_req = http.request(options, function(response) {
+      //console.log(response.statusCode);
+      response.on('data', function(chunk) {
+        body += chunk
+      })
 
-            response.on('end', () => {
-                resolve(body);
-            });
+      response.on('end', () => {
+        resolve(body)
+      })
 
-            response.on('error', err => {
-                reject(err);
-            });
-        });
+      response.on('error', err => {
+        reject(err)
+      })
+    })
 
-        post_req.write(data);
-        post_req.end();
-    });
+    post_req.write(data)
+    post_req.end()
+  })
 }
-
 ```
 
-###  1.前端开发日报接口
->前端开发日报列表、单日日报、前端框架top100
+### 1.前端开发日报接口
 
-#### 1.1  最新前10天日报列表
+> 前端开发日报列表、单日日报、前端框架 top100
+
+#### 1.1 最新前 10 天日报列表
 
 **必选参数:**
 无
@@ -190,8 +195,8 @@ function httpPost(host, data, path, status) {
 **调用例子:**
 `http://localhost:3001/api/daily_list`
 
+**接口返回数据**
 
-__接口返回数据__
 ```javascript
 {
     "code": 200,
@@ -216,7 +221,7 @@ __接口返回数据__
 #### 1.2 单日日报内容
 
 **必选参数:**
- 日期    `id`
+日期 `id`
 
 **接口地址:**
 `api/daily_info/:id`
@@ -224,7 +229,7 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/daily_info/20171206`
 
-__接口返回数据__
+**接口返回数据**
 
 ```javascript
 {
@@ -254,11 +259,12 @@ __接口返回数据__
 }
 ```
 
-#### 1.3 前端框架top 100
->返回前端top 100框架数据
+#### 1.3 前端框架 top 100
+
+> 返回前端 top 100 框架数据
 
 **必选参数:**
- 无  
+无
 
 **接口地址:**
 `api/web_frame`
@@ -266,7 +272,7 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/web_frame`
 
-__接口返回数据__
+**接口返回数据**
 
 ```javascript
 {
@@ -288,14 +294,15 @@ __接口返回数据__
         }
     ]
 }
-
 ```
 
-###  2.笑话段子搞笑图片
->笑话段子、搞笑图片
+### 2.笑话段子搞笑图片
 
-#### 2.1  段子列表
->段子列表、每页返回20条数据
+> 笑话段子、搞笑图片
+
+#### 2.1 段子列表
+
+> 段子列表、每页返回 20 条数据
 
 **必选参数:**
 'page' 页数
@@ -306,8 +313,8 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/joke_list/1`
 
+**接口返回数据**
 
-__接口返回数据__
 ```javascript
 {
     "code": 200,
@@ -327,11 +334,12 @@ __接口返回数据__
 }
 ```
 
-#### 2.2  段子图片
->每天返回20条最新数据
+#### 2.2 段子图片
+
+> 每天返回 20 条最新数据
 
 **必选参数:**
-'无' 
+'无'
 
 **接口地址:**
 `/api/joke_img/`
@@ -339,7 +347,7 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/joke_img`
 
-__接口返回数据__
+**接口返回数据**
 
 ```javascript
 {
@@ -350,7 +358,7 @@ __接口返回数据__
             "thumburl": "http://ww3.sinaimg.cn/large/bd759d6djw1ezaly9mqf3j20c80exdgk.jpg",
             "sourceurl": "http://down.laifudao.com/images/tupian/20151210155356.jpg"
         },
-      
+
         {
             "title": "麦当劳不如汉堡王的一个铁证！",
             "thumburl": "http://ww4.sinaimg.cn/large/94c4bcf2jw1dzwn3wx3tmj.jpg",
@@ -366,11 +374,12 @@ __接口返回数据__
 }
 ```
 
-#### 2.3  搞笑图片
->每页返回10条最新数据
+#### 2.3 搞笑图片
+
+> 每页返回 10 条最新数据
 
 **必选参数:**
-'无' 
+'无'
 
 **接口地址:**
 `/api/joke_photo/:page`
@@ -378,7 +387,8 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/joke_photo/1`
 
-__接口返回数据__
+**接口返回数据**
+
 ```javascript
 {
     "code": 200,
@@ -408,15 +418,18 @@ __接口返回数据__
 }
 ```
 
-###  3. 新闻资讯
->新闻列表、新闻视频、新闻详情
+### 3. 新闻资讯
 
-#### 3.1  新闻列表
->新闻列表
+> 新闻列表、新闻视频、新闻详情
+
+#### 3.1 新闻列表
+
+> 新闻列表
 
 **必选参数:**
-`type` : 新闻类型 
- 0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文 5科技 6财经 7 时尚
+`type` : 新闻类型
+0 热点新闻 1 社会新闻 2 娱乐新闻 3 体育新闻 4 美文 5 科技 6 财经 7 时尚
+
   <table>
   <tr>
 	<td>名称</td>
@@ -443,15 +456,13 @@ __接口返回数据__
 
 </table>
 
-
 **接口地址:**
 `/api/news_list/:type`
 
 **调用例子:**
 `http://localhost:3001/api/news_list/1`
 
-
-__接口返回数据__
+**接口返回数据**
 
 ```javascript
 {
@@ -509,12 +520,13 @@ __接口返回数据__
 }
 ```
 
-#### 3.2  新闻详情
->每页返回10条最新数据
+#### 3.2 新闻详情
+
+> 每页返回 10 条最新数据
 
 **必选参数:**
 
-`item_id`    新闻列表的 item id
+`item_id` 新闻列表的 item id
 
 **接口地址:**
 `/api/news_detail/:item_id`
@@ -522,7 +534,7 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/news_detail/6496307172245242381`
 
-__接口返回数据__
+**接口返回数据**
 
 ```javascript
 {
@@ -545,12 +557,13 @@ __接口返回数据__
 }
 ```
 
+#### 3.3 视频数据
 
-#### 3.3   视频数据
 **必选参数:**
-`type` : 类型 <br /> 0搞笑视频  1美女视频  2体育视频  3 新闻现场 4涨姿势  5猎奇  6 黑科技 默认搞笑视频
+`type` : 类型 <br /> 0 搞笑视频 1 美女视频 2 体育视频 3 新闻现场 4 涨姿势 5 猎奇 6 黑科技 默认搞笑视频
 <br />
- `page` : 分页 如:0/10/20/30
+`page` : 分页 如:0/10/20/30
+
   <table>
 <tr>
 	<td>type</td>
@@ -574,24 +587,22 @@ __接口返回数据__
 </tr>
 </table>
 
-
-
 **接口地址:**
 `api/video_list/:type/:page`
 
 **调用例子:**
 `http://localhost:3001/api/video_list/1/0`
 
-返回数据(由于长度就展示2条看)如下JSON:
-```javascript
+返回数据(由于长度就展示 2 条看)如下 JSON:
 
+```javascript
 ```
 
-###  4.kugou音乐wap端接口数据
->音乐新歌榜单、音乐歌单、排行榜、音乐详情、歌词、搜索、歌手信息、
->详细可看源代码 `api/music`
+### 4.kugou 音乐 wap 端接口数据
 
-#### 4.1  音乐新歌榜单
+> 音乐新歌榜单、音乐歌单、排行榜、音乐详情、歌词、搜索、歌手信息、详细可看源代码 `api/music`
+
+#### 4.1 音乐新歌榜单
 
 **必选参数:**
 无
@@ -602,13 +613,12 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/new_songs`
 
+**接口返回数据**
 
-__接口返回数据__
-
-#### 4.2  音乐歌单
+#### 4.2 音乐歌单
 
 **必选参数:**
-'无'  
+'无'
 
 **接口地址:**
 `api/plist/`
@@ -616,7 +626,7 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/plist/`
 
-__接口返回数据__
+**接口返回数据**
 
 ```javascript
 {
@@ -672,7 +682,7 @@ __接口返回数据__
                             "sqfilesize": 25490657,
                             "320hash": "6365B9383F70DD1CCCE73D12A15A3BCB"
                         },
-                      
+
                         {
                             "pay_type_320": 0,
                             "m4afilesize": 0,
@@ -783,11 +793,10 @@ __接口返回数据__
 }
 ```
 
-
-#### 4.3  音乐歌单下的音乐列表
+#### 4.3 音乐歌单下的音乐列表
 
 **必选参数:**
-'specialid' 歌单specialid 
+'specialid' 歌单 specialid
 
 **接口地址:**
 `api/plist_songs/:specialid`
@@ -795,7 +804,8 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/plist_songs/125032`
 
-__接口返回数据__
+**接口返回数据**
+
 ```javascript
 {
     "code": 200,
@@ -803,7 +813,7 @@ __接口返回数据__
         "list": {
             "timestamp": 1513239718,
             "info": [
-               
+
                 {
                     "pay_type_320": 0,
                     "m4afilesize": 0,
@@ -898,10 +908,10 @@ __接口返回数据__
 }
 ```
 
-#### 4.4  音乐排行榜
+#### 4.4 音乐排行榜
 
 **必选参数:**
-'无' 
+'无'
 
 **接口地址:**
 `api/rank_list/`
@@ -909,7 +919,8 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/rank_list/`
 
-__接口返回数据__
+**接口返回数据**
+
 ```javascript
 {
     "code": 200,
@@ -931,7 +942,7 @@ __接口返回数据__
                 "rankname": "酷狗飙升榜",
                 "ranktype": 2
             },
-           
+
             {
                 "rankid": 24574,
                 "id": 123,
@@ -953,10 +964,10 @@ __接口返回数据__
 }
 ```
 
-#### 4.5  排行版分类歌曲列表
+#### 4.5 排行版分类歌曲列表
 
 **必选参数:**
-'rankid'  rankid
+'rankid' rankid
 
 **接口地址:**
 `api/rank_list_info/:rankid`
@@ -964,7 +975,8 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/rank_list_info/8888`
 
-__接口返回数据__
+**接口返回数据**
+
 ```javascript
 {
     "code": 200,
@@ -1036,7 +1048,7 @@ __接口返回数据__
                     "album_audio_id": 65887695,
                     "fail_process_sq": 0
                 },
-               
+
                 {
                     "pay_type_320": 0,
                     "m4afilesize": 0,
@@ -1129,7 +1141,7 @@ __接口返回数据__
                     "album_audio_id": 57559532,
                     "fail_process_sq": 0
                 },
-                
+
                 {
                     "pay_type_320": 0,
                     "m4afilesize": 0,
@@ -1176,7 +1188,7 @@ __接口返回数据__
                     "album_audio_id": 65986345,
                     "fail_process_sq": 0
                 },
-             
+
                 {
                     "pay_type_320": 0,
                     "m4afilesize": 0,
@@ -1230,10 +1242,11 @@ __接口返回数据__
     "msg": ""
 }
 ```
-#### 4.5  歌手分类
+
+#### 4.5 歌手分类
 
 **必选参数:**
-'无'  
+'无'
 
 **接口地址:**
 `api/singer_classify/`
@@ -1241,7 +1254,8 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/singer_classify`
 
-__接口返回数据__
+**接口返回数据**
+
 ```javascript
 {
     "code": 200,
@@ -1301,10 +1315,10 @@ __接口返回数据__
 }
 ```
 
-#### 4.6  歌手分类下面的歌手列表
+#### 4.6 歌手分类下面的歌手列表
 
 **必选参数:**
-'classid'   classid
+'classid' classid
 
 **接口地址:**
 `api/singer_list/:classid`
@@ -1312,38 +1326,38 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/singer_list/88`
 
-__接口返回数据__
+**接口返回数据**
 
-
-
-
-#### 4.7  歌手信息
+#### 4.7 歌手信息
 
 **必选参数:**
-'singerid '   singerid 3060
+'singerid ' singerid 3060
 
 **接口地址:**
-`api/singer_info/:singerid `
+`api/singer_info/:singerid`
 
 **调用例子:**
 `http://localhost:3001/api/singer_info/3060`
 
-__接口返回数据__
-```
+**接口返回数据**
+
 ```
 
-#### 4.8  歌曲音乐详情
+```
+
+#### 4.8 歌曲音乐详情
 
 **必选参数:**
-'hash'   hash  CB7EE97F4CC11C4EA7A1FA4B516A5D97
+'hash' hash CB7EE97F4CC11C4EA7A1FA4B516A5D97
 
 **接口地址:**
-`api/song_info/:hash `
+`api/song_info/:hash`
 
 **调用例子:**
 `http://localhost:3001/api/song_info/CB7EE97F4CC11C4EA7A1FA4B516A5D97`
 
-__接口返回数据__
+**接口返回数据**
+
 ```javascript
 {
     "code": 200,
@@ -1387,24 +1401,23 @@ __接口返回数据__
     },
     "msg": ""
 }
-
 ```
-#### 4.9  歌曲音乐歌词
+
+#### 4.9 歌曲音乐歌词
 
 **必选参数:**
-'hash'   hash  CB7EE97F4CC11C4EA7A1FA4B516A5D97
+'hash' hash CB7EE97F4CC11C4EA7A1FA4B516A5D97
 
 **接口地址:**
-`api/song_lrc/:hash `
+`api/song_lrc/:hash`
 
 **调用例子:**
 `http://localhost:3001/api/song_lrc/CB7EE97F4CC11C4EA7A1FA4B516A5D97`
 
-
-#### 4.10  歌曲音乐搜索
+#### 4.10 歌曲音乐搜索
 
 **必选参数:**
-'keyword'  keyword
+'keyword' keyword
 
 **接口地址:**
 `api/music_search/:keyword`
@@ -1412,17 +1425,17 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/music_search/谭咏麟`
 
+### 5 job 工作搜索
 
-###  5 job工作搜索
->获取某个城市的某个工作岗位
+> 获取某个城市的某个工作岗位
 
-#### 5.1  工作搜索
+#### 5.1 工作搜索
 
 **必选参数:**
 
 `city` : 城市  
 `positionName` 职位  
-`pageNo` 页码  
+`pageNo` 页码
 
 **接口地址:**
 `api/job_list/:city/:positionName/:pageNo`
@@ -1430,15 +1443,13 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/job_list/深圳/前端开发/1`
 
+**接口返回数据**
 
-__接口返回数据__
-
-
-#### 5.2  职位详情
+#### 5.2 职位详情
 
 **必选参数:**
 
-`positionId` : 职位id  
+`positionId` : 职位 id
 
 **接口地址:**
 `api/job_info/:positionId`
@@ -1446,7 +1457,8 @@ __接口返回数据__
 **调用例子:**
 `http://localhost:3001/api/job_info/3844372`
 
-__接口返回数据__
+**接口返回数据**
+
 ```javascript
 {
     "code": 200,
