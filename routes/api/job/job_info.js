@@ -1,6 +1,6 @@
 /*
- * @Author: ecitlm 
- * @Date: 2017-12-19 09:49:04 
+ * @Author: ecitlm
+ * @Date: 2017-12-19 09:49:04
  * @Last Modified by: ecitlm
  * @Last Modified time: 2018-04-14 23:29:02
  */
@@ -13,7 +13,7 @@ const Iconv = require('iconv-lite')
 const Entities = require('html-entities').XmlEntities
 const entities = new Entities()
 
-function list(req, res) {
+function list (req, res) {
   let positionId = parseInt(req.params.positionId)
   let url = `https://www.lagou.com/jobs/${positionId}.html`
   let headers = {
@@ -32,7 +32,7 @@ function list(req, res) {
       headers: headers,
       timeout: 5000
     },
-    function(error, response, body) {
+    function (error, response, body) {
       let links = []
       if (response && response.statusCode == 200) {
         body = Iconv.decode(body, 'utf-8')
@@ -78,7 +78,7 @@ function list(req, res) {
   )
 }
 
-app.get('/:positionId', function(req, res) {
+app.get('/:positionId', function (req, res) {
   list(req, res)
 })
 module.exports = app

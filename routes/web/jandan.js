@@ -1,6 +1,6 @@
 /*
- * @Author: ecitlm 
- * @Date: 2017-12-08 09:58:39 
+ * @Author: ecitlm
+ * @Date: 2017-12-08 09:58:39
  * @Last Modified by: ecitlm
  * @Last Modified time: 2018-04-14 23:35:11
  */
@@ -13,16 +13,16 @@ const myajax = require('../../utils/axios_render')
 app.engine('ejs', ejs.__express) // 配置识别ejs模板
 app.set('view engine', 'ejs') // 设置模板扩展名后缀自动添加
 app.set('views', './views/web') // 设置模板路径
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   let page = Math.floor(Math.random() * 380)
   myajax
     .get('/api/jandan/' + page, {})
-    .then(function(response) {
+    .then(function (response) {
       res.render('jandan', {
         data: response['data']
       })
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.log(err)
     })
 })

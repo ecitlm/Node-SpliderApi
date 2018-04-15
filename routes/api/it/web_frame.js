@@ -17,7 +17,7 @@ const Iconv = require('iconv-lite')
  * @param  {[type]} res [description]
  * @return {[type]}     [description]
  */
-function list(req, res) {
+function list (req, res) {
   var url = 'http://cdn.it919.cn/frame.html'
   var headers = {
     Connection: 'keep-alive',
@@ -30,12 +30,12 @@ function list(req, res) {
       encoding: null,
       headers: headers
     },
-    function(error, response, body) {
+    function (error, response, body) {
       if (response && response.statusCode == 200) {
         body = Iconv.decode(body, 'utf-8')
         $ = cheerio.load(body)
         var link = []
-        $('.list-item').each(function(i, v) {
+        $('.list-item').each(function (i, v) {
           let index = $(this)
             .find('.scord')
             .text()
@@ -76,7 +76,7 @@ function list(req, res) {
     }
   )
 }
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   list(req, res)
 })
 module.exports = app

@@ -8,14 +8,14 @@ const express = require('express')
 const app = express()
 const Server = require('../../../utils/httpServer')
 
-app.get('/:page', function(req, res) {
+app.get('/:page', function (req, res) {
   let page = req.params.page
   let host = '3g.163.com'
   let path = `/touch/jsonp/joke/chanListNews/T141931628472/2/${page}-20.html`
   let data = {}
-  //false:http请求  true:https请求
+  // false:http请求  true:https请求
   Server.httpGet(host, data, path, false)
-    .then(function(body) {
+    .then(function (body) {
       let list = JSON.parse(body)['段子']
       let arr = []
       for (let i in list) {
@@ -32,7 +32,7 @@ app.get('/:page', function(req, res) {
         msg: ''
       })
     })
-    .catch(function(err) {
+    .catch(function (err) {
       res.send({
         code: 404,
         msg: '网络好像有点问题'

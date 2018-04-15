@@ -8,15 +8,15 @@
 const express = require('express')
 const app = express()
 const Server = require('../../../utils/httpServer')
-//歌手详细信息
-app.get('/:singerid', function(req, res) {
+// 歌手详细信息
+app.get('/:singerid', function (req, res) {
   let singerid = req.params.singerid
   let host = 'm.kugou.com'
   let path = `/singer/info/${singerid}&json=true`
   let data = {}
-  //false:http请求  true:https请求
+  // false:http请求  true:https请求
   Server.httpMobileGet(host, data, path, false)
-    .then(function(body) {
+    .then(function (body) {
       body = JSON.parse(body)
       let result = {
         info: body['info'],
@@ -28,7 +28,7 @@ app.get('/:singerid', function(req, res) {
         msg: ''
       })
     })
-    .catch(function(err) {
+    .catch(function (err) {
       res.send({
         code: 404,
         msg: '网络好像有点问题'

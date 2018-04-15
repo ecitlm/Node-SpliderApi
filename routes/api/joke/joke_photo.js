@@ -13,7 +13,7 @@ const request = require('request')
 const fs = require('fs')
 const Iconv = require('iconv-lite')
 
-function list(req, res) {
+function list (req, res) {
   let page = parseInt(req.params.page)
   let url = `http://www.xiaoliaoba.cn/page/tupian?page=${page}`
   console.log(url)
@@ -22,12 +22,12 @@ function list(req, res) {
       url: url,
       encoding: null
     },
-    function(error, response, body) {
+    function (error, response, body) {
       let links = []
       if (response && response.statusCode == 200) {
         let body = Iconv.decode(body, 'utf-8')
         let $ = cheerio.load(body)
-        $('.cont-item').each(function() {
+        $('.cont-item').each(function () {
           let tmp = {
             title: $(this)
               .children('.cont-list-title')
@@ -55,7 +55,7 @@ function list(req, res) {
   )
 }
 
-app.get('/:page', function(req, res) {
+app.get('/:page', function (req, res) {
   if (isNaN(req.params.page)) {
     res.send({
       msg: '请正确填写page参数 int类型',

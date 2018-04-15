@@ -1,6 +1,6 @@
 /*
- * @Author: ecitlm 
- * @Date: 2017-12-06 16:20:03 
+ * @Author: ecitlm
+ * @Date: 2017-12-06 16:20:03
  * @Last Modified by: ecitlm
  * @Last Modified time: 2018-04-14 23:20:43
  */
@@ -12,7 +12,7 @@ const filter = require('./utils/filter_sign')
 const path = require('path')
 app.use('/public', express.static('public')) // 设置静态资源地址
 app.use('/docs', express.static('docs')) // 设置静态资源地址
-app.all('*', function(req, res, next) {
+app.all('*', function (req, res, next) {
   // res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'X-Requested-With')
   res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')

@@ -12,7 +12,7 @@ const app = express()
 const request = require('request')
 const Iconv = require('iconv-lite')
 
-function list(req, res) {
+function list (req, res) {
   var url = 'http://caibaojian.com/c/news'
   console.log(url)
 
@@ -21,12 +21,12 @@ function list(req, res) {
       url: url,
       encoding: null
     },
-    function(error, response, body) {
+    function (error, response, body) {
       let links = []
       if (response && response.statusCode == 200) {
         body = Iconv.decode(body, 'utf-8')
         $ = cheerio.load(body)
-        $('#content article ').each(function() {
+        $('#content article ').each(function () {
           let title = $(this)
             .find('.entry-title span')
             .text()
@@ -63,7 +63,7 @@ function list(req, res) {
   )
 }
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   list(req, res)
 })
 module.exports = app

@@ -2,19 +2,18 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 21:33:20
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-14 23:34:43
+ * @Last Modified time: 2018-04-15 16:55:29
  */
 const express = require('express')
-const http = require('http')
 const cheerio = require('cheerio')
 const app = express()
 const request = require('request')
 const Iconv = require('iconv-lite')
-colors = require('../../../utils/log_color') //控制台彩色输出
-const connection = require('../../../config/dbs') //导入mysq配置文件
+const colors = require('../../../utils/log_color') // 控制台彩色输出
+const connection = require('../../../config/dbs') // 导入mysq配置文件
 
-//创建一个connection
-connection.connect(function(err) {
+// 创建一个connection
+connection.connect(function (err) {
   if (err) {
     console.log('[query] - :' + err)
     return
@@ -22,18 +21,17 @@ connection.connect(function(err) {
   console.log('数据库链接成功-connection success')
 })
 
-function view(req, res) {
+function view (req, res) {
   let id = req.params.id || 3788
 
-  //先查询数据库是否有该数据
+  // 先查询数据库是否有该数据
   let sql = 'SELECT  list FROM photo_detail WHERE (id =' + id + ')'
-  connection.query(sql, function(err, rows, fields) {
+  connection.query(sql, function (err, rows, fields) {
     console.log('==================================='.green)
-    console.log(sql.green) //输出sql语句
+    console.log(sql.green) // 输出sql语句
     console.log('==================================='.green)
     if (err) {
       console.log('[query] - :' + err)
-      return
     } else {
       console.log(rows[0])
       if (rows[0]) {
@@ -53,7 +51,7 @@ function view(req, res) {
         )
         requestApi(res, id)
       }
-      //console.log(fields); //返回数据库的基本信息、表字段数据长度等
+      // console.log(fields); //返回数据库的基本信息、表字段数据长度等
     }
   })
   return false
@@ -64,7 +62,7 @@ function view(req, res) {
  * @param {*} links
  * @param {*} id
  */
-function insert(links, id) {
+function insert (links, id) {
   let sql =
     "INSERT INTO photo_detail (`list`, `id`, `title`, `tag`) VALUES ('" +
     JSON.stringify(links) +
@@ -75,9 +73,9 @@ function insert(links, id) {
     "','" +
     tag +
     "')"
-  connection.query(sql, function(err, rows, fields) {
+  connection.query(sql, function (err, rows, fields) {
     console.log('==================================='.green)
-    console.log(sql.green) //输出sql语句
+    console.log(sql.green) // 输出sql语句
     console.log('==================================='.green)
     if (err) {
       console.log('[query] - :' + err)
@@ -93,23 +91,23 @@ function insert(links, id) {
  * 网络请求
  * @param {*} res
  */
-function requestApi(res, id) {
+function requestApi (res, id) {
   let url = `http://www.meizitu.com/a/${id}.html`
   request(
     {
       url: url,
       encoding: null
     },
-    function(error, response, body) {
+    function (error, response, body) {
       let links = []
-      if (response && response.statusCode == 200) {
+      if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'gb2312')
         $ = cheerio.load(body)
         title = $('.metaRight h2').text()
         tag = $('.metaRight p')
           .text()
           .split('Tags:')[1]
-        $('#picture p img').each(function() {
+        $('#picture p img').each(function () {
           links.push($(this).attr('src'))
         })
         console.log(links)
@@ -135,7 +133,7 @@ function requestApi(res, id) {
   )
 }
 
-app.get('/:id', function(req, res) {
+app.get('/:id', function (req, res) {
   console.log(req.params)
   view(req, res)
 })

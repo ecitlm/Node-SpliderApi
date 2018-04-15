@@ -8,15 +8,15 @@
 const express = require('express')
 const app = express()
 const Server = require('../../../utils/httpServer')
-//歌手分类下面的某一类歌手
-app.get('/:classid', function(req, res) {
+// 歌手分类下面的某一类歌手
+app.get('/:classid', function (req, res) {
   let classid = req.params.classid
   let host = 'm.kugou.com'
   let path = `/singer/list/${classid}&json=true`
   let data = {}
-  //false:http请求  true:https请求
+  // false:http请求  true:https请求
   Server.httpGet(host, data, path, false)
-    .then(function(body) {
+    .then(function (body) {
       body = JSON.parse(body)
       let result = {
         classname: body['classname'],
@@ -29,7 +29,7 @@ app.get('/:classid', function(req, res) {
         msg: ''
       })
     })
-    .catch(function(err) {
+    .catch(function (err) {
       res.send({
         code: 404,
         msg: '网络好像有点问题'

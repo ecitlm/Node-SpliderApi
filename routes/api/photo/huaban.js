@@ -12,7 +12,7 @@ const async = require('async')
 const fs = require('fs')
 const request = require('request')
 
-function MathRand() {
+function MathRand () {
   let Num = ''
   for (let i = 0; i < 8; i++) {
     Num += Math.floor(Math.random() * 10)
@@ -20,15 +20,15 @@ function MathRand() {
   return Num
 }
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   let host = 'huaban.com'
   let random = MathRand()
   console.log(MathRand())
   let path = `/favorite/beauty?jao0fn1x&max=11${random}&limit=30&wfl=1`
   let data = {}
-  //false:http请求  true:https请求
+  // false:http请求  true:https请求
   Server.ajaxGet(host, data, path, false)
-    .then(function(body) {
+    .then(function (body) {
       let list = JSON.parse(body)['pins']
       let arr = []
       for (let i in list) {
@@ -46,7 +46,7 @@ app.get('/', function(req, res) {
         msg: ''
       })
     })
-    .catch(function(err) {
+    .catch(function (err) {
       res.send({
         code: 404,
         msg: '网络好像有点问题'

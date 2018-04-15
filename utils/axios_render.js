@@ -9,7 +9,7 @@ const qs = require('qs')
 axios.defaults.timeout = 5000
 axios.defaults.baseURL = 'http://localhost:3001'
 
-//POST传参序列化
+// POST传参序列化
 axios.interceptors.request.use(
   config => {
     if (config.method === 'post') {
@@ -23,7 +23,7 @@ axios.interceptors.request.use(
   }
 )
 
-function get(url, params) {
+function get (url, params) {
   return new Promise((resolve, reject) => {
     axios
       .get(url, params)
@@ -41,7 +41,7 @@ function get(url, params) {
   })
 }
 
-function post(url, params) {
+function post (url, params) {
   return new Promise((resolve, reject) => {
     axios
       .post(url, params)

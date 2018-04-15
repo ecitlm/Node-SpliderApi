@@ -5,26 +5,26 @@
  * @Last Modified time: 2018-04-14 23:33:04
  */
 
-//音乐详情信息
+// 音乐详情信息
 const express = require('express')
 const app = express()
 const Server = require('../../../utils/httpServer')
 
-app.get('/:hash', function(req, res) {
+app.get('/:hash', function (req, res) {
   let hash = req.params.hash
   let host = 'm.kugou.com'
   let path = `/app/i/getSongInfo.php?cmd=playInfo&hash=${hash}`
   let data = {}
-  //false:http请求  true:https请求
+  // false:http请求  true:https请求
   Server.httpGet(host, data, path, false)
-    .then(function(body) {
+    .then(function (body) {
       res.send({
         code: 200,
         data: JSON.parse(body),
         msg: ''
       })
     })
-    .catch(function(err) {
+    .catch(function (err) {
       res.send({
         code: 404,
         msg: '网络好像有点问题'

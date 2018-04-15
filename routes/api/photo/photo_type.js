@@ -2,24 +2,22 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 22:40:46
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-14 23:34:15
+ * @Last Modified time: 2018-04-15 16:57:42
  */
 const express = require('express')
-const http = require('http')
 const cheerio = require('cheerio')
 const app = express()
 const request = require('request')
-const fs = require('fs')
 const Iconv = require('iconv-lite')
 
-function regx(str) {
+function regx (str) {
   const reg = /\/([^\/]+)\.html/
   if (reg.test(str)) {
     return RegExp.$1
   }
 }
 
-function list(req, res) {
+function list (req, res) {
   let url = 'http://www.meizitu.com/'
   console.log(url)
   request(
@@ -27,13 +25,13 @@ function list(req, res) {
       url: url,
       encoding: null
     },
-    function(error, response, body) {
+    function (error, response, body) {
       let links = []
-      if (response && response.statusCode == 200) {
+      if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'gb2312')
         $ = cheerio.load(body)
 
-        $('.tags a').each(function() {
+        $('.tags a').each(function () {
           let tmp = {
             title: $(this).text(),
             id: regx($(this).attr('href'))
@@ -56,7 +54,7 @@ function list(req, res) {
   )
 }
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   list(req, res)
 })
 module.exports = app

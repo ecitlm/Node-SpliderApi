@@ -1,4 +1,4 @@
-/* 
+/*
  * @Author: ecitlm
  * @Date:   2017-12-06 22:59:30
  * @Last Modified by: ecitlm
@@ -8,7 +8,7 @@ const express = require('express')
 const http = require('http')
 const app = express()
 const Server = require('../../../utils/httpServer')
-app.get('/:type/:page', function(req, res) {
+app.get('/:type/:page', function (req, res) {
   var id
   let type = parseInt(req.params.type)
   let page = parseInt(req.params.page)
@@ -43,10 +43,10 @@ app.get('/:type/:page', function(req, res) {
   var path = `/nc/video/list/${id}/y/${page}-20.html`
   console.log(path)
   var data = {}
-  //false:http请求  true:https请求
+  // false:http请求  true:https请求
   console.log(path)
   Server.httpGet(host, data, path, false)
-    .then(function(body) {
+    .then(function (body) {
       var arr = JSON.parse(body)
       res.send({
         code: 200,
@@ -54,7 +54,7 @@ app.get('/:type/:page', function(req, res) {
         msg: ''
       })
     })
-    .catch(function(err) {
+    .catch(function (err) {
       res.send({
         code: 404,
         msg: '网络好像有点问题'

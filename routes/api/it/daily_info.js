@@ -2,16 +2,15 @@
  * @Author: ecitlm
  * @Date:   2017-12-01 21:06:42
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-14 23:27:27
+ * @Last Modified time: 2018-04-15 16:53:56
  */
 const express = require('express')
-const http = require('http')
 const cheerio = require('cheerio')
 const app = express()
 const request = require('request')
 const Iconv = require('iconv-lite')
 
-function list(req, res) {
+function list (req, res) {
   let date = parseInt(req.params.date)
   let url = `http://caibaojian.com/fe-daily-${date}.html`
   let headers = {
@@ -25,16 +24,16 @@ function list(req, res) {
       encoding: null,
       headers: headers
     },
-    function(error, response, body) {
-      if (response && response.statusCode == 200) {
+    function (error, response, body) {
+      if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
-        $ = cheerio.load(body)
+        let $ = cheerio.load(body)
         var link = {
           title: $('.entry-title a').text(),
           description: $('.fe-desc').text(),
           links: []
         }
-        $('.feddaily-list li').each(function() {
+        $('.feddaily-list li').each(function () {
           let title = $(this)
             .find('.fed-title a')
             .text()
@@ -67,7 +66,7 @@ function list(req, res) {
   )
 }
 
-app.get('/:date', function(req, res) {
+app.get('/:date', function (req, res) {
   list(req, res)
 })
 module.exports = app

@@ -13,7 +13,7 @@ const appkey = 'nodeapliderapi'
  * @param {[type]} msg [错误消息]
  * @param {[type]} res [callback]
  */
-function Exception_BadRequest(msg, res) {
+function Exception_BadRequest (msg, res) {
   res.send({
     code: 2,
     msg: msg
@@ -47,7 +47,7 @@ const getSign = params => {
  * @param  {[type]} req [description]
  * @param  {[type]} res [description]
  */
-function simpleFilter(req, res) {
+function simpleFilter (req, res) {
   let params = {}
   params.sign = req.query.sign
   params.times = req.query.times

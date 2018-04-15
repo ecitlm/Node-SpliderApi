@@ -5,25 +5,25 @@
  * @Last Modified time: 2018-04-14 23:31:35
  */
 
-//音乐歌单
+// 音乐歌单
 const express = require('express')
 const app = express()
 const Server = require('../../../utils/httpServer')
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   let host = 'm.kugou.com'
   let path = '/plist/index&json=true'
   let data = {}
-  //false:http请求  true:https请求
+  // false:http请求  true:https请求
   Server.httpGet(host, data, path, false)
-    .then(function(body) {
+    .then(function (body) {
       res.send({
         code: 200,
         data: JSON.parse(body)['plist'],
         msg: ''
       })
     })
-    .catch(function(err) {
+    .catch(function (err) {
       res.send({
         code: 404,
         msg: '网络好像有点问题'

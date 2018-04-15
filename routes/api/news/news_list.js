@@ -8,10 +8,10 @@ const express = require('express')
 const app = express()
 const Server = require('../../../utils/httpServer')
 
-app.get('/:type', function(req, res) {
+app.get('/:type', function (req, res) {
   let type = parseInt(req.query.type)
   var path
-  //0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文 散文 5科技 6 财经 7 时尚
+  // 0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文 散文 5科技 6 财经 7 时尚
   switch (type) {
     case 0:
       path =
@@ -54,17 +54,17 @@ app.get('/:type', function(req, res) {
   var host = 'm.toutiao.com'
   var path = path
   var data = {}
-  //false:http请求  true:https请求
+  // false:http请求  true:https请求
   console.log('m.toutiao.com' + path)
   Server.httpGet(host, data, path, false)
-    .then(function(body) {
+    .then(function (body) {
       res.send({
         code: 200,
         data: JSON.parse(body)['data'],
         msg: ''
       })
     })
-    .catch(function(err) {
+    .catch(function (err) {
       res.send({
         code: 404,
         msg: '网络好像有点问题'

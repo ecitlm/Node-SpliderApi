@@ -1,8 +1,8 @@
 /*
- * @Author: ecitlm 
- * @Date: 2017-12-07 19:56:26 
+ * @Author: ecitlm
+ * @Date: 2017-12-07 19:56:26
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-14 23:23:00
+ * @Last Modified time: 2018-04-15 16:57:48
  */
 const express = require('express')
 const http = require('http')
@@ -14,7 +14,7 @@ const Iconv = require('iconv-lite')
 const async = require('async')
 const decrypt = require('../../../utils/decrypt')
 
-function list(req, res) {
+function list (req, res) {
   let page = parseInt(req.params.page)
   let url = `http://jandan.net/ooxx/page-${page}#comments`
   let headers = {
@@ -33,12 +33,12 @@ function list(req, res) {
       headers: headers,
       timeout: 5000
     },
-    function(error, response, body) {
+    function (error, response, body) {
       let links = []
       if (response) {
         body = Iconv.decode(body, 'utf-8')
         $ = cheerio.load(body)
-        $('.img-hash').each(function(index, item) {
+        $('.img-hash').each(function (index, item) {
           links.push('http:' + decrypt.getSrc($(this).text()))
         })
         console.log(links)
@@ -57,7 +57,7 @@ function list(req, res) {
     }
   )
 }
-app.get('/:page', function(req, res) {
+app.get('/:page', function (req, res) {
   if (isNaN(req.params.page)) {
     res.send({
       msg: '请正确填写page参数 int类型',

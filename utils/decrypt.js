@@ -4,8 +4,8 @@ const atob = require('atob')
 const window = global
 var Decrypt = (function(n, x, f) {
   var k = 'DECODE'
-  var x = x ? x : ''
-  var f = f ? f : 0
+  var x = x || ''
+  var f = f || 0
   var g = 4
   x = md5(x)
   var w = md5(x.substr(0, 16))
@@ -69,9 +69,9 @@ var Decrypt = (function(n, x, f) {
 })(
   (function() {
     var b =
-      typeof exports != 'undefined'
+      typeof exports !== 'undefined'
         ? exports
-        : typeof self != 'undefined'
+        : typeof self !== 'undefined'
           ? self
           : $.global
     var c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
@@ -346,9 +346,9 @@ function base64_decode(a) {
 })(this)
 ;(function() {
   var b =
-    typeof exports != 'undefined'
+    typeof exports !== 'undefined'
       ? exports
-      : typeof self != 'undefined'
+      : typeof self !== 'undefined'
         ? self
         : $.global
   var c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
@@ -421,8 +421,8 @@ function md5(a) {
 }
 var Decrypt = function(m, r, d) {
   var e = 'DECODE'
-  var r = r ? r : ''
-  var d = d ? d : 0
+  var r = r || ''
+  var d = d || 0
   var q = 4
   r = md5(r)
   var o = md5(r.substr(0, 16))
@@ -478,13 +478,15 @@ var Decrypt = function(m, r, d) {
 }
 
 var getSrc = function(hash) {
-  var src = Decrypt(hash, 'lLZ121BkPQxdjWXbuBNFGw3ASF9gAnjW')
+  var src = Decrypt(hash, 'UZI1Mazymwxfn2jE6EcX9mTaaMvMFhHA')
   return src
 }
-
-//KgExNCEdN23zvEotcA3OYPotDU92ftMZ
-//ugPz7LXXsrHVGePsFk2fVBOSq0S5xRL2
-//QlbwafYuTdFLt9lnbhvSvON6SGdiigj9
+//
+//  f.remove();
+//var c = jdSbHeTuv8eKma4dSbjSLg9uBNpK2EwZco(e, "");
+// KgExNCEdN23zvEotcA3OYPotDU92ftMZ
+// ugPz7LXXsrHVGePsFk2fVBOSq0S5xRL2
+// QlbwafYuTdFLt9lnbhvSvON6SGdiigj9
 // Aw9P1Fjfo2fJ0cigUoM094bJ4g8FPzop
 // D11nyw0jmDtziL9rGhWpVG09WBdwjwWW
 module.exports = {

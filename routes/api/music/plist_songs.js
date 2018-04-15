@@ -5,26 +5,26 @@
  * @Last Modified time: 2018-04-14 23:31:28
  */
 
-//音乐歌单下的音乐列表
+// 音乐歌单下的音乐列表
 const express = require('express')
 const app = express()
 const Server = require('../../../utils/httpServer')
 
-app.get('/:specialid', function(req, res) {
+app.get('/:specialid', function (req, res) {
   let specialid = req.params.specialid
   let host = 'm.kugou.com'
   let path = `/plist/list/${specialid}?json=true`
   let data = {}
-  //false:http请求  true:https请求
+  // false:http请求  true:https请求
   Server.httpGet(host, data, path, false)
-    .then(function(body) {
+    .then(function (body) {
       res.send({
         code: 200,
         data: JSON.parse(body)['list'],
         msg: ''
       })
     })
-    .catch(function(err) {
+    .catch(function (err) {
       res.send({
         code: 404,
         msg: '网络好像有点问题'
