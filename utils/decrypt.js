@@ -2,7 +2,7 @@ const MYMD5 = require('md5')
 const btoa = require('btoa')
 const atob = require('atob')
 const window = global
-var Decrypt = (function(n, x, f) {
+var Decrypt = (function (n, x, f) {
   var k = 'DECODE'
   var x = x || ''
   var f = f || 0
@@ -67,7 +67,7 @@ var Decrypt = (function(n, x, f) {
   }
   return l
 })(
-  (function() {
+  (function () {
     var b =
       typeof exports !== 'undefined'
         ? exports
@@ -76,13 +76,13 @@ var Decrypt = (function(n, x, f) {
           : $.global
     var c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
 
-    function a(d) {
+    function a (d) {
       this.message = d
     }
     a.prototype = new Error()
     a.prototype.name = 'InvalidCharacterError'
     b.btoa ||
-      (b.btoa = function(g) {
+      (b.btoa = function (g) {
         var j = String(g)
         for (
           var i, e, d = 0, h = c, f = '';
@@ -100,7 +100,7 @@ var Decrypt = (function(n, x, f) {
         return f
       })
     b.atob ||
-      (b.atob = function(g) {
+      (b.atob = function (g) {
         var j = String(g).replace(/[=]+$/, '')
         if (j.length % 4 == 1) {
           throw new a(
@@ -121,45 +121,45 @@ var Decrypt = (function(n, x, f) {
   })()
 )
 
-function base64_encode(a) {
+function base64_encode (a) {
   return btoa(a)
 }
 
-function base64_decode(a) {
+function base64_decode (a) {
   return atob(a)
 }
-;(function(g) {
-  function o(u, z) {
+;(function (g) {
+  function o (u, z) {
     var w = (u & 65535) + (z & 65535),
       v = (u >> 16) + (z >> 16) + (w >> 16)
     return (v << 16) | (w & 65535)
   }
 
-  function s(u, v) {
+  function s (u, v) {
     return (u << v) | (u >>> (32 - v))
   }
 
-  function c(A, w, v, u, z, y) {
+  function c (A, w, v, u, z, y) {
     return o(s(o(o(w, A), o(u, y)), z), v)
   }
 
-  function b(w, v, B, A, u, z, y) {
+  function b (w, v, B, A, u, z, y) {
     return c((v & B) | (~v & A), w, v, u, z, y)
   }
 
-  function i(w, v, B, A, u, z, y) {
+  function i (w, v, B, A, u, z, y) {
     return c((v & A) | (B & ~A), w, v, u, z, y)
   }
 
-  function n(w, v, B, A, u, z, y) {
+  function n (w, v, B, A, u, z, y) {
     return c(v ^ B ^ A, w, v, u, z, y)
   }
 
-  function a(w, v, B, A, u, z, y) {
+  function a (w, v, B, A, u, z, y) {
     return c(B ^ (v | ~A), w, v, u, z, y)
   }
 
-  function d(F, A) {
+  function d (F, A) {
     F[A >> 5] |= 128 << (A % 32)
     F[(((A + 64) >>> 9) << 4) + 14] = A
     var w,
@@ -248,7 +248,7 @@ function base64_decode(a) {
     return [E, D, C, B]
   }
 
-  function p(v) {
+  function p (v) {
     var w,
       u = ''
     for (w = 0; w < v.length * 32; w += 8) {
@@ -257,7 +257,7 @@ function base64_decode(a) {
     return u
   }
 
-  function j(v) {
+  function j (v) {
     var w,
       u = []
     u[(v.length >> 2) - 1] = undefined
@@ -270,11 +270,11 @@ function base64_decode(a) {
     return u
   }
 
-  function k(u) {
+  function k (u) {
     return p(d(j(u), u.length * 8))
   }
 
-  function e(w, z) {
+  function e (w, z) {
     var v,
       y = j(w),
       u = [],
@@ -292,7 +292,7 @@ function base64_decode(a) {
     return p(d(x.concat(A), 512 + 128))
   }
 
-  function t(w) {
+  function t (w) {
     var z = '0123456789abcdef',
       v = '',
       u,
@@ -304,27 +304,27 @@ function base64_decode(a) {
     return v
   }
 
-  function m(u) {
+  function m (u) {
     return unescape(encodeURIComponent(u))
   }
 
-  function q(u) {
+  function q (u) {
     return k(m(u))
   }
 
-  function l(u) {
+  function l (u) {
     return t(q(u))
   }
 
-  function h(u, v) {
+  function h (u, v) {
     return e(m(u), m(v))
   }
 
-  function r(u, v) {
+  function r (u, v) {
     return t(h(u, v))
   }
 
-  function f(v, w, u) {
+  function f (v, w, u) {
     if (!w) {
       if (!u) {
         return l(v)
@@ -337,14 +337,14 @@ function base64_decode(a) {
     return h(w, v)
   }
   if (typeof define === 'function' && define.amd) {
-    define(function() {
+    define(function () {
       return f
     })
   } else {
     g.md5 = f
   }
 })(this)
-;(function() {
+;(function () {
   var b =
     typeof exports !== 'undefined'
       ? exports
@@ -353,13 +353,13 @@ function base64_decode(a) {
         : $.global
   var c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
 
-  function a(d) {
+  function a (d) {
     this.message = d
   }
   a.prototype = new Error()
   a.prototype.name = 'InvalidCharacterError'
   b.btoa ||
-    (b.btoa = function(g) {
+    (b.btoa = function (g) {
       var j = String(g)
       for (
         var i, e, d = 0, h = c, f = '';
@@ -377,7 +377,7 @@ function base64_decode(a) {
       return f
     })
   b.atob ||
-    (b.atob = function(g) {
+    (b.atob = function (g) {
       var j = String(g).replace(/[=]+$/, '')
       if (j.length % 4 == 1) {
         throw new a(
@@ -397,29 +397,29 @@ function base64_decode(a) {
     })
 })()
 
-function time() {
+function time () {
   var a = new Date().getTime()
   return parseInt(a / 1000)
 }
 
-function microtime(b) {
+function microtime (b) {
   var a = new Date().getTime()
   var c = parseInt(a / 1000)
   return b ? a / 1000 : (a - c * 1000) / 1000 + ' ' + c
 }
 
-function chr(a) {
+function chr (a) {
   return String.fromCharCode(a)
 }
 
-function ord(a) {
+function ord (a) {
   return a.charCodeAt()
 }
 
-function md5(a) {
+function md5 (a) {
   return MYMD5(a)
 }
-var Decrypt = function(m, r, d) {
+var Decrypt = function (m, r, d) {
   var e = 'DECODE'
   var r = r || ''
   var d = d || 0
@@ -477,13 +477,13 @@ var Decrypt = function(m, r, d) {
   return t
 }
 
-var getSrc = function(hash) {
+var getSrc = function (hash) {
   var src = Decrypt(hash, 'UZI1Mazymwxfn2jE6EcX9mTaaMvMFhHA')
   return src
 }
 //
 //  f.remove();
-//var c = jdSbHeTuv8eKma4dSbjSLg9uBNpK2EwZco(e, "");
+// var c = jdSbHeTuv8eKma4dSbjSLg9uBNpK2EwZco(e, "");
 // KgExNCEdN23zvEotcA3OYPotDU92ftMZ
 // ugPz7LXXsrHVGePsFk2fVBOSq0S5xRL2
 // QlbwafYuTdFLt9lnbhvSvON6SGdiigj9

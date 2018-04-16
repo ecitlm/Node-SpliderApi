@@ -2,10 +2,9 @@
  * @Author: ecitlm
  * @Date: 2017-12-19 09:49:04
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-14 23:29:02
+ * @Last Modified time: 2018-04-15 22:14:05
  */
 const express = require('express')
-const http = require('http')
 const cheerio = require('cheerio')
 const app = express()
 const request = require('request')
@@ -33,8 +32,7 @@ function list (req, res) {
       timeout: 5000
     },
     function (error, response, body) {
-      let links = []
-      if (response && response.statusCode == 200) {
+      if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
         $ = cheerio.load(body)
         let data = {

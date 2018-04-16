@@ -29,5 +29,15 @@
     "fs": "^0.0.1-security",
     "html-entities": "^1.2.1",
     "mkdirp": "^0.5.1"
+  },
+  "standard": {
+    "ignore": [
+      "/node_modules/",
+      "node_modules/",
+      "/public/",
+      "/utils/decrypt.js",
+      "/utils/md5.js"
+    ],
+    "globals": ["$"]
   }
 }

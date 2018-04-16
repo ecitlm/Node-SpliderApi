@@ -2,13 +2,11 @@
  * @Author: ecitlm
  * @Date: 2017-12-06 16:20:03
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-14 23:20:43
+ * @Last Modified time: 2018-04-16 22:26:08
  */
 const express = require('express')
-const http = require('http')
 const app = express()
 const router = express.Router()
-const filter = require('./utils/filter_sign')
 const path = require('path')
 app.use('/public', express.static('public')) // 设置静态资源地址
 app.use('/docs', express.static('docs')) // 设置静态资源地址

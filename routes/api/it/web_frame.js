@@ -2,10 +2,9 @@
  * @Author: ecitlm
  * @Date:   2017-12-01 20:29:08
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-14 23:28:35
+ * @Last Modified time: 2018-04-15 22:13:45
  */
 const express = require('express')
-const http = require('http')
 const cheerio = require('cheerio')
 const app = express()
 const request = require('request')
@@ -31,7 +30,7 @@ function list (req, res) {
       headers: headers
     },
     function (error, response, body) {
-      if (response && response.statusCode == 200) {
+      if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
         $ = cheerio.load(body)
         var link = []
