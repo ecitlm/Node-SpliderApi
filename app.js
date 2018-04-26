@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date: 2017-12-06 16:20:03
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-16 22:26:08
+ * @Last Modified time: 2018-04-26 22:44:50
  */
 const express = require('express')
 const app = express()
@@ -10,8 +10,7 @@ const router = express.Router()
 const path = require('path')
 app.use('/public', express.static('public')) // 设置静态资源地址
 app.use('/docs', express.static('docs')) // 设置静态资源地址
-app.all('*', function (req, res, next) {
-  // res.header('Access-Control-Allow-Origin', '*')
+app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Headers', 'X-Requested-With')
   res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
   res.header('X-Powered-By', ' 3.2.1')
