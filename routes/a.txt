@@ -1,0 +1,52 @@
+卷 Code 的文件夹 PATH 列表
+卷序列号为 0006-C608
+G:.
+│  a.txt
+│  
+├─api
+│  ├─it
+│  │      daily_info.js
+│  │      daily_list.js
+│  │      web_frame.js
+│  │      
+│  ├─job
+│  │      job_info.js
+│  │      job_list.js
+│  │      
+│  ├─joke
+│  │      joke_img.js
+│  │      joke_list.js
+│  │      joke_photo.js
+│  │      
+│  ├─music
+│  │      new_songs.js
+│  │      plist.js
+│  │      plist_songs.js
+│  │      rank_list.js
+│  │      rank_list_info.js
+│  │      search.js
+│  │      singer_classify.js
+│  │      singer_info.js
+│  │      singer_list.js
+│  │      song_info.js
+│  │      song_lrc.js
+│  │      
+│  ├─news
+│  │      news_detail.js
+│  │      news_list.js
+│  │      video_list.js
+│  │      
+│  └─photo
+│          huaban.js
+│          jandan.js
+│          photo_list.js
+│          photo_type.js
+│          photo_view.js
+│          
+└─web
+        daily_info.js
+        daily_list.js
+        index.js
+        jandan.js
+        photo.js
+        

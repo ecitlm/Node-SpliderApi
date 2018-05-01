@@ -37,6 +37,10 @@ $ node app.js
 │  │      daily_list.js
 │  │      web_frame.js
 │  │
+│  ├─job
+│  │      job_info.js
+│  │      job_list.js
+│  │
 │  ├─joke
 │  │      joke_img.js
 │  │      joke_list.js
@@ -62,6 +66,7 @@ $ node app.js
 │  │
 │  └─photo
 │          huaban.js
+│          jandan.js
 │          photo_list.js
 │          photo_type.js
 │          photo_view.js
@@ -70,6 +75,7 @@ $ node app.js
         daily_info.js
         daily_list.js
         index.js
+        jandan.js
         photo.js
 ```
 
