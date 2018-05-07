@@ -37,7 +37,7 @@ $ node app.js
  * @returns
  */
 function httpGet(GET方式请求)(host, data, path, status) {
-    var options = {
+    let options = {
         host: host,
         port: 80,
         path: path + querystring.stringify(data),
@@ -56,8 +56,7 @@ function httpGet(GET方式请求)(host, data, path, status) {
 
     return new Promise(function(resolve, reject) {
         let body = "";
-        var get_req = http.request(options, function(response) {
-            //response.setEncoding('utf8');
+        let getReq = http.request(options, function(response) {
             response.on("data", function(chunk) {
                 body += chunk;
             })
@@ -70,7 +69,7 @@ function httpGet(GET方式请求)(host, data, path, status) {
                 reject(err)
             })
         })
-        get_req.end();
+        getReq.end();
     });
 }
 
