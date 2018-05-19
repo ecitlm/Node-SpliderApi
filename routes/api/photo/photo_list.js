@@ -8,7 +8,7 @@ const express = require('express')
 const cheerio = require('cheerio')
 const app = express()
 const request = require('request')
-const fs = require('fs')
+// const fs = require('fs')
 const Iconv = require('iconv-lite')
 
 function list (req, res) {
@@ -23,7 +23,7 @@ function list (req, res) {
       let links = []
       if (response && response.statusCode == 200) {
         body = Iconv.decode(body, 'gb2312')
-        $ = cheerio.load(body)
+        let $ = cheerio.load(body)
         $('.pic a img').each(function () {
           let tmp = {
             img: $(this)

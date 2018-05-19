@@ -13,9 +13,8 @@ const Server = require('../../../utils/httpServer')
 app.get('/', function (req, res) {
   let host = 'm.kugou.com'
   let path = '/plist/index&json=true'
-  let data = {}
   // false:http请求  true:https请求
-  Server.httpGet(host, data, path, false)
+  Server.httpGet(host, {}, path, false)
     .then(function (body) {
       res.send({
         code: 200,

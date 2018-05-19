@@ -34,7 +34,7 @@ function list (req, res) {
     function (error, response, body) {
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
-        $ = cheerio.load(body)
+        let $ = cheerio.load(body)
         let data = {
           title: $('title').text(),
           publishtime: $('.publish_time').text(),

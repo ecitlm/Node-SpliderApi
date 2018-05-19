@@ -13,9 +13,8 @@ app.get('/:classid', function (req, res) {
   let classid = req.params.classid
   let host = 'm.kugou.com'
   let path = `/singer/list/${classid}&json=true`
-  let data = {}
   // false:http请求  true:https请求
-  Server.httpGet(host, data, path, false)
+  Server.httpGet(host, {}, path, false)
     .then(function (body) {
       body = JSON.parse(body)
       let result = {

@@ -9,13 +9,12 @@ const app = express()
 const Server = require('../../../utils/httpServer')
 
 app.get('/:item_id', function (req, res) {
-  let item_id = req.params.item_id || '6424603234748334594'
+  let itemId = req.params.item_id || '6424603234748334594'
   let host = 'm.toutiao.com'
-  let path = `/i${item_id}/info/`
-  let data = {}
+  let path = `/i${itemId}/info/`
   // false:http请求  true:https请求
   console.log(path)
-  Server.httpGet(host, data, path, false)
+  Server.httpGet(host, {}, path, false)
     .then(function (body) {
       res.send({
         code: 200,

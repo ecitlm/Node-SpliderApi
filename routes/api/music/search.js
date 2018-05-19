@@ -4,7 +4,6 @@
  * @Last Modified by: ecitlm
  * @Last Modified time: 2018-04-14 23:31:59
  */
-
 const express = require('express')
 const app = express()
 const Server = require('../../../utils/httpServer')
@@ -12,12 +11,10 @@ const Server = require('../../../utils/httpServer')
 // 音乐搜索
 app.get('/:keyword', function (req, res) {
   let keyword = encodeURIComponent(req.params.keyword)
-  console.log()
   let host = 'mobilecdn.kugou.com'
   let path = `/api/v3/search/song?format=json&keyword=${keyword}&page=1&pagesize=20&showtype=1`
-  let data = {}
   // false:http请求  true:https请求
-  Server.httpGet(host, data, path, false)
+  Server.httpGet(host, {}, path, false)
     .then(function (body) {
       res.send({
         code: 200,

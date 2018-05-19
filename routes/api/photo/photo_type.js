@@ -29,8 +29,7 @@ function list (req, res) {
       let links = []
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'gb2312')
-        $ = cheerio.load(body)
-
+        let $ = cheerio.load(body)
         $('.tags a').each(function () {
           let tmp = {
             title: $(this).text(),

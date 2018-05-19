@@ -18,7 +18,7 @@ axios.interceptors.request.use(
     return config
   },
   error => {
-    alert('错误的传参')
+    window.alert('错误的传参')
     return Promise.reject(error)
   }
 )

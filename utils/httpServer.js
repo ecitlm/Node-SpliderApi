@@ -17,7 +17,7 @@ const request = require('request')
  * @param {bool} true false 是否为https
  * @returns
  */
-function httpGet(host, data, path, status) {
+function httpGet (host, data, path, status) {
   console.log('===================HttpGet=====================')
   let options = {
     host: host,
@@ -37,11 +37,11 @@ function httpGet(host, data, path, status) {
     options.port = 443
   }
 
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     let body = ''
-    let getReq = http.request(options, function(response) {
+    let getReq = http.request(options, function (response) {
       // response.setEncoding('utf8');
-      response.on('data', function(chunk) {
+      response.on('data', function (chunk) {
         body += chunk
       })
 
@@ -65,7 +65,7 @@ function httpGet(host, data, path, status) {
  * @param {bool} true false 是否为https
  * @returns
  */
-function ajaxGet(host, data, path, status) {
+function ajaxGet (host, data, path, status) {
   console.log('===================HttpGet=====================')
   let options = {
     host: host,
@@ -88,11 +88,11 @@ function ajaxGet(host, data, path, status) {
     options.port = 443
   }
 
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     let body = ''
-    let getReq = http.request(options, function(response) {
+    let getReq = http.request(options, function (response) {
       // response.setEncoding('utf8');
-      response.on('data', function(chunk) {
+      response.on('data', function (chunk) {
         body += chunk
       })
 
@@ -116,7 +116,7 @@ function ajaxGet(host, data, path, status) {
  * @param {bool} true false 是否为https
  * @returns
  */
-function httpMobileGet(host, data, path, status) {
+function httpMobileGet (host, data, path, status) {
   console.log('===================httpMobileGet=====================')
   let options = {
     host: host,
@@ -136,11 +136,11 @@ function httpMobileGet(host, data, path, status) {
     options.port = 443
   }
 
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     let body = ''
-    let getReq = http.request(options, function(response) {
+    let getReq = http.request(options, function (response) {
       // response.setEncoding('utf8');
-      response.on('data', function(chunk) {
+      response.on('data', function (chunk) {
         body += chunk
       })
 
@@ -164,7 +164,7 @@ function httpMobileGet(host, data, path, status) {
  * @param {bool} true false 是否为https
  * @returns
  */
-function httpPost(host, data, path, status) {
+function httpPost (host, data, path, status) {
   data = querystring.stringify(data)
   console.log('---------httpPost---------------')
   console.log(data)
@@ -185,11 +185,11 @@ function httpPost(host, data, path, status) {
     http = require('https')
     options.port = 443
   }
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     let body = ''
-    let postReq = http.request(options, function(response) {
+    let postReq = http.request(options, function (response) {
       // console.log(response.statusCode);
-      response.on('data', function(chunk) {
+      response.on('data', function (chunk) {
         body += chunk
       })
 

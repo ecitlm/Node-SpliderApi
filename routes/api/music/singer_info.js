@@ -13,9 +13,8 @@ app.get('/:singerid', function (req, res) {
   let singerid = req.params.singerid
   let host = 'm.kugou.com'
   let path = `/singer/info/${singerid}&json=true`
-  let data = {}
   // false:http请求  true:https请求
-  Server.httpMobileGet(host, data, path, false)
+  Server.httpMobileGet(host, {}, path, false)
     .then(function (body) {
       body = JSON.parse(body)
       let result = {

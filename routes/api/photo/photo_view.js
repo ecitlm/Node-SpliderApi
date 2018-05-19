@@ -102,9 +102,9 @@ function requestApi (res, id) {
       let links = []
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'gb2312')
-        $ = cheerio.load(body)
-        title = $('.metaRight h2').text()
-        tag = $('.metaRight p')
+        let $ = cheerio.load(body)
+        let title = $('.metaRight h2').text()
+        let tag = $('.metaRight p')
           .text()
           .split('Tags:')[1]
         $('#picture p img').each(function () {

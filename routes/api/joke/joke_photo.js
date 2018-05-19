@@ -24,8 +24,8 @@ function list (req, res) {
     },
     function (error, response, body) {
       let links = []
-      if (response && response.statusCode == 200) {
-        let body = Iconv.decode(body, 'utf-8')
+      if (response && response.statusCode === 200) {
+        body = Iconv.decode(body, 'utf-8')
         let $ = cheerio.load(body)
         $('.cont-item').each(function () {
           let tmp = {

@@ -14,9 +14,8 @@ app.get('/:hash', function (req, res) {
   let hash = req.params.hash
   let host = 'm.kugou.com'
   let path = `/app/i/krc.php?cmd=100&hash=${hash}&timelength=3012000`
-  let data = {}
   // false:http请求  true:https请求
-  Server.httpGet(host, data, path, false)
+  Server.httpGet(host, {}, path, false)
     .then(function (body) {
       res.send({
         code: 200,

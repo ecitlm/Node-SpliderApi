@@ -14,9 +14,8 @@ app.get('/:rankid', function (req, res) {
   let rankid = req.params.rankid
   let host = 'm.kugou.com'
   let path = `/rank/info/${rankid}&json=true`
-  let data = {}
   // false:http请求  true:https请求
-  Server.httpGet(host, data, path, false)
+  Server.httpGet(host, {}, path, false)
     .then(function (body) {
       body = JSON.parse(body)
       let result = {

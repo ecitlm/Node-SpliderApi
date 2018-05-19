@@ -13,7 +13,7 @@ const appkey = 'nodeapliderapi'
  * @param {[type]} msg [错误消息]
  * @param {[type]} res [callback]
  */
-function Exception_BadRequest (msg, res) {
+function ExceptionBadRequest (msg, res) {
   res.send({
     code: 2,
     msg: msg
@@ -53,11 +53,11 @@ function simpleFilter (req, res) {
   params.times = req.query.times
 
   if (!params.sign) {
-    Exception_BadRequest('缺少参数sign', res)
+    ExceptionBadRequest('缺少参数sign', res)
     return false
   }
   if (!params.times) {
-    Exception_BadRequest('缺少参数times', res)
+    ExceptionBadRequest('缺少参数times', res)
     return false
   }
   return true

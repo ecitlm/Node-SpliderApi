@@ -10,7 +10,7 @@ const Server = require('../../../utils/httpServer')
 
 app.get('/:type', function (req, res) {
   let type = parseInt(req.query.type)
-  var path
+  let path
   // 0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文 散文 5科技 6 财经 7 时尚
   switch (type) {
     case 0:
@@ -51,12 +51,10 @@ app.get('/:type', function (req, res) {
         '/list/?tag=news_hot&ac=wap&count=20&format=json_raw&as=A1A59982B911729&cp=5929E12752796E1&min_behot_time=0'
   }
 
-  var host = 'm.toutiao.com'
-  var path = path
-  var data = {}
+  let host = 'm.toutiao.com'
   // false:http请求  true:https请求
   console.log('m.toutiao.com' + path)
-  Server.httpGet(host, data, path, false)
+  Server.httpGet(host, {}, path, false)
     .then(function (body) {
       res.send({
         code: 200,

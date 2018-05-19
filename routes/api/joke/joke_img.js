@@ -16,7 +16,7 @@ app.get('/', function (req, res) {
   // false:http请求  true:https请求
   Server.httpGet(host, data, path, false)
     .then(function (body) {
-      let list = eval('(' + body + ')')
+      let list = JSON.parse(body)
       let arr = []
       for (let i in list) {
         arr.push({

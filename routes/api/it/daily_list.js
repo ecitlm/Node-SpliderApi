@@ -12,9 +12,8 @@ const request = require('request')
 const Iconv = require('iconv-lite')
 
 function list (req, res) {
-  var url = 'http://caibaojian.com/c/news'
+  let url = 'http://caibaojian.com/c/news'
   console.log(url)
-
   request(
     {
       url: url,
@@ -24,7 +23,7 @@ function list (req, res) {
       let links = []
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
-        $ = cheerio.load(body)
+        let $ = cheerio.load(body)
         $('#content article ').each(function () {
           let title = $(this)
             .find('.entry-title span')

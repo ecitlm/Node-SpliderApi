@@ -23,7 +23,6 @@ function MathRand () {
 app.get('/', function (req, res) {
   let host = 'huaban.com'
   let random = MathRand()
-  console.log(MathRand())
   let path = `/favorite/beauty?jao0fn1x&max=11${random}&limit=30&wfl=1`
   let data = {}
   // false:http请求  true:https请求

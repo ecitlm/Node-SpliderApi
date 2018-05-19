@@ -14,9 +14,8 @@ app.get('/:specialid', function (req, res) {
   let specialid = req.params.specialid
   let host = 'm.kugou.com'
   let path = `/plist/list/${specialid}?json=true`
-  let data = {}
   // false:http请求  true:https请求
-  Server.httpGet(host, data, path, false)
+  Server.httpGet(host, {}, path, false)
     .then(function (body) {
       res.send({
         code: 200,

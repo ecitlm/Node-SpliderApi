@@ -24,7 +24,7 @@ function list (req, res) {
       encoding: null,
       headers: headers
     },
-    function (error, response, body) {
+    function(error, response, body) {
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
         let $ = cheerio.load(body)
