@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date: 2017-12-07 19:56:26
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-15 16:57:48
+ * @Last Modified time: 2018-06-29 22:19:53
  */
 const express = require('express')
 // const http = require('http')
@@ -37,7 +37,7 @@ function list (req, res) {
       let links = []
       if (response) {
         body = Iconv.decode(body, 'utf-8')
-        $ = cheerio.load(body)
+        let $ = cheerio.load(body)
         $('.img-hash').each(function (index, item) {
           links.push('http:' + decrypt.getSrc($(this).text()))
         })
@@ -49,6 +49,7 @@ function list (req, res) {
           msg: ''
         })
       } else {
+        console.log(error)
         res.send({
           code: 404,
           msg: '网络好像有，点问题'

@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-12-01 11:23:08
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-14 23:37:24
+ * @Last Modified time: 2018-06-29 22:04:51
  */
 'use strict'
 const md5 = require('md5')
@@ -41,6 +41,7 @@ const getSign = params => {
   Kstr = Kstr + appkey
   return md5(Kstr)
 }
+console.log(getSign)
 
 /**
  * [simpleFilter 接口请求校验]

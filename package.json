@@ -27,10 +27,19 @@
     "atob": "^2.0.3",
     "btoa": "^1.1.2",
     "debug": "~0.7.4",
+    "eslint": "^5.0.1",
     "fs": "^0.0.1-security",
     "html-entities": "^1.2.1",
     "mkdirp": "^0.5.1",
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.17.3",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-html": "^3.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1"
   },
   "standard": {
     "ignore": [

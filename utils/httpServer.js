@@ -4,10 +4,8 @@
  * @Last Modified by: ecitlm
  * @Last Modified time: 2018-04-16 22:28:28
  */
-const express = require('express')
 let http = require('http')
 const querystring = require('querystring')
-const request = require('request')
 
 /**
  * http get网络请求封装

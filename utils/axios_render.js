@@ -2,15 +2,17 @@
  * @Author: ecitlm
  * @Date:   2017-12-03 20:31:17
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-14 23:36:41
+ * @Last Modified time: 2018-06-29 22:18:22
  */
 const axios = require('axios')
 const qs = require('qs')
-axios.defaults.timeout = 5000
-axios.defaults.baseURL = 'http://localhost:3001'
+let instance = axios.create({
+  baseURL: 'http://localhost:3001',
+  timeout: 60 * 1000
+})
 
 // POST传参序列化
-axios.interceptors.request.use(
+instance.interceptors.request.use(
   config => {
     if (config.method === 'post') {
       config.data = qs.stringify(config.data)
@@ -25,7 +27,7 @@ axios.interceptors.request.use(
 
 function get (url, params) {
   return new Promise((resolve, reject) => {
-    axios
+    instance
       .get(url, params)
       .then(
         response => {
@@ -43,7 +45,7 @@ function get (url, params) {
 
 function post (url, params) {
   return new Promise((resolve, reject) => {
-    axios
+    instance
       .post(url, params)
       .then(
         response => {

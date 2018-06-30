@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-12-01 20:29:08
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-15 22:13:45
+ * @Last Modified time: 2018-06-29 22:13:07
  */
 const express = require('express')
 const cheerio = require('cheerio')
@@ -67,6 +67,7 @@ function list (req, res) {
           msg: ''
         })
       } else {
+        console.log(error)
         res.send({
           code: 404,
           msg: '网络好像有点问题'

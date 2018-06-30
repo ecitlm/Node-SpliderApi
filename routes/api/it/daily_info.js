@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-12-01 21:06:42
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-15 16:53:56
+ * @Last Modified time: 2018-06-29 22:13:07
  */
 const express = require('express')
 const cheerio = require('cheerio')
@@ -24,7 +24,7 @@ function list (req, res) {
       encoding: null,
       headers: headers
     },
-    function(error, response, body) {
+    function (error, response, body) {
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
         let $ = cheerio.load(body)
@@ -57,6 +57,7 @@ function list (req, res) {
           msg: ''
         })
       } else {
+        console.log(error)
         res.send({
           code: 404,
           msg: '网络好像有，点问题'

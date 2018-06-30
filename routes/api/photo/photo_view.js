@@ -2,14 +2,14 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 21:33:20
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-15 16:55:29
+ * @Last Modified time: 2018-06-29 22:20:25
  */
 const express = require('express')
 const cheerio = require('cheerio')
 const app = express()
 const request = require('request')
 const Iconv = require('iconv-lite')
-const colors = require('../../../utils/log_color') // 控制台彩色输出
+// const colors = require('../../../utils/log_color') // 控制台彩色输出
 const connection = require('../../../config/dbs') // 导入mysq配置文件
 
 // 创建一个connection
@@ -123,6 +123,7 @@ function requestApi (res, id) {
         )
         insert(links, id, title, tag)
       } else {
+        console.log(error)
         res.send({
           code: 404,
           data: '',

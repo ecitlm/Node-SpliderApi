@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 22:20:05
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-15 16:57:30
+ * @Last Modified time: 2018-06-29 22:20:08
  */
 const express = require('express')
 const cheerio = require('cheerio')
@@ -21,7 +21,7 @@ function list (req, res) {
     },
     function (error, response, body) {
       let links = []
-      if (response && response.statusCode == 200) {
+      if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'gb2312')
         let $ = cheerio.load(body)
         $('.pic a img').each(function () {
@@ -53,6 +53,7 @@ function list (req, res) {
           msg: ''
         })
       } else {
+        console.log(error)
         res.send({
           code: 404,
           msg: '网络好像有，点问题'

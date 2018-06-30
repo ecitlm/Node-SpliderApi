@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 22:40:46
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-15 22:15:24
+ * @Last Modified time: 2018-06-29 22:20:14
  */
 const express = require('express')
 const cheerio = require('cheerio')
@@ -11,7 +11,7 @@ const request = require('request')
 const Iconv = require('iconv-lite')
 
 function regx (str) {
-  const reg = /\/([^\/]+)\.html/
+  const reg = /\/([^/]+)\.html/
   if (reg.test(str)) {
     return RegExp.$1
   }
@@ -44,6 +44,7 @@ function list (req, res) {
           msg: ''
         })
       } else {
+        console.log(error)
         res.send({
           code: 404,
           msg: '网络好像有点问题'

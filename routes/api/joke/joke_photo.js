@@ -2,15 +2,13 @@
  * @Author: ecitlm
  * @Date:   2017-12-06 14:45:33
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-15 22:15:06
+ * @Last Modified time: 2018-06-29 22:19:30
  */
 
 const express = require('express')
-const http = require('http')
 const cheerio = require('cheerio')
 const app = express()
 const request = require('request')
-const fs = require('fs')
 const Iconv = require('iconv-lite')
 
 function list (req, res) {
@@ -46,6 +44,7 @@ function list (req, res) {
           msg: ''
         })
       } else {
+        console.log(error)
         res.send({
           code: 404,
           msg: '网络好像有，点问题'
