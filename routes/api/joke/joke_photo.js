@@ -30,7 +30,7 @@ function list (req, res) {
             title: $(this)
               .children('.cont-list-title')
               .text(),
-            img: $(this)
+            img: 'http://www.xiaoliaoba.cn' + $(this)
               .children('.cont-list-main')
               .find('img')
               .attr('data-src')

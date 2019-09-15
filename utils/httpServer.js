@@ -15,19 +15,21 @@ const querystring = require('querystring')
  * @param {bool} true false 是否为https
  * @returns
  */
-function httpGet (host, data, path, status) {
+function httpGet (host, data, path, status, headers={}) {
   console.log('===================HttpGet=====================')
+  const defaultHeads = {
+    'Content-Type': 'application/json',
+    'User-Agent':
+      'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'
+  }
+  headers = Object.assign(defaultHeads,headers)
   let options = {
     host: host,
     port: 80,
     path: path + querystring.stringify(data),
     method: 'GET',
     encoding: null,
-    headers: {
-      'Content-Type': 'application/json',
-      'User-Agent':
-        'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'
-    }
+    headers: headers
   }
   // 判断是否为https请求
   if (status) {

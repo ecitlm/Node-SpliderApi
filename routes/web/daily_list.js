@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-12-02 13:13:49
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-06-30 17:23:12
+ * @Last Modified time: 2019-02-02 15:59:39
  */
 let express = require('express')
 let app = express()
@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
     .then(function (response) {
       res.render('daily_list', {
         title: 'blog',
-        data: response['data']
+        data: response['data'] || {}
       })
     })
     .catch(function (err) {
