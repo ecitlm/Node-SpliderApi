@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>
-        <%= data.title%>
+        <%=data && data.title%>
     </title>
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -24,8 +24,7 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
                         <h2>
-                            <span class="text-navy"><%= data.title%></span>
-
+                            <span class="text-navy"><%=data && data.title%></span>
                         </h2>
                         <%for(var i=0;i<(data.links).length;i++){%>
                             <div class="hr-line-dashed"></div>

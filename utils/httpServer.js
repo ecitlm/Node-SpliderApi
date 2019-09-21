@@ -7,22 +7,23 @@
 let http = require('http')
 const querystring = require('querystring')
 
+
 /**
  * http get网络请求封装
- * @param {string} 域名
- * @param {obj} 参数
- * @param {string} 接口路径
- * @param {bool} true false 是否为https
  * @returns
+ * @param host
+ * @param data
+ * @param path
+ * @param status
+ * @param headers
  */
 function httpGet (host, data, path, status, headers={}) {
-  console.log('===================HttpGet=====================')
   const defaultHeads = {
     'Content-Type': 'application/json',
     'User-Agent':
       'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'
   }
-  headers = Object.assign(defaultHeads,headers)
+  headers = Object.assign(defaultHeads, headers)
   let options = {
     host: host,
     port: 80,
@@ -59,14 +60,13 @@ function httpGet (host, data, path, status, headers={}) {
 
 /**
  * http ajaxget网络请求封装
- * @param {string} 域名
- * @param {obj} 参数
- * @param {string} 接口路径
- * @param {bool} true false 是否为https
  * @returns
+ * @param host
+ * @param data
+ * @param path
+ * @param status
  */
 function ajaxGet (host, data, path, status) {
-  console.log('===================HttpGet=====================')
   let options = {
     host: host,
     port: 80,
@@ -110,14 +110,13 @@ function ajaxGet (host, data, path, status) {
 
 /**
  * httpMobileGet  get网络请求封装
- * @param {string} 域名
- * @param {obj} 参数
- * @param {string} 接口路径
- * @param {bool} true false 是否为https
  * @returns
+ * @param host
+ * @param data
+ * @param path
+ * @param status
  */
 function httpMobileGet (host, data, path, status) {
-  console.log('===================httpMobileGet=====================')
   let options = {
     host: host,
     port: 80,
@@ -139,7 +138,6 @@ function httpMobileGet (host, data, path, status) {
   return new Promise(function (resolve, reject) {
     let body = ''
     let getReq = http.request(options, function (response) {
-      // response.setEncoding('utf8');
       response.on('data', function (chunk) {
         body += chunk
       })
@@ -158,15 +156,14 @@ function httpMobileGet (host, data, path, status) {
 
 /**
  * http POST 请求
- * @param {string} 域名
- * @param {obj} 参数
- * @param {string} 接口路径
- * @param {bool} true false 是否为https
  * @returns
+ * @param host
+ * @param data
+ * @param path
+ * @param status
  */
 function httpPost (host, data, path, status) {
   data = querystring.stringify(data)
-  console.log('---------httpPost---------------')
   console.log(data)
   let options = {
     host: host,
