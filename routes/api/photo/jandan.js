@@ -12,7 +12,6 @@ const request = require('request')
 // const fs = require('fs')
 const Iconv = require('iconv-lite')
 // const async = require('async')
-const decrypt = require('../../../utils/decrypt')
 
 function list (req, res) {
   let page = parseInt(req.params.page)
@@ -38,18 +37,18 @@ function list (req, res) {
       if (response) {
         body = Iconv.decode(body, 'utf-8')
         let $ = cheerio.load(body)
-        $('.img-hash').each(function (index, item) {
-          links.push('http:' + decrypt.getSrc($(this).text()))
+        $('#content .commentlist li').each(function(){
+          let img = $(this).find('a.view_img_link').attr('href') || $(this).find('img').attr('src')
+          links.push('http:'+img)
+          console.log(img)
         })
-        console.log(links)
-        console.log('------------------------success----------------------')
+
         res.send({
           code: 200,
           data: links,
           msg: ''
         })
       } else {
-        console.log(error)
         res.send({
           code: 404,
           msg: '网络好像有，点问题'
