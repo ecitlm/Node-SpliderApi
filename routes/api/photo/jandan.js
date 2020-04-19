@@ -40,7 +40,6 @@ function list (req, res) {
         $('#content .commentlist li').each(function(){
           let img = $(this).find('a.view_img_link').attr('href') || $(this).find('img').attr('src')
           links.push('http:'+img)
-          console.log(img)
         })
 
         res.send({
