@@ -56,9 +56,10 @@ app.get('/:type', function (req, res) {
   console.log('m.toutiao.com' + path)
   Server.httpGet(host, {}, path, false)
     .then(function (body) {
+      console.log(body)
       res.send({
         code: 200,
-        data: JSON.parse(body)['data'],
+        data: body,//JSON.parse(body)['data'],
         msg: ''
       })
     })

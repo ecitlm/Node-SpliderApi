@@ -8,6 +8,35 @@ let http = require('http')
 const querystring = require('querystring')
 
 
+
+function httpRequest() {
+  var options = {
+    host: arguments[0].host,
+    port:80,
+    path:arguments[0].path,
+    methods:arguments[0].methods,
+    headers:arguments[0].headers
+  }
+  return new Promise(function (resolve, reject) {
+    let body = ''
+    let getReq = http.request(options, function (response) {
+      // response.setEncoding('utf8');
+      response.on('data', function (chunk) {
+        body += chunk
+      })
+
+      response.on('end', () => {
+        resolve(body)
+      })
+
+      response.on('error', err => {
+        reject(err)
+      })
+    })
+    getReq.end()
+  })
+
+}
 /**
  * http get网络请求封装
  * @returns
@@ -20,8 +49,9 @@ const querystring = require('querystring')
 function httpGet (host, data, path, status, headers={}) {
   const defaultHeads = {
     'Content-Type': 'application/json',
+    'Connection': 'keep-alive',
     'User-Agent':
-      'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36'
   }
   headers = Object.assign(defaultHeads, headers)
   let options = {

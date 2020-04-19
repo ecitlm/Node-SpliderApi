@@ -7,10 +7,8 @@
 const express = require('express')
 const app = express()
 const router = express.Router()
-// 设置静态资源地址
-app.use('/public', express.static('public'))
-// 设置静态资源地址
-app.use('/docs', express.static('docs'))
+app.use('/public', express.static('public')) // 设置静态资源地址
+app.use('/docs', express.static('docs')) // 设置静态资源地址
 const arrRoutes = require('./routers')
 app.all('*', function (req, res, next) {
   res.header('Access-Control-Allow-Headers', 'X-Requested-With')
@@ -22,7 +20,7 @@ for (const route of arrRoutes) {
   app.use(route.path, require(route.component))
 }
 app.use(router)
-app.listen(3001, () => {
-  console.log('Web server started at port 3001!')
-})
+app.listen(3002, () => {
+  console.log('Web server started at port 3002!');
+});
 module.exports = app
