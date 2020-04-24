@@ -4,8 +4,7 @@
  * @Last Modified by: ecitlm
  * @Last Modified time: 2018-04-14 23:33:23
  */
-const express = require('express')
-const app = express()
+const app = require('express')()
 const Server = require('../../../utils/httpServer')
 
 app.get('/:type', function (req, res) {
@@ -54,12 +53,14 @@ app.get('/:type', function (req, res) {
   let host = 'm.toutiao.com'
   // false:http请求  true:https请求
   console.log('m.toutiao.com' + path)
-  Server.httpGet(host, {}, path, false)
+  let headers = {
+    'Cookie': 'tt_webid=681930553424129322222;domian=m.toutiao.com'
+  }
+  Server.httpGet(host, {}, path, false, headers)
     .then(function (body) {
-      console.log(body)
       res.send({
         code: 200,
-        data: body,//JSON.parse(body)['data'],
+        data: JSON.parse(body)['data'],
         msg: ''
       })
     })

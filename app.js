@@ -12,7 +12,8 @@ app.use('/public', express.static('public'))
 // 设置静态资源地址
 app.use('/docs', express.static('docs'))
 const arrRoutes = require('./routers')
-app.all('*', function (req, res, next) {
+app.all('*', function (err, req, res, next) {
+  console.log(err)
   res.header('Access-Control-Allow-Headers', 'X-Requested-With')
   res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
   res.header('X-Powered-By', ' 3.2.1')

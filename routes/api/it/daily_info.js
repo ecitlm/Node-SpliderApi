@@ -4,9 +4,8 @@
  * @Last Modified by: ecitlm
  * @Last Modified time: 2018-06-29 22:13:07
  */
-const express = require('express')
+const app = require('express')()
 const cheerio = require('cheerio')
-const app = express()
 const request = require('request')
 const Iconv = require('iconv-lite')
 
@@ -42,15 +41,16 @@ function list (req, res) {
             .text()
           let href =
             $(this)
-              .find('.tlink')
+              .find('a')
               .attr('href') || ''
           let tmp = {
             title: title,
             description: description,
-            url: href.split('url=')[1]
+            url: decodeURIComponent(href.split('target=')[1])
           }
           link.links.push(tmp)
         })
+        console.log(link)
         res.send({
           code: 200,
           data: link,

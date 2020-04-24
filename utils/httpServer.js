@@ -2,20 +2,18 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 21:34:14
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-04-16 22:28:28
+ * @Last Modified time: 2020-04-25 00:26:09
  */
 let http = require('http')
 const querystring = require('querystring')
 
-
-
-function httpRequest() {
-  var options = {
+function httpRequest () {
+  let options = {
     host: arguments[0].host,
-    port:80,
-    path:arguments[0].path,
-    methods:arguments[0].methods,
-    headers:arguments[0].headers
+    port: 80,
+    path: arguments[0].path,
+    methods: arguments[0].methods,
+    headers: arguments[0].headers
   }
   return new Promise(function (resolve, reject) {
     let body = ''
@@ -35,7 +33,6 @@ function httpRequest() {
     })
     getReq.end()
   })
-
 }
 /**
  * http get网络请求封装
@@ -46,22 +43,23 @@ function httpRequest() {
  * @param status
  * @param headers
  */
-function httpGet (host, data, path, status, headers={}) {
+function httpGet (host, data, path, status, headers = {}) {
   const defaultHeads = {
+    // 'Cookie': 'tt_webid=6819305534241293',
     'Content-Type': 'application/json',
     'Connection': 'keep-alive',
     'User-Agent':
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36'
   }
-  headers = Object.assign(defaultHeads, headers)
   let options = {
     host: host,
     port: 80,
     path: path + querystring.stringify(data),
     method: 'GET',
     encoding: null,
-    headers: headers
+    headers: Object.assign({}, defaultHeads, headers)
   }
+  console.log(options)
   // 判断是否为https请求
   if (status) {
     http = require('https')

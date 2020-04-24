@@ -5,8 +5,7 @@
  * @Last Modified time: 2018-06-29 22:22:51
  */
 
-const express = require('express')
-const app = express()
+const app = require('express')()
 const Server = require('../../../utils/httpServer')
 // const async = require('async')
 // const fs = require('fs')

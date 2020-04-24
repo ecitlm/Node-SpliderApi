@@ -7,7 +7,7 @@
 const axios = require('axios')
 const qs = require('qs')
 let instance = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: '',
   timeout: 60 * 1000
 })
 

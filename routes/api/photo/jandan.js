@@ -4,10 +4,9 @@
  * @Last Modified by: ecitlm
  * @Last Modified time: 2018-06-29 22:19:53
  */
-const express = require('express')
+const app = require('express')()
 // const http = require('http')
 const cheerio = require('cheerio')
-const app = express()
 const request = require('request')
 // const fs = require('fs')
 const Iconv = require('iconv-lite')
@@ -37,9 +36,9 @@ function list (req, res) {
       if (response) {
         body = Iconv.decode(body, 'utf-8')
         let $ = cheerio.load(body)
-        $('#content .commentlist li').each(function(){
+        $('#content .commentlist li').each(function () {
           let img = $(this).find('a.view_img_link').attr('href') || $(this).find('img').attr('src')
-          links.push('http:'+img)
+          links.push('http:' + img)
         })
 
         res.send({

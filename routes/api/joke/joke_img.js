@@ -5,8 +5,7 @@
  * @Last Modified time: 2018-04-14 23:30:38
  */
 
-const express = require('express')
-const app = express()
+const app = require('express')()
 const Server = require('../../../utils/httpServer')
 
 app.get('/', function (req, res) {

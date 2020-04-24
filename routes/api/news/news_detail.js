@@ -4,8 +4,7 @@
  * @Last Modified by: ecitlm
  * @Last Modified time: 2018-04-14 23:33:20
  */
-const express = require('express')
-const app = express()
+const app = require('express')()
 const Server = require('../../../utils/httpServer')
 
 app.get('/:item_id', function (req, res) {

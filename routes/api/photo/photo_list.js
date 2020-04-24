@@ -4,9 +4,8 @@
  * @Last Modified by: ecitlm
  * @Last Modified time: 2018-06-29 22:20:08
  */
-const express = require('express')
+const app = require('express')()
 const cheerio = require('cheerio')
-const app = express()
 const request = require('request')
 // const fs = require('fs')
 const Iconv = require('iconv-lite')
