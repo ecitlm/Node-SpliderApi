@@ -10,11 +10,12 @@ const Server = require('../../../utils/httpServer')
 app.get('/:page', function (req, res) {
   let page = req.params.page
   let host = '3g.163.com'
-  let path = `/touch/jsonp/joke/chanListNews/T141931628472/2/${page}-20.html`
+  let path = `/touch/jsonp/joke/chanListNews/T1419316284722/2/${page}-20.html`
   let data = {}
   // false:http请求  true:https请求
   Server.httpGet(host, data, path, false)
     .then(function (body) {
+      console.log(body)
       let list = JSON.parse(body)['段子']
       let arr = []
       for (let i in list) {
@@ -28,7 +29,7 @@ app.get('/:page', function (req, res) {
       res.send({
         code: 200,
         data: arr,
-        msg: ''
+        msg: 'success'
       })
     })
     .catch(function (err) {

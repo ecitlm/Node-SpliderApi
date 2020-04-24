@@ -54,7 +54,7 @@ app.get('/:type', function (req, res) {
   // false:http请求  true:https请求
   console.log('m.toutiao.com' + path)
   let headers = {
-    'Cookie': 'tt_webid=681930553424129322222;domian=m.toutiao.com'
+    'Cookie': 'tt_webid=6819320381281076749;domian=m.toutiao.com'
   }
   Server.httpGet(host, {}, path, false, headers)
     .then(function (body) {
