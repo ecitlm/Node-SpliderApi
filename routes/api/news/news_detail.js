@@ -13,7 +13,7 @@ app.get('/:item_id', function (req, res) {
   let path = `/i${itemId}/info/`
   // false:http请求  true:https请求
   console.log(path)
-  Server.httpGet(host, {}, path, false)
+  Server.httpGet(host, {}, path, true)
     .then(function (body) {
       res.send({
         code: 200,

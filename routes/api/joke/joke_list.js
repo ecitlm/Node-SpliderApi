@@ -13,7 +13,7 @@ app.get('/:page', function (req, res) {
   let path = `/touch/jsonp/joke/chanListNews/T1419316284722/2/${page}-20.html`
   let data = {}
   // false:http请求  true:https请求
-  Server.httpGet(host, data, path, false)
+  Server.httpGet(host, data, path, true)
     .then(function (body) {
       console.log(body)
       let list = JSON.parse(body)['段子']

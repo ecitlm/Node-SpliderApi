@@ -10,13 +10,12 @@ const request = require('request')
 const Iconv = require('iconv-lite')
 
 /**
- * [list 抓取最新十天的前端日报]
- * @param  {[type]} req [description]
- * @param  {[type]} res [description]
- * @return {[type]}     [description]
+ * 获取前端TOP100
+ * @param req
+ * @param res
  */
 function list (req, res) {
-  let url = 'http://cdn.it919.cn/frame.html'
+  let url = 'https://www.awesomes.cn/rank'
   let headers = {
     Connection: 'keep-alive',
     'User-Agent':
@@ -34,6 +33,7 @@ function list (req, res) {
         let $ = cheerio.load(body)
         let link = []
         $('.list-item').each(function (i, v) {
+          console.log(i)
           let index = $(this)
             .find('.scord')
             .text()
@@ -51,19 +51,23 @@ function list (req, res) {
             $(this)
               .find('a')
               .attr('href')
+          let logo =  $(this)
+            .find('img')
+            .attr('src')
           let tmp = {
             index: index,
             thumb: thumb,
             title: title,
             description: description,
-            url: href.replace('/repo', '')
+            url: href.replace('/repo', ''),
+            logo:logo
           }
           link.push(tmp)
         })
         res.send({
           code: 200,
           data: link,
-          msg: ''
+          msg: 'success'
         })
       } else {
         console.log(error)

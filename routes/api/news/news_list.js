@@ -56,7 +56,7 @@ app.get('/:type', function (req, res) {
   let headers = {
     'Cookie': 'tt_webid=6819320381281076749;domian=m.toutiao.com'
   }
-  Server.httpGet(host, {}, path, false, headers)
+  Server.httpGet(host, {}, path, true, headers)
     .then(function (body) {
       res.send({
         code: 200,
