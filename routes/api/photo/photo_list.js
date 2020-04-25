@@ -22,7 +22,6 @@ function list (req, res) {
       let links = []
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'gb2312')
-        console.log(body)
         let $ = cheerio.load(body)
         $('.pic a img').each(function () {
           let tmp = {

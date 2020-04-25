@@ -27,7 +27,6 @@ app.get('/', function (req, res) {
   // false:http请求  true:https请求
   Server.ajaxGet(host, data, path, true)
     .then(function (body) {
-      console.log(body)
       let list = JSON.parse(body)['pins']
       let arr = []
       for (let i in list) {

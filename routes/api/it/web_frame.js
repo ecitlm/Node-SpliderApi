@@ -32,8 +32,7 @@ function list (req, res) {
         body = Iconv.decode(body, 'utf-8')
         let $ = cheerio.load(body)
         let link = []
-        $('.list-item').each(function (i, v) {
-          console.log(i)
+        $('.list-item').each(function () {
           let index = $(this)
             .find('.scord')
             .text()
