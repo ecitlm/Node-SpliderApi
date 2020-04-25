@@ -59,7 +59,7 @@ function httpGet (host, data, path, status, headers = {}) {
     encoding: null,
     headers: Object.assign({}, defaultHeads, headers)
   }
-  console.log(options,host+options.path)
+  console.log(host+options.path)
   // 判断是否为https请求
   if (status) {
     http = require('https')
@@ -110,6 +110,7 @@ function ajaxGet (host, data, path, status) {
         'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'
     }
   }
+  console.log(host + options.path)
   // 判断是否为https请求
   if (status) {
     http = require('https')

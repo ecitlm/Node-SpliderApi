@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 22:20:05
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-06-29 22:20:08
+ * @Last Modified time: 2020-04-25 21:48:28
  */
 const app = require('express')()
 const cheerio = require('cheerio')
@@ -12,7 +12,7 @@ const Iconv = require('iconv-lite')
 
 function list (req, res) {
   let page = parseInt(req.params.page)
-  let url = `http://www.meizitu.com/a/legs_${page}.html`
+  let url = `https://www.meizitu.com/a/legs_${page}.html`
   request(
     {
       url: url,
@@ -22,12 +22,13 @@ function list (req, res) {
       let links = []
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'gb2312')
+        console.log(body)
         let $ = cheerio.load(body)
         $('.pic a img').each(function () {
           let tmp = {
             img: $(this)
               .attr('src')
-              .replace('mm.howkuai.com', 'mm.chinasareview.com'),
+              .replace('mm.chinasareview.com', 'pic.topmeizi.com'),
             title: $(this).attr('alt'),
             id: parseInt(
               $(this)

@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date: 2017-12-07 19:56:26
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-06-29 22:19:53
+ * @Last Modified time: 2020-04-25 21:42:33
  */
 const app = require('express')()
 // const http = require('http')
@@ -31,13 +31,15 @@ function list (req, res) {
       headers: headers,
       timeout: 5000
     },
-    function (error, response, body) {
+    function (_error, response, body) {
       let links = []
       if (response) {
         body = Iconv.decode(body, 'utf-8')
         let $ = cheerio.load(body)
         $('#content .commentlist li').each(function () {
-          let img = $(this).find('a.view_img_link').attr('href') || $(this).find('img').attr('src')
+          let img =
+            $(this).find('a.view_img_link').attr('href') ||
+            $(this).find('img').attr('src')
           links.push('http:' + img)
         })
 

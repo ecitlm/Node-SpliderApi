@@ -41,7 +41,7 @@ app.get('/:type/:page', function (req, res) {
   let path = `/nc/video/list/${id}/y/${page}-20.html`
   // false:http请求  true:https请求
   console.log(path)
-  Server.httpGet(host, {}, path, false)
+  Server.httpGet(host, {}, path, true)
     .then(function (body) {
       let arr = JSON.parse(body)
       res.send({

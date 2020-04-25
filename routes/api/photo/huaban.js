@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-12-01 22:00:20
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-06-29 22:22:51
+ * @Last Modified time: 2020-04-25 21:36:20
  */
 
 const app = require('express')()
@@ -11,7 +11,7 @@ const Server = require('../../../utils/httpServer')
 // const fs = require('fs')
 // const request = require('request')
 
-function MathRand () {
+function MathRand (n) {
   let Num = ''
   for (let i = 0; i < 8; i++) {
     Num += Math.floor(Math.random() * 10)
@@ -21,12 +21,13 @@ function MathRand () {
 
 app.get('/', function (req, res) {
   let host = 'huaban.com'
-  let random = MathRand()
-  let path = `/favorite/beauty?jao0fn1x&max=11${random}&limit=30&wfl=1`
+  // let path = `/favorite/beauty?jao0fn1x&max=11${random}&limit=30&wfl=1`
+  let path = `/favorite/beauty/?k9fnqrrd&max=311323${MathRand(5)}&limit=20&wfl=1`
   let data = {}
   // false:http请求  true:https请求
-  Server.ajaxGet(host, data, path, false)
+  Server.ajaxGet(host, data, path, true)
     .then(function (body) {
+      console.log(body)
       let list = JSON.parse(body)['pins']
       let arr = []
       for (let i in list) {
