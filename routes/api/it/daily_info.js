@@ -42,15 +42,15 @@ function list (req, res) {
           let href =
             $(this)
               .find('a')
+              .last()
               .attr('href') || ''
           let tmp = {
             title: title,
             description: description,
-            url: decodeURIComponent(href.split('target=')[1])
+            url: decodeURIComponent(href.split('url=')[1]) || decodeURIComponent(href.split('target=')[1])
           }
           link.links.push(tmp)
         })
-        console.log(link)
         res.send({
           code: 200,
           data: link,

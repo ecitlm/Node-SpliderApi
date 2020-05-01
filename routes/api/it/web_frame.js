@@ -49,16 +49,12 @@ function list (req, res) {
             $(this)
               .find('a')
               .attr('href')
-          let logo =  $(this)
-            .find('img')
-            .attr('src')
           let tmp = {
             index: index,
             thumb: thumb,
             title: title,
             description: description,
-            url: href.replace('/repo', ''),
-            logo:logo
+            url: href.replace('/repo', '')
           }
           link.push(tmp)
         })
