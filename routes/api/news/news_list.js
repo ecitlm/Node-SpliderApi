@@ -8,7 +8,7 @@ const app = require('express')()
 const Server = require('../../../utils/httpServer')
 
 app.get('/:type', function (req, res) {
-  let type = parseInt(req.query.type)
+  const type = parseInt(req.query.type)
   let path
   // 0 热点新闻 1 社会新闻 2 娱乐新闻 3体育新闻 4美文 散文 5科技 6 财经 7 时尚
   switch (type) {
@@ -50,17 +50,17 @@ app.get('/:type', function (req, res) {
         '/list/?tag=news_hot&ac=wap&count=20&format=json_raw&as=A1A59982B911729&cp=5929E12752796E1&min_behot_time=0'
   }
 
-  let host = 'm.toutiao.com'
+  const host = 'm.toutiao.com'
   // false:http请求  true:https请求
   console.log('m.toutiao.com' + path)
-  let headers = {
-    'Cookie': 'tt_webid=6819320381281076749;domian=m.toutiao.com'
+  const headers = {
+    Cookie: 'tt_webid=6819320381281076749;domian=m.toutiao.com'
   }
   Server.httpGet(host, {}, path, true, headers)
     .then(function (body) {
       res.send({
         code: 200,
-        data: JSON.parse(body)['data'],
+        data: JSON.parse(body).data,
         msg: ''
       })
     })

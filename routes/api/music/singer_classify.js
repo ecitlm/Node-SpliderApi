@@ -10,14 +10,14 @@ const app = express()
 const Server = require('../../../utils/httpServer')
 
 app.get('/', function (req, res) {
-  let host = 'm.kugou.com'
-  let path = '/singer/class&json=true'
+  const host = 'm.kugou.com'
+  const path = '/singer/class&json=true'
   // false:http请求  true:https请求
   Server.httpGet(host, {}, path, false)
     .then(function (body) {
       res.send({
         code: 200,
-        data: JSON.parse(body)['list'],
+        data: JSON.parse(body).list,
         msg: ''
       })
     })

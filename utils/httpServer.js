@@ -8,7 +8,7 @@ let http = require('http')
 const querystring = require('querystring')
 
 function httpRequest () {
-  let options = {
+  const options = {
     host: arguments[0].host,
     port: 80,
     path: arguments[0].path,
@@ -17,7 +17,7 @@ function httpRequest () {
   }
   return new Promise(function (resolve, reject) {
     let body = ''
-    let getReq = http.request(options, function (response) {
+    const getReq = http.request(options, function (response) {
       // response.setEncoding('utf8');
       response.on('data', function (chunk) {
         body += chunk
@@ -47,11 +47,11 @@ function httpGet (host, data, path, status, headers = {}) {
   const defaultHeads = {
     // 'Cookie': 'tt_webid=6819305534241293',
     'Content-Type': 'application/json',
-    'Connection': 'keep-alive',
+    Connection: 'keep-alive',
     'User-Agent':
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36'
   }
-  let options = {
+  const options = {
     host: host,
     port: 80,
     path: path + querystring.stringify(data),
@@ -59,7 +59,7 @@ function httpGet (host, data, path, status, headers = {}) {
     encoding: null,
     headers: Object.assign({}, defaultHeads, headers)
   }
-  console.log(host+options.path)
+  console.log(host + options.path)
   // 判断是否为https请求
   if (status) {
     http = require('https')
@@ -68,7 +68,7 @@ function httpGet (host, data, path, status, headers = {}) {
 
   return new Promise(function (resolve, reject) {
     let body = ''
-    let getReq = http.request(options, function (response) {
+    const getReq = http.request(options, function (response) {
       // response.setEncoding('utf8');
       response.on('data', function (chunk) {
         body += chunk
@@ -95,7 +95,7 @@ function httpGet (host, data, path, status, headers = {}) {
  * @param status
  */
 function ajaxGet (host, data, path, status) {
-  let options = {
+  const options = {
     host: host,
     port: 80,
     path: path + querystring.stringify(data),
@@ -119,7 +119,7 @@ function ajaxGet (host, data, path, status) {
 
   return new Promise(function (resolve, reject) {
     let body = ''
-    let getReq = http.request(options, function (response) {
+    const getReq = http.request(options, function (response) {
       // response.setEncoding('utf8');
       response.on('data', function (chunk) {
         body += chunk
@@ -146,7 +146,7 @@ function ajaxGet (host, data, path, status) {
  * @param status
  */
 function httpMobileGet (host, data, path, status) {
-  let options = {
+  const options = {
     host: host,
     port: 80,
     path: path + querystring.stringify(data),
@@ -166,7 +166,7 @@ function httpMobileGet (host, data, path, status) {
 
   return new Promise(function (resolve, reject) {
     let body = ''
-    let getReq = http.request(options, function (response) {
+    const getReq = http.request(options, function (response) {
       response.on('data', function (chunk) {
         body += chunk
       })
@@ -194,7 +194,7 @@ function httpMobileGet (host, data, path, status) {
 function httpPost (host, data, path, status) {
   data = querystring.stringify(data)
   console.log(data)
-  let options = {
+  const options = {
     host: host,
     port: '80',
     path: path,
@@ -213,7 +213,7 @@ function httpPost (host, data, path, status) {
   }
   return new Promise(function (resolve, reject) {
     let body = ''
-    let postReq = http.request(options, function (response) {
+    const postReq = http.request(options, function (response) {
       // console.log(response.statusCode);
       response.on('data', function (chunk) {
         body += chunk

@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 21:33:20
  * @Last Modified by: ecitlm
- * @Last Modified time: 2020-05-02 09:14:34
+ * @Last Modified time: 2020-05-02 11:18:15
  */
 const app = require('express')()
 const cheerio = require('cheerio')
@@ -20,10 +20,10 @@ connection.connect(function (err) {
 })
 
 function view (req, res) {
-  let id = req.params.id || 3788
+  const id = req.params.id || 3788
 
   // 先查询数据库是否有该数据
-  let sql = 'SELECT  * FROM photo_detail WHERE (id =' + id + ')'
+  const sql = 'SELECT  * FROM photo_detail WHERE (id =' + id + ')'
   connection.query(sql, function (err, rows, fields) {
     console.log('==================================='.green)
     console.log(sql.green) // 输出sql语句
@@ -62,14 +62,16 @@ function view (req, res) {
  * @param {*} id
  */
 function insert (links, id) {
-  let sql =
+  const sql =
     "INSERT INTO photo_detail (`list`, `id`, `title`, `tag`) VALUES ('" +
     JSON.stringify(links) +
     "'," +
     id +
     ",'" +
+    // eslint-disable-next-line no-undef
     title +
     "','" +
+    // eslint-disable-next-line no-undef
     tag +
     "')"
   connection.query(sql, function (err, rows, fields) {
@@ -91,19 +93,19 @@ function insert (links, id) {
  * @param {*} res
  */
 function requestApi (res, id) {
-  let url = `http://www.meizitu.com/a/${id}.html`
+  const url = `http://www.meizitu.com/a/${id}.html`
   request(
     {
       url: url,
       encoding: null
     },
     function (error, response, body) {
-      let links = []
+      const links = []
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'gb2312')
-        let $ = cheerio.load(body)
-        let title = $('.metaRight h2').text()
-        let tag = $('.metaRight p')
+        const $ = cheerio.load(body)
+        const title = $('.metaRight h2').text()
+        const tag = $('.metaRight p')
           .text()
           .split('Tags:')[1]
         $('#picture p img').each(function () {

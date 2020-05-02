@@ -11,7 +11,7 @@ const request = require('request')
 const Iconv = require('iconv-lite')
 
 function list (req, res) {
-  let url = 'http://caibaojian.com/c/news'
+  const url = 'http://caibaojian.com/c/news'
   console.log(url)
   request(
     {
@@ -19,24 +19,24 @@ function list (req, res) {
       encoding: null
     },
     function (error, response, body) {
-      let links = []
+      const links = []
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
-        let $ = cheerio.load(body)
+        const $ = cheerio.load(body)
         $('#content article ').each(function () {
-          let title = $(this)
+          const title = $(this)
             .find('.entry-title span')
             .text()
-          let description = $(this)
+          const description = $(this)
             .find('.entry-content p')
             .text()
-          let href = $(this)
+          const href = $(this)
             .find('.read-more')
             .attr('href')
-          let date = $(this)
+          const date = $(this)
             .find('.entry-date')
             .text()
-          let tmp = {
+          const tmp = {
             title: title,
             id: parseInt(title),
             description: description,

@@ -8,16 +8,16 @@ const app = require('express')()
 const Server = require('../../../utils/httpServer')
 
 app.get('/:item_id', function (req, res) {
-  let itemId = req.params.item_id || '6424603234748334594'
-  let host = 'm.toutiao.com'
-  let path = `/i${itemId}/info/`
+  const itemId = req.params.item_id || '6424603234748334594'
+  const host = 'm.toutiao.com'
+  const path = `/i${itemId}/info/`
   // false:http请求  true:https请求
   console.log(path)
   Server.httpGet(host, {}, path, true)
     .then(function (body) {
       res.send({
         code: 200,
-        data: JSON.parse(body)['data'],
+        data: JSON.parse(body).data,
         msg: ''
       })
     })

@@ -17,7 +17,7 @@ function regx (str) {
 }
 
 function list (req, res) {
-  let url = 'http://www.meizitu.com/'
+  const url = 'http://www.meizitu.com/'
   console.log(url)
   request(
     {
@@ -25,12 +25,12 @@ function list (req, res) {
       encoding: null
     },
     function (error, response, body) {
-      let links = []
+      const links = []
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'gb2312')
-        let $ = cheerio.load(body)
+        const $ = cheerio.load(body)
         $('.tags a').each(function () {
-          let tmp = {
+          const tmp = {
             title: $(this).text(),
             id: regx($(this).attr('href'))
           }

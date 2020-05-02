@@ -26,13 +26,13 @@ function ExceptionBadRequest (msg, res) {
  * @param {object} params  参数集合
  */
 const getSign = params => {
-  for (let key in params) {
+  for (const key in params) {
     if (!params[key]) {
       delete params[key]
     }
   }
-  let keyArr = Object.keys(params).sort()
-  let newObj = {}
+  const keyArr = Object.keys(params).sort()
+  const newObj = {}
   let Kstr = ''
   for (let i = 0; i < keyArr.length; i++) {
     newObj[keyArr[i]] = params[keyArr[i]]
@@ -49,7 +49,7 @@ console.log(getSign)
  * @param  {[type]} res [description]
  */
 function simpleFilter (req, res) {
-  let params = {}
+  const params = {}
   params.sign = req.query.sign
   params.times = req.query.times
 

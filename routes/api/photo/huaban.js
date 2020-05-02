@@ -20,22 +20,22 @@ function MathRand (n) {
 }
 
 app.get('/', function (req, res) {
-  let host = 'huaban.com'
+  const host = 'huaban.com'
   // let path = `/favorite/beauty?jao0fn1x&max=11${random}&limit=30&wfl=1`
-  let path = `/favorite/beauty/?k9fnqrrd&max=311323${MathRand(5)}&limit=20&wfl=1`
-  let data = {}
+  const path = `/favorite/beauty/?k9fnqrrd&max=311323${MathRand(5)}&limit=20&wfl=1`
+  const data = {}
   // false:http请求  true:https请求
   Server.ajaxGet(host, data, path, true)
     .then(function (body) {
-      let list = JSON.parse(body)['pins']
-      let arr = []
-      for (let i in list) {
+      const list = JSON.parse(body).pins
+      const arr = []
+      for (const i in list) {
         arr.push({
-          url: 'http://img.hb.aicdn.com/' + list[i]['file']['key'],
-          file: list[i]['file']['key'],
-          title: list[i]['board']['title'],
-          desc: list[i]['board']['description'],
-          like: list[i]['like_count']
+          url: 'http://img.hb.aicdn.com/' + list[i].file.key,
+          file: list[i].file.key,
+          title: list[i].board.title,
+          desc: list[i].board.description,
+          like: list[i].like_count
         })
       }
       res.send({

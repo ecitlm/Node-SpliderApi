@@ -9,15 +9,15 @@ const app = require('express')()
 const Server = require('../../../utils/httpServer')
 
 app.get('/', function (req, res) {
-  let host = 'api.laifudao.com'
-  let path = `/open/tupian.json`
-  let data = {}
+  const host = 'api.laifudao.com'
+  const path = '/open/tupian.json'
+  const data = {}
   // false:http请求  true:https请求
   Server.httpGet(host, data, path, false)
     .then(function (body) {
-      let list = JSON.parse(body)
-      let arr = []
-      for (let i in list) {
+      const list = JSON.parse(body)
+      const arr = []
+      for (const i in list) {
         arr.push({
           title: list[i].title,
           thumburl: list[i].thumburl,

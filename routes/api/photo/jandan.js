@@ -13,9 +13,9 @@ const Iconv = require('iconv-lite')
 // const async = require('async')
 
 function list (req, res) {
-  let page = parseInt(req.params.page)
-  let url = `http://jandan.net/ooxx/page-${page}#comments`
-  let headers = {
+  const page = parseInt(req.params.page)
+  const url = `http://jandan.net/ooxx/page-${page}#comments`
+  const headers = {
     connection: 'keep-alive',
     Cookie:
       '__cfduid=d34c02daf3555deb8443c4202ca0ca7d41511794384; gif-click-load=off; _ga=GA1.2.498763940.1511794387; _gid=GA1.2.1281594283.1512647401',
@@ -32,12 +32,12 @@ function list (req, res) {
       timeout: 5000
     },
     function (_error, response, body) {
-      let links = []
+      const links = []
       if (response) {
         body = Iconv.decode(body, 'utf-8')
-        let $ = cheerio.load(body)
+        const $ = cheerio.load(body)
         $('#content .commentlist li').each(function () {
-          let img =
+          const img =
             $(this).find('a.view_img_link').attr('href') ||
             $(this).find('img').attr('src')
           links.push('http:' + img)

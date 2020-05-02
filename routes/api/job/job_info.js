@@ -12,9 +12,9 @@ const Entities = require('html-entities').XmlEntities
 const entities = new Entities()
 
 function list (req, res) {
-  let positionId = parseInt(req.params.positionId)
-  let url = `https://www.lagou.com/jobs/${positionId}.html`
-  let headers = {
+  const positionId = parseInt(req.params.positionId)
+  const url = `https://www.lagou.com/jobs/${positionId}.html`
+  const headers = {
     connection: 'keep-alive',
     Cookie:
       '__cfduid=d34c02daf3555deb8443c4202ca0ca7d41511794384; gif-click-load=off; _ga=GA1.2.498763940.1511794387; _gid=GA1.2.1281594283.1512647401',
@@ -33,8 +33,8 @@ function list (req, res) {
     function (error, response, body) {
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
-        let $ = cheerio.load(body)
-        let data = {
+        const $ = cheerio.load(body)
+        const data = {
           title: $('title').text(),
           publishtime: $('.publish_time').text(),
           job: $('.job-name')

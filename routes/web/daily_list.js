@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
     .then(function (response) {
       res.render('daily_list', {
         title: 'blog',
-        data: response['data'] || {}
+        data: response.data || {}
       })
     })
     .catch(function (err) {

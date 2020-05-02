@@ -10,17 +10,17 @@ const app = express()
 const Server = require('../../../utils/httpServer')
 // 歌手分类下面的某一类歌手
 app.get('/:classid', function (req, res) {
-  let classid = req.params.classid
-  let host = 'm.kugou.com'
-  let path = `/singer/list/${classid}&json=true`
+  const classid = req.params.classid
+  const host = 'm.kugou.com'
+  const path = `/singer/list/${classid}&json=true`
   // false:http请求  true:https请求
   Server.httpGet(host, {}, path, false)
     .then(function (body) {
       body = JSON.parse(body)
-      let result = {
-        classname: body['classname'],
-        classid: body['classid'],
-        singers: body['singers']
+      const result = {
+        classname: body.classname,
+        classid: body.classid,
+        singers: body.singers
       }
       res.send({
         code: 200,

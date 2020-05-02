@@ -8,8 +8,8 @@ const app = require('express')()
 const Server = require('../../../utils/httpServer')
 app.get('/:type/:page', function (req, res) {
   let id
-  let type = parseInt(req.params.type)
-  let page = parseInt(req.params.page)
+  const type = parseInt(req.params.type)
+  const page = parseInt(req.params.page)
   // 0搞笑视频  1美女视频  2体育视频  3 新闻现场 4涨姿势  5猎奇  6 黑科技 默认搞笑视频
   switch (type) {
     case 0:
@@ -37,13 +37,13 @@ app.get('/:type/:page', function (req, res) {
       id = 'VAP4BFE3U'
   }
 
-  let host = 'c.m.163.com'
-  let path = `/nc/video/list/${id}/y/${page}-20.html`
+  const host = 'c.m.163.com'
+  const path = `/nc/video/list/${id}/y/${page}-20.html`
   // false:http请求  true:https请求
   console.log(path)
   Server.httpGet(host, {}, path, true)
     .then(function (body) {
-      let arr = JSON.parse(body)
+      const arr = JSON.parse(body)
       res.send({
         code: 200,
         data: arr[id],

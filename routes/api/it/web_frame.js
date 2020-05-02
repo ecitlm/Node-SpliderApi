@@ -15,8 +15,8 @@ const Iconv = require('iconv-lite')
  * @param res
  */
 function list (req, res) {
-  let url = 'https://www.awesomes.cn/rank'
-  let headers = {
+  const url = 'https://www.awesomes.cn/rank'
+  const headers = {
     Connection: 'keep-alive',
     'User-Agent':
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36'
@@ -30,26 +30,26 @@ function list (req, res) {
     function (error, response, body) {
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
-        let $ = cheerio.load(body)
-        let link = []
+        const $ = cheerio.load(body)
+        const link = []
         $('.list-item').each(function () {
-          let index = $(this)
+          const index = $(this)
             .find('.scord')
             .text()
-          let thumb = $(this)
+          const thumb = $(this)
             .find('.cover')
             .attr('src')
-          let title = $(this)
+          const title = $(this)
             .find('h4')
             .text()
-          let description = $(this)
+          const description = $(this)
             .find('.sdesc')
             .text()
-          let href =
+          const href =
             $(this)
               .find('a')
               .attr('href')
-          let tmp = {
+          const tmp = {
             index: index,
             thumb: thumb,
             title: title,
