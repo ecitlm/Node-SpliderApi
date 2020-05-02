@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-12-01 21:06:42
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-06-29 22:13:07
+ * @Last Modified time: 2020-05-02 08:37:42
  */
 const app = require('express')()
 const cheerio = require('cheerio')
@@ -41,16 +41,17 @@ function list (req, res) {
             .text()
           let href =
             $(this)
-              .find('a')
+              .find('.fed-con a')
               .last()
               .attr('href') || ''
           let tmp = {
             title: title,
             description: description,
-            url: decodeURIComponent(href.split('url=')[1]) || decodeURIComponent(href.split('target=')[1])
+            url: decodeURIComponent(href.split('url=')[1]) !== 'undefined' ? decodeURIComponent(href.split('url=')[1]) : decodeURIComponent(href.split('target=')[1])
           }
           link.links.push(tmp)
         })
+        console.table(link.links)
         res.send({
           code: 200,
           data: link,

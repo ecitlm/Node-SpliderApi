@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-11-30 21:33:20
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-06-29 22:20:25
+ * @Last Modified time: 2020-05-02 09:14:34
  */
 const app = require('express')()
 const cheerio = require('cheerio')
@@ -23,7 +23,7 @@ function view (req, res) {
   let id = req.params.id || 3788
 
   // 先查询数据库是否有该数据
-  let sql = 'SELECT  list FROM photo_detail WHERE (id =' + id + ')'
+  let sql = 'SELECT  * FROM photo_detail WHERE (id =' + id + ')'
   connection.query(sql, function (err, rows, fields) {
     console.log('==================================='.green)
     console.log(sql.green) // 输出sql语句
@@ -31,15 +31,16 @@ function view (req, res) {
     if (err) {
       console.log('[query] - :' + err)
     } else {
-      console.log(rows[0])
-      if (rows[0]) {
+      console.log(rows)
+      if (rows) {
         console.log(
           '========select data  from database 数据库中的数据====================='
             .verbose
         )
+        rows[0].list = JSON.parse(rows[0].list)
         res.send({
           code: 200,
-          data: JSON.parse(rows[0].list),
+          data: rows[0],
           msg: ''
         })
       } else {
