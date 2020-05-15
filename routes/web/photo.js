@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
     .then(function (response) {
       res.render('photo', {
         title: 'blog',
-        data: response['data']
+        data: response.data
       })
     })
     .catch(function (err) {

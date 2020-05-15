@@ -11,20 +11,20 @@ const request = require('request')
 const Iconv = require('iconv-lite')
 
 function list (req, res) {
-  let page = parseInt(req.params.page)
-  let url = `https://www.meizitu.com/a/legs_${page}.html`
+  const page = parseInt(req.params.page)
+  const url = `https://www.meizitu.com/a/legs_${page}.html`
   request(
     {
       url: url,
       encoding: null
     },
     function (error, response, body) {
-      let links = []
+      const links = []
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'gb2312')
-        let $ = cheerio.load(body)
+        const $ = cheerio.load(body)
         $('.pic a img').each(function () {
-          let tmp = {
+          const tmp = {
             img: $(this)
               .attr('src')
               .replace('mm.chinasareview.com', 'pic.topmeizi.com'),

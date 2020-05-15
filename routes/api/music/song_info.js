@@ -11,9 +11,9 @@ const app = express()
 const Server = require('../../../utils/httpServer')
 
 app.get('/:hash', function (req, res) {
-  let hash = req.params.hash
-  let host = 'm.kugou.com'
-  let path = `/app/i/getSongInfo.php?cmd=playInfo&hash=${hash}`
+  const hash = req.params.hash
+  const host = 'm.kugou.com'
+  const path = `/app/i/getSongInfo.php?cmd=playInfo&hash=${hash}`
   // false:http请求  true:https请求
   Server.httpGet(host, {}, path, false)
     .then(function (body) {

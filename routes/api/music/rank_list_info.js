@@ -11,17 +11,17 @@ const app = express()
 const Server = require('../../../utils/httpServer')
 
 app.get('/:rankid', function (req, res) {
-  let rankid = req.params.rankid
-  let host = 'm.kugou.com'
-  let path = `/rank/info/${rankid}&json=true`
+  const rankid = req.params.rankid
+  const host = 'm.kugou.com'
+  const path = `/rank/info/${rankid}&json=true`
   // false:http请求  true:https请求
   Server.httpGet(host, {}, path, false)
     .then(function (body) {
       body = JSON.parse(body)
-      let result = {
-        info: body['info'],
-        songs: body['songs'],
-        pagesize: body['pagesize']
+      const result = {
+        info: body.info,
+        songs: body.songs,
+        pagesize: body.pagesize
       }
       res.send({
         code: 200,

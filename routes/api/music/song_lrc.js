@@ -11,9 +11,9 @@ const Server = require('../../../utils/httpServer')
 
 // 获取音乐歌词
 app.get('/:hash', function (req, res) {
-  let hash = req.params.hash
-  let host = 'm.kugou.com'
-  let path = `/app/i/krc.php?cmd=100&hash=${hash}&timelength=3012000`
+  const hash = req.params.hash
+  const host = 'm.kugou.com'
+  const path = `/app/i/krc.php?cmd=100&hash=${hash}&timelength=3012000`
   // false:http请求  true:https请求
   Server.httpGet(host, {}, path, false)
     .then(function (body) {

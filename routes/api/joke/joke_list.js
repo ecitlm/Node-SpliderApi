@@ -8,17 +8,17 @@ const app = require('express')()
 const Server = require('../../../utils/httpServer')
 
 app.get('/:page', function (req, res) {
-  let page = req.params.page
-  let host = '3g.163.com'
-  let path = `/touch/jsonp/joke/chanListNews/T1419316284722/2/${page}-20.html`
-  let data = {}
+  const page = req.params.page
+  const host = '3g.163.com'
+  const path = `/touch/jsonp/joke/chanListNews/T1419316284722/2/${page}-20.html`
+  const data = {}
   // false:http请求  true:https请求
   Server.httpGet(host, data, path, true)
     .then(function (body) {
       console.log(body)
-      let list = JSON.parse(body)['段子']
-      let arr = []
-      for (let i in list) {
+      const list = JSON.parse(body)['段子']
+      const arr = []
+      for (const i in list) {
         arr.push({
           title: list[i].title,
           source: list[i].source,

@@ -13,12 +13,12 @@ app.engine('ejs', ejs) // 配置识别ejs模板
 app.set('view engine', 'ejs') // 设置模板扩展名后缀自动添加
 app.set('views', './views/web') // 设置模板路径
 app.get('/', function (req, res) {
-  let page = Math.floor(Math.random() * 380)
+  const page = Math.floor(Math.random() * 380)
   myajax
     .get('/api/jandan/' + page, {})
     .then(function (response) {
       res.render('jandan', {
-        data: response['data']
+        data: response.data
       })
     })
     .catch(function (err) {

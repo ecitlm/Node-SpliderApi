@@ -11,15 +11,15 @@ const app = express()
 const Server = require('../../../utils/httpServer')
 
 app.get('/:specialid', function (req, res) {
-  let specialid = req.params.specialid
-  let host = 'm.kugou.com'
-  let path = `/plist/list/${specialid}?json=true`
+  const specialid = req.params.specialid
+  const host = 'm.kugou.com'
+  const path = `/plist/list/${specialid}?json=true`
   // false:http请求  true:https请求
   Server.httpGet(host, {}, path, false)
     .then(function (body) {
       res.send({
         code: 200,
-        data: JSON.parse(body)['list'],
+        data: JSON.parse(body).list,
         msg: ''
       })
     })

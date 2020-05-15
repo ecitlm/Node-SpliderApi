@@ -11,8 +11,8 @@ const request = require('request')
 const Iconv = require('iconv-lite')
 
 function list (req, res) {
-  let page = parseInt(req.params.page)
-  let url = `http://www.xiaoliaoba.cn/page/tupian?page=${page}`
+  const page = parseInt(req.params.page)
+  const url = `http://www.xiaoliaoba.cn/page/tupian?page=${page}`
   console.log(url)
   request(
     {
@@ -20,12 +20,12 @@ function list (req, res) {
       encoding: null
     },
     function (error, response, body) {
-      let links = []
+      const links = []
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
-        let $ = cheerio.load(body)
+        const $ = cheerio.load(body)
         $('.cont-item').each(function () {
-          let tmp = {
+          const tmp = {
             title: $(this)
               .children('.cont-list-title')
               .text(),

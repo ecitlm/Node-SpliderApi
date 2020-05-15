@@ -2,7 +2,7 @@
  * @Author: ecitlm
  * @Date:   2017-12-01 21:06:42
  * @Last Modified by: ecitlm
- * @Last Modified time: 2018-06-29 22:13:07
+ * @Last Modified time: 2020-05-02 08:37:42
  */
 const app = require('express')()
 const cheerio = require('cheerio')
@@ -10,9 +10,9 @@ const request = require('request')
 const Iconv = require('iconv-lite')
 
 function list (req, res) {
-  let date = parseInt(req.params.date)
-  let url = `http://caibaojian.com/fe-daily-${date}.html`
-  let headers = {
+  const date = parseInt(req.params.date)
+  const url = `http://caibaojian.com/fe-daily-${date}.html`
+  const headers = {
     Connection: 'keep-alive',
     'User-Agent':
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36'
@@ -26,31 +26,32 @@ function list (req, res) {
     function (error, response, body) {
       if (response && response.statusCode === 200) {
         body = Iconv.decode(body, 'utf-8')
-        let $ = cheerio.load(body)
+        const $ = cheerio.load(body)
         var link = {
           title: $('.entry-title a').text(),
           description: $('.fe-desc').text(),
           links: []
         }
         $('.feddaily-list li').each(function () {
-          let title = $(this)
+          const title = $(this)
             .find('.fed-title a')
             .text()
-          let description = $(this)
+          const description = $(this)
             .find('.fed-con')
             .text()
-          let href =
+          const href =
             $(this)
-              .find('a')
+              .find('.fed-con a')
+              .last()
               .attr('href') || ''
-          let tmp = {
+          const tmp = {
             title: title,
             description: description,
-            url: decodeURIComponent(href.split('target=')[1])
+            url: decodeURIComponent(href.split('url=')[1]) !== 'undefined' ? decodeURIComponent(href.split('url=')[1]) : decodeURIComponent(href.split('target=')[1])
           }
           link.links.push(tmp)
         })
-        console.log(link)
+        console.table(link.links)
         res.send({
           code: 200,
           data: link,
