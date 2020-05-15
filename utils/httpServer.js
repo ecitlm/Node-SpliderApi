@@ -59,7 +59,7 @@ function httpGet (host, data, path, status, headers = {}) {
     encoding: null,
     headers: Object.assign({}, defaultHeads, headers)
   }
-  console.log(host+options.path)
+  console.log(host + options.path)
   // 判断是否为https请求
   if (status) {
     http = require('https')
