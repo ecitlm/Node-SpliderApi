@@ -1,7 +1,17 @@
 module.exports = {
-   "extends": "standard",
-    parserOptions: {
-      sourceType: 'module',
-      "ecmaVersion": 6
-    }
-};
+  env: {
+    browser: true,
+    commonjs: true,
+    es6: true,
+    node: true
+  },
+  extends: 'eslint:recommended',
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly'
+  },
+  parserOptions: {
+    ecmaVersion: 11
+  },
+  rules: {}
+}
