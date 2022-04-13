@@ -25,7 +25,7 @@
     "static-favicon": "~1.0.0"
   },
   "devDependencies": {
-    "async": "^2.6.0",
+    "async": "^3.2.2",
     "atob": "^2.0.3",
     "btoa": "^1.1.2",
     "debug": "~0.7.4",
