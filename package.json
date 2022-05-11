@@ -15,6 +15,7 @@
     "colors": "^1.4.0",
     "cookie-parser": "^1.4.6",
     "dayjs": "^1.10.8",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "express-rate-limit": "^6.3.0",
