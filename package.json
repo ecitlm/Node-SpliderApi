@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "prd": "cross-env NODE_ENV=production nodemon app.js",
-    "dev": "cross-env NODE_ENV=development nodemon app.js"
+    "prd": "cross-env NODE_ENV=production nodemon src/app.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/app.js"
   },
   "dependencies": {
     "apicache": "^1.6.3",

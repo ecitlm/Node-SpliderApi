@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 let debug = require('debug')('my-application');
-let app = require('../app');
+let app = require('../src/app');
 
 app.set('port', process.env.PORT || 30011);
 

@@ -11,7 +11,7 @@ require('dotenv').config({
 console.log(process.env.ApiSign);
 const interceptor = require('@/src/middlewares/interceptor');
 const resAPI = require('@/src/middlewares/resAPI');
-require('./src/utils/swaggerUI')(app);
+require('./utils/swaggerUI')(app);
 // 设置静态资源地址
 app.use('/public', express.static('public'));
 app.use('/docs', express.static('docs'));
