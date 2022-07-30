@@ -1,4 +1,4 @@
-const wxUser = require('./ORM');
+const wxUser = require('../../entity/weAppOrm');
 const WXBizDataCrypt = require('./WXBizDataCrypt');
 
 /**

@@ -1,5 +1,5 @@
 const dayjs = require('dayjs');
-const starDetail = require('./ORM');
+const starDetail = require('../../entity/starDetailOrm');
 const request = require('@/src/utils/request');
 //
 function spiderData(req, res) {

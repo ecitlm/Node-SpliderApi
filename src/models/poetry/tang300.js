@@ -1,6 +1,6 @@
 let Sequelize = require('sequelize');
 let Op = Sequelize.Op;
-const Tang300 = require('./ORM');
+const Tang300 = require('../../entity/poetryOrm');
 async function Tang300Query(req, res) {
   const contents = req.query.contents || '';
   const pageSize = 10;

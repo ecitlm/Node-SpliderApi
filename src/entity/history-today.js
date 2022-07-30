@@ -1,34 +1,34 @@
-const orm = require('@/src/config/orm');
+const historyToday = require('@/src/config/orm');
 const { DataTypes } = require('sequelize');
-const Tang300 = orm.define(
-  'Tang300',
+const HisToday = historyToday.define(
+  'HisToday',
   {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true
-    },
-    contents: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    type: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    author: {
+    date: {
       type: DataTypes.STRING,
       allowNull: true
     },
     title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    year: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    content_id: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    rich_text: {
       type: DataTypes.STRING
     }
   },
   {
-    tableName: 'tang300',
+    tableName: 'his_today',
     deletedAt: false,
     createdAt: false,
     updatedAt: false
   }
 );
 
-module.exports = Tang300;
+module.exports = HisToday;

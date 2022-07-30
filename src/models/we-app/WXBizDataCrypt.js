@@ -36,6 +36,10 @@ class WXBizDataCrypt {
 // }
 
 // WXBizDataCrypt.prototype.decryptData = function (encryptedData, iv) {
+
+
+
+
 //   let decoded = '';
 //   // base64 decode
 //   let sessionKey = Buffer.from(this.sessionKey, 'base64');

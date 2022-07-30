@@ -1,6 +1,6 @@
 let Sequelize = require('sequelize');
 let Op = Sequelize.Op;
-const University = require('./ORM');
+const University = require('../../entity/universityOrm');
 async function universityQuery(req, res) {
   const type = req.query.type || '';
   const pageSize = 10;

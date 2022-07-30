@@ -1,4 +1,4 @@
-const HisToday = require('./ORM');
+const HisToday = require('../../entity/history-today');
 const crawlerRequest = require('@/src/utils/crawler-request');
 
 function spiderData(req, res) {

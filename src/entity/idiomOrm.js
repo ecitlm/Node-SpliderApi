@@ -1,44 +1,39 @@
-const orm = require('@/src/config/orm');
+const idiomOrm = require('@/src/config/orm');
 const { DataTypes } = require('sequelize');
-// eslint-disable-next-line no-unused-vars
-const University = orm.define(
-  'university',
+
+const idiom = idiomOrm.define(
+  'idiom',
   {
-    code: {
+    derivation: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    schoolname: {
+    example: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    province: {
+    explanation: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    city: {
+    pinyin: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    department: {
-      type: DataTypes.STRING
+    abbreviation: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
-    level: {
-      type: DataTypes.STRING
-    },
-    type: {
-      type: DataTypes.STRING
-    },
-    link: {
+    word: {
       type: DataTypes.STRING
     }
   },
   {
-    tableName: 'university',
+    tableName: 'idiom',
     deletedAt: false,
     createdAt: false,
     updatedAt: false
   }
 );
 
-module.exports = University;
+module.exports = idiom;

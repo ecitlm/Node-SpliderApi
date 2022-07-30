@@ -1,6 +1,6 @@
 let Sequelize = require('sequelize');
 let Op = Sequelize.Op;
-const Idiom = require('./ORM');
+const Idiom = require('../../entity/idiomOrm');
 
 async function query(req, res) {
   const word = req.query.word;

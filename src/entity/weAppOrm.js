@@ -1,6 +1,6 @@
-const orm = require('@/src/config/orm');
+const weAppOrm = require('@/src/config/orm');
 const { DataTypes } = require('sequelize');
-const wxUser = orm.define(
+const wxUser = weAppOrm.define(
   'wxUser',
   {
     avatarUrl: {

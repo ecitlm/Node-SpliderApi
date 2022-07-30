@@ -1,6 +1,6 @@
-const orm = require('@/src/config/orm');
+const starDetailOrm = require('@/src/config/orm');
 const { DataTypes } = require('sequelize');
-const starDetail = orm.define(
+const starDetail = starDetailOrm.define(
   'starDetail',
   {
     date: {
