@@ -1,6 +1,6 @@
-const historyToday = require('@/src/config/orm');
+const historyTodayOrm = require('@/src/config/orm');
 const { DataTypes } = require('sequelize');
-const HisToday = historyToday.define(
+const HisToday = historyTodayOrm.define(
   'HisToday',
   {
     date: {
