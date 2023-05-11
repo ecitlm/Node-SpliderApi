@@ -12,7 +12,7 @@ const Iconv = require('iconv-lite');
  * @param {string}  page.query.required  -  page
  */
 function list(req, res) {
-  const page = req.query.page == 1 ? '' : '_' + req.params.page;
+  const page = req.query.page == 1 ? '' : '_' + req.query.page;
   let url = `http://www.netbian.com/meinv/index${page}.htm`;
   let headers = {
     'Proxy-Connection': 'keep-alive',
