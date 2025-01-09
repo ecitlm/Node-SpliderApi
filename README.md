@@ -48,7 +48,6 @@ pm2 delete tools
 ![api.png](bak-file/api.png)
 ![api2.png](bak-file/api2.png)
 
-
 ### 错误码说明
 
 | 状态码  | 含义                               | 备注 |
@@ -61,4 +60,3 @@ pm2 delete tools
 | 405  | 请求方式错误|
 | 9999 | 第三方接口请求异常|
 | 500  |系统异常|
-
