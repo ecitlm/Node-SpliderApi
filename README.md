@@ -62,6 +62,3 @@ pm2 delete tools
 | 9999 | 第三方接口请求异常|
 | 500  |系统异常|
 
-
-### 感谢JetBrains 的支持
-JetBrains:https://www.jetbrains.com/?from=Node-SpliderApi
