@@ -5,7 +5,7 @@
  * @param next
  */
 module.exports = function (req, res, next) {
-  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
   res.API = (data, msg = 'success') => {
     let json = {
       msg: msg,

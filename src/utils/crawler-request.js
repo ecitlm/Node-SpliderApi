@@ -1,4 +1,4 @@
-const request = require('request');
+const axios = require('axios');
 const Iconv = require('iconv-lite');
 const cheerio = require('cheerio');
 const log4js = require('./log4.js');
@@ -19,23 +19,26 @@ function crawlerRequest({ url, headers, req, res }) {
       'User-Agent':
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36'
     };
-    request(
-      {
-        url: url,
-        encoding: null,
-        headers: Object.assign({}, defaultHeaders, headers)
-      },
-      function (error, response, body) {
-        if (response && response.statusCode === 200) {
-          body = Iconv.decode(body, 'utf-8');
+    axios({
+      url: url,
+      method: 'get',
+      responseType: 'arraybuffer',
+      headers: Object.assign({}, defaultHeaders, headers)
+    })
+      .then(response => {
+        if (response.status === 200) {
+          let body = Iconv.decode(response.data, 'utf-8');
           let $ = cheerio.load(body);
           resolve($);
         } else {
           errLog.error(url, headers, req, res);
-          reject(error);
+          reject(new Error(`Request failed with status ${response.status}`));
         }
-      }
-    );
+      })
+      .catch(error => {
+        errLog.error(url, headers, req, res);
+        reject(error);
+      });
   });
 }
 module.exports = crawlerRequest;
