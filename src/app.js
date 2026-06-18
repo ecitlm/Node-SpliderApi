@@ -8,7 +8,6 @@ require('dotenv').config({
   override: true,
   path: path.join(process.cwd(), `.env.${process.env.NODE_ENV}`)
 });
-console.log(process.env.ApiSign);
 const interceptor = require('@/src/middlewares/interceptor');
 const resAPI = require('@/src/middlewares/resAPI');
 require('./utils/swaggerUI')(app);
